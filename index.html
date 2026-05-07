@@ -247,6 +247,16 @@ footer a{color:rgba(255,255,255,.7);text-decoration:none}
 .ct-table tr:last-child td{border-bottom:none;font-weight:800}
 .ct-table tr.total-row td{background:var(--teal-lt);color:var(--teal)}
 
+/* DROPDOWN NAV */
+.nav-dropdown{position:relative}
+.nav-dropdown-menu{position:absolute;top:calc(100% + 8px);left:0;background:#fff;border-radius:10px;box-shadow:0 8px 28px rgba(43,82,83,.18);border:1.5px solid var(--border);min-width:168px;padding:5px;display:none;flex-direction:column;gap:2px;z-index:300}
+.nav-dropdown:hover .nav-dropdown-menu{display:flex}
+.nav-arrow{font-size:9px;opacity:.5;margin-left:2px;transition:transform .15s}
+.nav-dropdown:hover .nav-arrow{transform:rotate(180deg)}
+.nav-drop-item{background:none;border:none;cursor:pointer;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;color:var(--gray);padding:8px 11px;border-radius:7px;text-align:left;transition:all .15s;display:flex;align-items:center;gap:9px;width:100%}
+.nav-drop-item:hover{background:var(--teal-lt);color:var(--teal)}
+.nav-drop-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+
 /* RESPONSIVE */
 @media(max-width:900px){
   .feat-grid{grid-template-columns:repeat(2,1fr)}
@@ -283,7 +293,15 @@ footer a{color:rgba(255,255,255,.7);text-decoration:none}
     <button class="nav-tab active" onclick="showTab('perche',this)">✦ Perché mygoo</button>
     <button class="nav-tab" onclick="showTab('funziona',this)">⚙ Come funziona</button>
     <button class="nav-tab" onclick="showTab('misuri',this)">📊 Cosa misuri</button>
-    <button class="nav-tab" onclick="showTab('report',this)">📋 Il Report</button>
+    <div class="nav-dropdown">
+      <button class="nav-tab" id="nav-btn-report" onclick="showTab('report',this)">📋 Il Report <span class="nav-arrow">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <button class="nav-drop-item" onclick="goToBrand('nesp')"><span class="nav-drop-dot" style="background:#2B5253"></span>Nespresso</button>
+        <button class="nav-drop-item" onclick="goToBrand('huaw')"><span class="nav-drop-dot" style="background:#CF0A2C"></span>Huawei</button>
+        <button class="nav-drop-item" onclick="goToBrand('rena')"><span class="nav-drop-dot" style="background:#003189"></span>Renault</button>
+        <button class="nav-drop-item" onclick="goToBrand('remu')"><span class="nav-drop-dot" style="background:#6B21A8"></span>Remunero</button>
+      </div>
+    </div>
   </div>
   <div class="nav-badge">RICERCHE DI MERCATO</div>
 </nav>
@@ -1370,6 +1388,12 @@ function showBrand(id, btn) {
   document.querySelectorAll('.brand-btn').forEach(t => t.classList.remove('active'));
   document.getElementById('brand-' + id).classList.add('active');
   btn.classList.add('active');
+}
+function goToBrand(brandId) {
+  var reportBtn = document.getElementById('nav-btn-report');
+  showTab('report', reportBtn);
+  var brandBtn = document.querySelector('.brand-btn.b-' + brandId);
+  if (brandBtn) showBrand(brandId, brandBtn);
 }
 function showSection(brandId, sectionId, btn) {
   document.querySelectorAll('#brand-' + brandId + ' .section-content').forEach(s => s.classList.remove('active'));
