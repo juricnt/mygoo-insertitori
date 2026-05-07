@@ -841,35 +841,95 @@ footer a{color:rgba(255,255,255,.7);text-decoration:none}
 
   <div>
     <div class="sec-label">Campagne reali · Q1–Q2 2026</div>
-    <div class="sec-title">Seleziona un brand per esplorare il report completo</div>
+    <div class="sec-title">Panoramica comparativa — 4 brand</div>
   </div>
 
-  <div class="brand-nav">
-    <button class="brand-btn b-nesp active" onclick="showBrand('nesp',this)">☕ Nespresso</button>
-    <button class="brand-btn b-huaw" onclick="showBrand('huaw',this)">📱 Huawei</button>
-    <button class="brand-btn b-remu" onclick="showBrand('remu',this)">💰 Remunero</button>
-    <button class="brand-btn b-rena" onclick="showBrand('rena',this)">🚗 Renault</button>
+  <div class="card">
+    <div class="card-head">Tabella comparativa campagne</div>
+    <div style="overflow-x:auto">
+    <table class="diff-table" style="min-width:640px">
+      <thead>
+        <tr>
+          <th style="text-align:left">Metrica</th>
+          <th style="color:#2B5253">☕ Nespresso</th>
+          <th style="color:#CF0A2C">📱 Huawei</th>
+          <th style="color:#6B21A8">💰 Remunero</th>
+          <th style="color:#003189">🚗 Renault</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Periodo</td><td>Mar 2026</td><td>Mar–Apr 2026</td><td>Feb–Mar 2026</td><td>Gen–Feb 2026</td></tr>
+        <tr><td>Total Plays</td><td>229</td><td>623</td><td>982</td><td>1.654</td></tr>
+        <tr><td>Unique Players</td><td>176</td><td>282</td><td>385</td><td>394</td></tr>
+        <tr><td>Plays / Player</td><td>1.3</td><td>2.2</td><td>2.6</td><td><strong>4.2</strong></td></tr>
+        <tr><td>Goox distribuiti</td><td>11.233</td><td>30.345</td><td>40.455</td><td>75.618</td></tr>
+        <tr><td>Repeat Rate</td><td>30.1%</td><td>68.4%</td><td>80.5%</td><td><strong>82.0% 🏆</strong></td></tr>
+        <tr><td>Avg Score</td><td>84.4%</td><td><strong>89.4% 🏆</strong></td><td>68.6%</td><td>72.0%</td></tr>
+        <tr><td>Home CTR</td><td>9.1%</td><td>13.5%</td><td>15.3%</td><td><strong>19.3% 🏆</strong></td></tr>
+        <tr><td>End-game CTR</td><td>2.8%</td><td>8.5%</td><td>14.8%</td><td><strong>20.1% 🏆</strong></td></tr>
+        <tr><td>Avg Gameplay</td><td>3m 00s</td><td>3m 00s</td><td>0m 55s</td><td>0m 41s</td></tr>
+        <tr><td>Completion Rate</td><td>100%</td><td>100%</td><td>100%</td><td>100%</td></tr>
+      </tbody>
+    </table>
+    </div>
   </div>
 
-  <!-- ══════════ NESPRESSO ══════════ -->
-  <div id="brand-nesp" class="brand-section active">
-    <div class="hero-brand nesp" data-wm="NESPRESSO">
-      <div class="hb-left">
-        <div class="hb-eyebrow">NESPRESSO · MARZO 2026 · CODICE NESPRESSO_0326</div>
-        <div class="hb-title">Campagna brand awareness — ☕ Luxury Coffee</div>
-        <div class="hb-sub">3 game · Aggiornato Mar 27, 2026 15:33 CET</div>
-        <div class="hb-kpis">
-          <div class="hb-kpi"><div class="hk-l">Total Plays</div><div class="hk-v">229</div></div>
-          <div class="hb-kpi"><div class="hk-l">Unique Players</div><div class="hk-v">176</div></div>
-          <div class="hb-kpi"><div class="hk-l">Plays / Player</div><div class="hk-v">1.3</div></div>
-          <div class="hb-kpi"><div class="hk-l">Avg Score</div><div class="hk-v">84.4%</div></div>
-          <div class="hb-kpi"><div class="hk-l">Completion Rate</div><div class="hk-v">100%</div></div>
-          <div class="hb-kpi"><div class="hk-l">Repeat Rate ≥2</div><div class="hk-v">30.1%</div></div>
-          <div class="hb-kpi"><div class="hk-l">Goox / Sessione</div><div class="hk-v">49.05</div></div>
-          <div class="hb-kpi"><div class="hk-l">Avg Gameplay</div><div class="hk-v">3m 0s</div></div>
-        </div>
+  <div class="feat-grid">
+    <div class="feat-card" style="border-top:3px solid #2B5253;cursor:pointer" onclick="goToBrand('nesp')">
+      <span class="feat-icon">☕</span>
+      <div class="feat-title" style="color:#2B5253">Nespresso</div>
+      <div class="feat-desc">84.4% avg score · 229 plays · 30.1% repeat rate</div>
+      <div style="margin-top:10px;font-size:11px;font-weight:700;color:#2B5253;letter-spacing:.05em">Apri report completo →</div>
+    </div>
+    <div class="feat-card" style="border-top:3px solid #CF0A2C;cursor:pointer" onclick="goToBrand('huaw')">
+      <span class="feat-icon">📱</span>
+      <div class="feat-title" style="color:#CF0A2C">Huawei</div>
+      <div class="feat-desc">89.4% avg score · 623 plays · 68.4% repeat rate</div>
+      <div style="margin-top:10px;font-size:11px;font-weight:700;color:#CF0A2C;letter-spacing:.05em">Apri report completo →</div>
+    </div>
+    <div class="feat-card" style="border-top:3px solid #6B21A8;cursor:pointer" onclick="goToBrand('remu')">
+      <span class="feat-icon">💰</span>
+      <div class="feat-title" style="color:#6B21A8">Remunero</div>
+      <div class="feat-desc">68.6% avg score · 982 plays · 80.5% repeat rate</div>
+      <div style="margin-top:10px;font-size:11px;font-weight:700;color:#6B21A8;letter-spacing:.05em">Apri report completo →</div>
+    </div>
+    <div class="feat-card" style="border-top:3px solid #003189;cursor:pointer;grid-column:span 1" onclick="goToBrand('rena')">
+      <span class="feat-icon">🚗</span>
+      <div class="feat-title" style="color:#003189">Renault</div>
+      <div class="feat-desc">72.0% avg score · 1.654 plays · 82.0% repeat rate</div>
+      <div style="margin-top:10px;font-size:11px;font-weight:700;color:#003189;letter-spacing:.05em">Apri report completo →</div>
+    </div>
+  </div>
+
+
+</div>
+</div>
+
+<!-- ═══════════════════════════════════ BRAND: NESPRESSO -->
+<div id="tab-nesp" class="tab-content">
+<div class="wrap">
+
+  <div style="margin-bottom:4px">
+    <button onclick="showTab('report',document.getElementById('nav-btn-report'))" style="background:none;border:none;cursor:pointer;font-size:12px;font-weight:600;color:var(--gray);display:flex;align-items:center;gap:5px;padding:0;font-family:'Inter',sans-serif">← Torna alla panoramica</button>
+  </div>
+
+  <div class="hero-brand nesp" data-wm="NESPRESSO">
+    <div class="hb-left">
+      <div class="hb-eyebrow">NESPRESSO · MARZO 2026 · CODICE NESPRESSO_0326</div>
+      <div class="hb-title">Campagna brand awareness — ☕ Luxury Coffee</div>
+      <div class="hb-sub">3 game · Aggiornato Mar 27, 2026 15:33 CET</div>
+      <div class="hb-kpis">
+        <div class="hb-kpi"><div class="hk-l">Total Plays</div><div class="hk-v">229</div></div>
+        <div class="hb-kpi"><div class="hk-l">Unique Players</div><div class="hk-v">176</div></div>
+        <div class="hb-kpi"><div class="hk-l">Plays / Player</div><div class="hk-v">1.3</div></div>
+        <div class="hb-kpi"><div class="hk-l">Avg Score</div><div class="hk-v">84.4%</div></div>
+        <div class="hb-kpi"><div class="hk-l">Completion Rate</div><div class="hk-v">100%</div></div>
+        <div class="hb-kpi"><div class="hk-l">Repeat Rate ≥2</div><div class="hk-v">30.1%</div></div>
+        <div class="hb-kpi"><div class="hk-l">Goox / Sessione</div><div class="hk-v">49.05</div></div>
+        <div class="hb-kpi"><div class="hk-l">Avg Gameplay</div><div class="hk-v">3m 0s</div></div>
       </div>
     </div>
+  </div>
 
     <div class="section-nav">
       <button class="section-btn active" onclick="showSection('nesp','pan',this)">📊 Panoramica</button>
@@ -961,27 +1021,35 @@ footer a{color:rgba(255,255,255,.7);text-decoration:none}
         </div>
       </div>
     </div>
+
+</div>
+</div>
+
+<!-- ═══════════════════════════════════ BRAND: HUAWEI -->
+<div id="tab-huaw" class="tab-content">
+<div class="wrap">
+
+  <div style="margin-bottom:4px">
+    <button onclick="showTab('report',document.getElementById('nav-btn-report'))" style="background:none;border:none;cursor:pointer;font-size:12px;font-weight:600;color:var(--gray);display:flex;align-items:center;gap:5px;padding:0;font-family:'Inter',sans-serif">← Torna alla panoramica</button>
   </div>
 
-  <!-- ══════════ HUAWEI ══════════ -->
-  <div id="brand-huaw" class="brand-section">
-    <div class="hero-brand huaw" data-wm="HUAWEI">
-      <div class="hb-left">
-        <div class="hb-eyebrow">HUAWEI · MARZO–APRILE 2026 · CODICE HUAWEI_0326</div>
-        <div class="hb-title">Campagna brand awareness — 📱 Consumer Tech</div>
-        <div class="hb-sub">3 game · Aggiornato May 05, 2026 13:24 CEST</div>
-        <div class="hb-kpis">
-          <div class="hb-kpi"><div class="hk-l">Total Plays</div><div class="hk-v">623</div></div>
-          <div class="hb-kpi"><div class="hk-l">Unique Players</div><div class="hk-v">282</div></div>
-          <div class="hb-kpi"><div class="hk-l">Plays / Player</div><div class="hk-v">2.2</div></div>
-          <div class="hb-kpi"><div class="hk-l">Avg Score</div><div class="hk-v">89.4%</div></div>
-          <div class="hb-kpi"><div class="hk-l">Completion Rate</div><div class="hk-v">100%</div></div>
-          <div class="hb-kpi"><div class="hk-l">Repeat Rate ≥2</div><div class="hk-v">68.4%</div></div>
-          <div class="hb-kpi"><div class="hk-l">Goox / Sessione</div><div class="hk-v">48.71</div></div>
-          <div class="hb-kpi"><div class="hk-l">Avg Gameplay</div><div class="hk-v">3m 0s</div></div>
-        </div>
+  <div class="hero-brand huaw" data-wm="HUAWEI">
+    <div class="hb-left">
+      <div class="hb-eyebrow">HUAWEI · MARZO–APRILE 2026 · CODICE HUAWEI_0326</div>
+      <div class="hb-title">Campagna brand awareness — 📱 Consumer Tech</div>
+      <div class="hb-sub">3 game · Aggiornato May 05, 2026 13:24 CEST</div>
+      <div class="hb-kpis">
+        <div class="hb-kpi"><div class="hk-l">Total Plays</div><div class="hk-v">623</div></div>
+        <div class="hb-kpi"><div class="hk-l">Unique Players</div><div class="hk-v">282</div></div>
+        <div class="hb-kpi"><div class="hk-l">Plays / Player</div><div class="hk-v">2.2</div></div>
+        <div class="hb-kpi"><div class="hk-l">Avg Score</div><div class="hk-v">89.4%</div></div>
+        <div class="hb-kpi"><div class="hk-l">Completion Rate</div><div class="hk-v">100%</div></div>
+        <div class="hb-kpi"><div class="hk-l">Repeat Rate ≥2</div><div class="hk-v">68.4%</div></div>
+        <div class="hb-kpi"><div class="hk-l">Goox / Sessione</div><div class="hk-v">48.71</div></div>
+        <div class="hb-kpi"><div class="hk-l">Avg Gameplay</div><div class="hk-v">3m 0s</div></div>
       </div>
     </div>
+  </div>
 
     <div class="section-nav">
       <button class="section-btn active" onclick="showSection('huaw','pan',this)">📊 Panoramica</button>
@@ -1095,18 +1163,26 @@ footer a{color:rgba(255,255,255,.7);text-decoration:none}
         </div>
       </div>
     </div>
+
+</div>
+</div>
+
+<!-- ═══════════════════════════════════ BRAND: REMUNERO -->
+<div id="tab-remu" class="tab-content">
+<div class="wrap">
+
+  <div style="margin-bottom:4px">
+    <button onclick="showTab('report',document.getElementById('nav-btn-report'))" style="background:none;border:none;cursor:pointer;font-size:12px;font-weight:600;color:var(--gray);display:flex;align-items:center;gap:5px;padding:0;font-family:'Inter',sans-serif">← Torna alla panoramica</button>
   </div>
 
-  <!-- ══════════ REMUNERO ══════════ -->
-  <div id="brand-remu" class="brand-section">
-    <div class="hero-brand remu" data-wm="REMUNERO">
-      <div class="hb-left">
-        <div class="hb-eyebrow">REMUNERO · FEB–MAR 2026 · CODICE REMUNERO-01-0226</div>
-        <div class="hb-title">Campagna product awareness — 💰 Fintech / HR</div>
-        <div class="hb-sub">3 game · Aggiornato Apr 10, 2026 14:07 CEST</div>
-        <div class="hb-kpis">
-          <div class="hb-kpi"><div class="hk-l">Total Plays</div><div class="hk-v">982</div></div>
-          <div class="hb-kpi"><div class="hk-l">Unique Players</div><div class="hk-v">385</div></div>
+  <div class="hero-brand remu" data-wm="REMUNERO">
+    <div class="hb-left">
+      <div class="hb-eyebrow">REMUNERO · FEB–MAR 2026 · CODICE REMUNERO-01-0226</div>
+      <div class="hb-title">Campagna product awareness — 💰 Fintech / HR</div>
+      <div class="hb-sub">3 game · Aggiornato Apr 10, 2026 14:07 CEST</div>
+      <div class="hb-kpis">
+        <div class="hb-kpi"><div class="hk-l">Total Plays</div><div class="hk-v">982</div></div>
+        <div class="hb-kpi"><div class="hk-l">Unique Players</div><div class="hk-v">385</div></div>
           <div class="hb-kpi"><div class="hk-l">Plays / Player</div><div class="hk-v">2.6</div></div>
           <div class="hb-kpi"><div class="hk-l">Avg Score</div><div class="hk-v">68.6%</div></div>
           <div class="hb-kpi"><div class="hk-l">Completion Rate</div><div class="hk-v">100%</div></div>
@@ -1227,16 +1303,24 @@ footer a{color:rgba(255,255,255,.7);text-decoration:none}
         </div>
       </div>
     </div>
+
+</div>
+</div>
+
+<!-- ═══════════════════════════════════ BRAND: RENAULT -->
+<div id="tab-rena" class="tab-content">
+<div class="wrap">
+
+  <div style="margin-bottom:4px">
+    <button onclick="showTab('report',document.getElementById('nav-btn-report'))" style="background:none;border:none;cursor:pointer;font-size:12px;font-weight:600;color:var(--gray);display:flex;align-items:center;gap:5px;padding:0;font-family:'Inter',sans-serif">← Torna alla panoramica</button>
   </div>
 
-  <!-- ══════════ RENAULT ══════════ -->
-  <div id="brand-rena" class="brand-section">
-    <div class="hero-brand rena" data-wm="RENAULT">
-      <div class="hb-left">
-        <div class="hb-eyebrow">RENAULT · GEN–FEB 2026 · CODICE RENAULT-VARCA-03-0126</div>
-        <div class="hb-title">Campagna product awareness — 🚗 Automotive / EV</div>
-        <div class="hb-sub">6 game · Aggiornato May 06, 2026 08:31 CEST</div>
-        <div class="hb-kpis">
+  <div class="hero-brand rena" data-wm="RENAULT">
+    <div class="hb-left">
+      <div class="hb-eyebrow">RENAULT · GEN–FEB 2026 · CODICE RENAULT-VARCA-03-0126</div>
+      <div class="hb-title">Campagna product awareness — 🚗 Automotive / EV</div>
+      <div class="hb-sub">6 game · Aggiornato May 06, 2026 08:31 CEST</div>
+      <div class="hb-kpis">
           <div class="hb-kpi"><div class="hk-l">Total Plays</div><div class="hk-v">1.654</div></div>
           <div class="hb-kpi"><div class="hk-l">Unique Players</div><div class="hk-v">394</div></div>
           <div class="hb-kpi"><div class="hk-l">Plays / Player</div><div class="hk-v">4.2</div></div>
@@ -1363,7 +1447,6 @@ footer a{color:rgba(255,255,255,.7);text-decoration:none}
         </div>
       </div>
     </div>
-  </div>
 
 </div>
 </div>
@@ -1391,13 +1474,11 @@ function showBrand(id, btn) {
 }
 function goToBrand(brandId) {
   var reportBtn = document.getElementById('nav-btn-report');
-  showTab('report', reportBtn);
-  var brandBtn = document.querySelector('.brand-btn.b-' + brandId);
-  if (brandBtn) showBrand(brandId, brandBtn);
+  showTab(brandId, reportBtn);
 }
 function showSection(brandId, sectionId, btn) {
-  document.querySelectorAll('#brand-' + brandId + ' .section-content').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('#brand-' + brandId + ' .section-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('#tab-' + brandId + ' .section-content').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('#tab-' + brandId + ' .section-btn').forEach(b => b.classList.remove('active'));
   document.getElementById('sec-' + brandId + '-' + sectionId).classList.add('active');
   btn.classList.add('active');
 }
