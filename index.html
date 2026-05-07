@@ -180,6 +180,56 @@ footer{background:var(--teal);color:rgba(255,255,255,.6);text-align:center;paddi
 footer img{height:18px;margin-bottom:8px;display:block;margin-left:auto;margin-right:auto;opacity:.7}
 footer a{color:rgba(255,255,255,.7);text-decoration:none}
 
+/* BRAND SUB-TABS */
+.brand-nav{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:0}
+.brand-btn{background:var(--white);border:1.5px solid var(--border);border-radius:8px;padding:8px 16px;font-family:'Inter',sans-serif;font-size:12px;font-weight:700;cursor:pointer;color:var(--gray);transition:all .15s}
+.brand-btn:hover{border-color:var(--teal);color:var(--teal)}
+.brand-btn.active{color:#fff;border-color:transparent}
+.brand-btn.b-nesp.active{background:#2B5253}
+.brand-btn.b-huaw.active{background:#CF0A2C}
+.brand-btn.b-remu.active{background:#6B21A8}
+.brand-btn.b-rena.active{background:#003189}
+.brand-section{display:none}.brand-section.active{display:flex;flex-direction:column;gap:20px}
+
+/* HERO BRAND */
+.hero-brand{border-radius:14px;padding:28px 36px;position:relative;overflow:hidden;box-shadow:0 6px 24px rgba(0,0,0,.18);display:flex;gap:32px;align-items:flex-start}
+.hero-brand.nesp{background:#2B5253}.hero-brand.huaw{background:#CF0A2C}.hero-brand.remu{background:#6B21A8}.hero-brand.rena{background:#003189}
+.hero-brand::after{content:attr(data-wm);position:absolute;right:-10px;bottom:-20px;font-size:90px;font-weight:900;color:rgba(255,255,255,.06);pointer-events:none;white-space:nowrap}
+.hero-brand .hb-left{flex:1}
+.hero-brand .hb-eyebrow{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:8px}
+.hero-brand .hb-title{font-size:22px;font-weight:900;color:#fff;line-height:1.1;margin-bottom:6px}
+.hero-brand .hb-sub{font-size:12px;color:rgba(255,255,255,.6)}
+.hero-brand .hb-kpis{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.hb-kpi{background:rgba(255,255,255,.1);border-radius:7px;padding:7px 12px}
+.hb-kpi .hk-l{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:2px}
+.hb-kpi .hk-v{font-size:15px;font-weight:900;color:#fff}
+
+/* SCORE BANDS */
+.bands4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.band4{border-radius:8px;padding:12px 14px;text-align:center}
+.band4.low{background:#FFF3F3;border:1.5px solid #FFD0D0}.band4.med{background:#FFF8E1;border:1.5px solid #FFE082}
+.band4.hi{background:#E8F5E9;border:1.5px solid #A5D6A7}.band4.perf{background:#E8F4FD;border:1.5px solid #90CAF9}
+.band4 .bv{font-size:22px;font-weight:900;margin-bottom:3px}
+.band4.low .bv{color:#C62828}.band4.med .bv{color:#F57F17}.band4.hi .bv{color:#2E7D32}.band4.perf .bv{color:#1565C0}
+.band4 .bl{font-size:11px;font-weight:600;color:var(--gray)}
+
+/* TIME BARS */
+.time-bars{display:flex;flex-direction:column;gap:7px}
+.time-row{display:flex;align-items:center;gap:10px}
+.time-label{font-size:11px;color:var(--gray);width:130px;flex-shrink:0}
+.time-track{flex:1;background:var(--teal-lt);border-radius:4px;height:16px;overflow:hidden}
+.time-fill{height:100%;border-radius:4px}
+.time-pct{font-size:11px;font-weight:700;width:36px;flex-shrink:0;text-align:right}
+
+/* COMPACT TABLE */
+.ct-table{width:100%;border-collapse:collapse;font-size:12px}
+.ct-table th{padding:7px 10px;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--border);color:var(--gray);text-align:right}
+.ct-table th:first-child{text-align:left}
+.ct-table td{padding:7px 10px;border-bottom:1px solid var(--border);text-align:right}
+.ct-table td:first-child{text-align:left;font-weight:600;color:var(--text)}
+.ct-table tr:last-child td{border-bottom:none;font-weight:800}
+.ct-table tr.total-row td{background:var(--teal-lt);color:var(--teal)}
+
 /* RESPONSIVE */
 @media(max-width:900px){
   .feat-grid{grid-template-columns:repeat(2,1fr)}
@@ -217,7 +267,6 @@ footer a{color:rgba(255,255,255,.7);text-decoration:none}
     <button class="nav-tab" onclick="showTab('funziona',this)">⚙ Come funziona</button>
     <button class="nav-tab" onclick="showTab('misuri',this)">📊 Cosa misuri</button>
     <button class="nav-tab" onclick="showTab('report',this)">📋 Il Report</button>
-    <button class="nav-tab" onclick="showTab('attiva',this)">→ Attiva</button>
   </div>
   <div class="nav-badge">RICERCHE DI MERCATO</div>
 </nav>
@@ -744,7 +793,7 @@ footer a{color:rgba(255,255,255,.7);text-decoration:none}
     <div class="hero-text">
       <div class="eyebrow">OUTPUT · IL REPORT</div>
       <div class="ht">Dati strutturati,<br><em>insight azionabili.</em></div>
-      <div class="hb">Non un documento da archiviare. Un report progettato per essere letto in 15 minuti dal CEO e in un'ora dall'intera direzione marketing, con finding chiari e raccomandazioni prioritizzate.</div>
+      <div class="hb">Non un documento da archiviare. Un report progettato per essere letto in 15 minuti dal CEO e in un'ora dall'intera direzione marketing. Di seguito i risultati reali delle prime 4 campagne mygoo.</div>
     </div>
   </div>
 
@@ -802,156 +851,326 @@ footer a{color:rgba(255,255,255,.7);text-decoration:none}
     <div class="kpi-card"><div class="kl">CTA / CTR integrato</div><div class="kv">Live</div><div class="ks">call-to-action misurabili integrabili direttamente nel flusso di gioco</div></div>
   </div>
 
-  <div class="split-2">
-    <div class="card">
-      <div class="card-head">Formati di consegna</div>
-      <div style="display:flex;flex-direction:column;gap:10px;font-size:13px;color:var(--text)">
-        <div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)"><span style="font-size:18px">📊</span><div><strong>Dashboard interattiva</strong><br><span style="color:var(--gray);font-size:12px">Accesso online al report navigabile con filtri per segmento</span></div></div>
-        <div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)"><span style="font-size:18px">📋</span><div><strong>PDF Executive</strong><br><span style="color:var(--gray);font-size:12px">Report stampabile ottimizzato per presentazioni al management</span></div></div>
-        <div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)"><span style="font-size:18px">📁</span><div><strong>Data export</strong><br><span style="color:var(--gray);font-size:12px">File Excel/CSV con i dati grezzi aggregati per analisi interne</span></div></div>
-        <div style="display:flex;align-items:center;gap:10px;padding:8px 0"><span style="font-size:18px">🎙</span><div><strong>Sessione di presentazione</strong><br><span style="color:var(--gray);font-size:12px">Call o meeting con il team mygoo per walkthrough e Q&A</span></div></div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-head">Criteri di qualità del dato</div>
-      <div style="display:flex;flex-direction:column;gap:10px;font-size:13px;color:var(--text)">
-        <div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)"><span style="font-size:18px">✅</span><div><strong>Sample minimo garantito</strong><br><span style="color:var(--gray);font-size:12px">Soglia minima di risposte valide definita nel contratto</span></div></div>
-        <div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)"><span style="font-size:18px">🎯</span><div><strong>Profilazione target</strong><br><span style="color:var(--gray);font-size:12px">Il campione è filtrato sul profilo demografico del tuo consumatore</span></div></div>
-        <div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)"><span style="font-size:18px">🚫</span><div><strong>Bot detection & quality control</strong><br><span style="color:var(--gray);font-size:12px">Risposte non genuine filtrate automaticamente dalla piattaforma</span></div></div>
-        <div style="display:flex;align-items:center;gap:10px;padding:8px 0"><span style="font-size:18px">🔒</span><div><strong>GDPR compliant</strong><br><span style="color:var(--gray);font-size:12px">Zero-party data con consenso esplicito dell'utente finale</span></div></div>
-      </div>
-    </div>
-  </div>
-
-</div>
-</div>
-
-
-<!-- ═══════════════════════════════════ ATTIVA -->
-<div id="tab-attiva" class="tab-content">
-<div class="wrap">
-
-  <div class="hero-cover" data-watermark="START" style="background:linear-gradient(135deg,#A01060,#E01783)">
-    <div class="hero-text">
-      <div class="eyebrow">ATTIVA UNA CAMPAGNA</div>
-      <div class="ht">Inizia a misurare<br><em>la tua percezione oggi.</em></div>
-      <div class="hb">Scegli il pacchetto più adatto alle tue esigenze. Dal singolo test di prodotto al programma continuativo di brand health monitoring.</div>
-    </div>
-  </div>
-
   <div>
-    <div class="sec-label">Pacchetti disponibili</div>
-    <div class="sec-title">Tre livelli di approfondimento per ogni obiettivo di ricerca</div>
+    <div class="sec-label">Report di campagna reali · Q1–Q2 2026</div>
+    <div class="sec-title">Quattro brand. Dati reali. Completion rate 100%.</div>
   </div>
 
-  <div class="price-grid">
-    <div class="price-card">
-      <div class="price-tier">Pacchetto</div>
-      <div class="price-name">Snapshot</div>
-      <div class="price-desc">Ideale per un primo test di percezione o per validare rapidamente un'ipotesi di brand. Una campagna focalizzata su una singola area di ricerca.</div>
-      <ul class="price-features">
-        <li>1 campagna (4 game, fino a 7 domande ciascuno)</li>
-        <li>Campione: 200–500 rispondenti profilati</li>
-        <li>Report executive + data export</li>
-        <li>1 sessione di presentazione risultati</li>
-        <li>Tempi: 7–10 giorni lavorativi</li>
-      </ul>
-      <button class="price-cta" onclick="alert('Contatta il team mygoo per un preventivo personalizzato.')">Richiedi preventivo</button>
-    </div>
-    <div class="price-card featured">
-      <div class="price-badge">PIÙ RICHIESTO</div>
-      <div class="price-tier">Pacchetto</div>
-      <div class="price-name">Brand Deep Dive</div>
-      <div class="price-desc">La soluzione completa per chi vuole una visione a 360° del proprio brand: percezione, competitivo, segmentazione per target.</div>
-      <ul class="price-features">
-        <li>2–3 campagne coordinate</li>
-        <li>Campione: 500–1.500 rispondenti</li>
-        <li>Analisi competitiva inclusa (fino a 3 competitor)</li>
-        <li>Segmentazione avanzata per target (età, geo, genere)</li>
-        <li>Dashboard interattiva + report PDF executive</li>
-        <li>2 sessioni di presentazione risultati</li>
-        <li>Tempi: 10–14 giorni lavorativi</li>
-      </ul>
-      <button class="price-cta" onclick="alert('Contatta il team mygoo per un preventivo personalizzato.')">Richiedi preventivo</button>
-    </div>
-    <div class="price-card">
-      <div class="price-tier">Pacchetto</div>
-      <div class="price-name">Monitoring</div>
-      <div class="price-desc">Per chi vuole monitorare la salute del brand nel tempo: campagne trimestrali con metriche coerenti per tracciare l'evoluzione della percezione.</div>
-      <ul class="price-features">
-        <li>4 campagne all'anno (cadenza trimestrale)</li>
-        <li>Campione: 300–800 rispondenti per wave</li>
-        <li>Trend analysis e comparazione tra wave</li>
-        <li>Alert su variazioni significative di percezione</li>
-        <li>Dashboard live con storico aggiornato</li>
-        <li>Dedicated account manager</li>
-      </ul>
-      <button class="price-cta" onclick="alert('Contatta il team mygoo per un preventivo personalizzato.')">Richiedi preventivo</button>
-    </div>
+  <!-- AGGREGATO -->
+  <div class="kpi-grid g4">
+    <div class="kpi-card"><div class="kl">Total Plays</div><div class="kv">3.488</div><div class="ks">partite giocate su tutte e 4 le campagne</div></div>
+    <div class="kpi-card"><div class="kl">Unique Players</div><div class="kv">1.237</div><div class="ks">giocatori unici coinvolti</div></div>
+    <div class="kpi-card pink"><div class="kl">Completion Rate</div><div class="kv">100%</div><div class="ks">nessuna campagna ha registrato abbandoni significativi</div></div>
+    <div class="kpi-card"><div class="kl">Avg Score</div><div class="kv">78.6%</div><div class="ks">accuratezza media di risposta su tutte le campagne</div></div>
   </div>
 
+  <!-- BRAND SUB-NAV -->
   <div>
-    <div class="sec-label">Tempistiche</div>
-    <div class="sec-title">Dal contatto alla consegna del report</div>
+    <div class="sec-label">Campagne per brand</div>
+    <div class="sec-title">Seleziona un brand per vedere il report dettagliato</div>
   </div>
 
-  <div class="card" style="padding:32px 36px">
-    <div class="timeline">
-      <div class="tl-step">
-        <div class="tl-dot">1</div>
-        <div class="tl-title">Kick-off</div>
-        <div class="tl-desc">Brief, allineamento obiettivi, definizione campione target</div>
+  <div class="brand-nav">
+    <button class="brand-btn b-nesp active" onclick="showBrand('nesp',this)">☕ Nespresso</button>
+    <button class="brand-btn b-huaw" onclick="showBrand('huaw',this)">📱 Huawei</button>
+    <button class="brand-btn b-remu" onclick="showBrand('remu',this)">💰 Remunero</button>
+    <button class="brand-btn b-rena" onclick="showBrand('rena',this)">🚗 Renault</button>
+  </div>
+
+  <!-- ── NESPRESSO ── -->
+  <div id="brand-nesp" class="brand-section active">
+    <div class="hero-brand nesp" data-wm="NESPRESSO">
+      <div class="hb-left">
+        <div class="hb-eyebrow">NESPRESSO · MARZO 2026 · CODICE NESPRESSO_0326</div>
+        <div class="hb-title">Campagna brand awareness<br>☕ Luxury Coffee</div>
+        <div class="hb-sub">3 game · 229 plays · Aggiornato Mar 27, 2026</div>
+        <div class="hb-kpis">
+          <div class="hb-kpi"><div class="hk-l">Total Plays</div><div class="hk-v">229</div></div>
+          <div class="hb-kpi"><div class="hk-l">Unique Players</div><div class="hk-v">176</div></div>
+          <div class="hb-kpi"><div class="hk-l">Avg Score</div><div class="hk-v">84.4%</div></div>
+          <div class="hb-kpi"><div class="hk-l">Completion Rate</div><div class="hk-v">100%</div></div>
+          <div class="hb-kpi"><div class="hk-l">Repeat Rate ≥2</div><div class="hk-v">30.1%</div></div>
+          <div class="hb-kpi"><div class="hk-l">Goox distribuiti</div><div class="hk-v">11.233</div></div>
+        </div>
       </div>
-      <div class="tl-step">
-        <div class="tl-dot">2</div>
-        <div class="tl-title">Design game</div>
-        <div class="tl-desc">Produzione dei game, validazione con il cliente</div>
+    </div>
+
+    <div class="split-2">
+      <div class="card">
+        <div class="card-head">Score Bands — Qualità delle risposte</div>
+        <div class="bands4">
+          <div class="band4 low"><div class="bv">13.5%</div><div class="bl">0–39%</div></div>
+          <div class="band4 med"><div class="bv">17.0%</div><div class="bl">40–69%</div></div>
+          <div class="band4 hi"><div class="bv">0.0%</div><div class="bl">70–99%</div></div>
+          <div class="band4 perf"><div class="bv">68.8%</div><div class="bl">100%</div></div>
+        </div>
       </div>
-      <div class="tl-step">
-        <div class="tl-dot">3</div>
-        <div class="tl-title">Raccolta dati</div>
-        <div class="tl-desc">Distribuzione alla community, monitoraggio in real-time</div>
+      <div class="card">
+        <div class="card-head">CTA Performance</div>
+        <div class="kpi-grid g2" style="gap:8px">
+          <div class="kpi-card" style="padding:12px 14px"><div class="kl">Home CTR</div><div class="kv" style="font-size:20px">9.1%</div><div class="ks">16 click / 176 player</div></div>
+          <div class="kpi-card" style="padding:12px 14px"><div class="kl">End-game CTR</div><div class="kv" style="font-size:20px">2.8%</div><div class="ks">5 click / 176 player</div></div>
+          <div class="kpi-card" style="padding:12px 14px"><div class="kl">Abandonment</div><div class="kv" style="font-size:20px;color:#1B7A4F">0.0%</div><div class="ks">nessun abbandono</div></div>
+          <div class="kpi-card" style="padding:12px 14px"><div class="kl">Avg Gameplay</div><div class="kv" style="font-size:20px">3m 0s</div><div class="ks">per sessione</div></div>
+        </div>
       </div>
-      <div class="tl-step">
-        <div class="tl-dot">4</div>
-        <div class="tl-title">Analisi</div>
-        <div class="tl-desc">Elaborazione dati, scoring, benchmark, commento qualitativo</div>
+    </div>
+
+    <div class="split-2">
+      <div class="card">
+        <div class="card-head">Orario di gioco</div>
+        <div class="time-bars">
+          <div class="time-row"><div class="time-label">Notte (00–05)</div><div class="time-track"><div class="time-fill" style="width:5.2%;background:#2B5253"></div></div><div class="time-pct">5.2%</div></div>
+          <div class="time-row"><div class="time-label">Mattina (06–11)</div><div class="time-track"><div class="time-fill" style="width:16.2%;background:#2B5253"></div></div><div class="time-pct">16.2%</div></div>
+          <div class="time-row"><div class="time-label">Pranzo (12–14)</div><div class="time-track"><div class="time-fill" style="width:36.7%;background:#E01783"></div></div><div class="time-pct" style="color:#E01783;font-weight:900">36.7%</div></div>
+          <div class="time-row"><div class="time-label">Pomeriggio (15–18)</div><div class="time-track"><div class="time-fill" style="width:16.2%;background:#2B5253"></div></div><div class="time-pct">16.2%</div></div>
+          <div class="time-row"><div class="time-label">Sera (19–23)</div><div class="time-track"><div class="time-fill" style="width:25.8%;background:#2B5253"></div></div><div class="time-pct">25.8%</div></div>
+        </div>
       </div>
-      <div class="tl-step">
-        <div class="tl-dot">5</div>
-        <div class="tl-title">Consegna</div>
-        <div class="tl-desc">Report, dashboard e sessione di presentazione al team</div>
+      <div class="card">
+        <div class="card-head">Game-by-game</div>
+        <table class="ct-table">
+          <thead><tr><th>Gioco</th><th>Plays</th><th>Players</th><th>Goox</th></tr></thead>
+          <tbody>
+            <tr><td>G1</td><td>172</td><td>172</td><td>7.722</td></tr>
+            <tr><td>G2</td><td>57</td><td>57</td><td>3.511</td></tr>
+            <tr><td>G3</td><td>—</td><td>—</td><td>—</td></tr>
+            <tr class="total-row"><td>Totali</td><td>229</td><td>176</td><td>11.233</td></tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
 
-  <div class="cta-box">
-    <div class="ct">Guess What You Know</div>
-    <div class="ch">La percezione istintiva non mente.<br>Ascoltiamola insieme.</div>
-    <div class="cs">Scopri cosa pensa davvero chi guarda il tuo brand. Parla con il nostro team: definiremo insieme gli obiettivi, il profilo del campione e il pacchetto più adatto. Risposta garantita entro 24 ore.</div>
-    <a href="mailto:info@mygoo.fun" class="cta-btn">Contatta il team →</a>
-  </div>
+  <!-- ── HUAWEI ── -->
+  <div id="brand-huaw" class="brand-section">
+    <div class="hero-brand huaw" data-wm="HUAWEI">
+      <div class="hb-left">
+        <div class="hb-eyebrow">HUAWEI · MARZO–APRILE 2026 · CODICE HUAWEI_0326</div>
+        <div class="hb-title">Campagna brand awareness<br>📱 Consumer Tech</div>
+        <div class="hb-sub">3 game · 623 plays · Aggiornato May 05, 2026</div>
+        <div class="hb-kpis">
+          <div class="hb-kpi"><div class="hk-l">Total Plays</div><div class="hk-v">623</div></div>
+          <div class="hb-kpi"><div class="hk-l">Unique Players</div><div class="hk-v">282</div></div>
+          <div class="hb-kpi"><div class="hk-l">Avg Score</div><div class="hk-v">89.4%</div></div>
+          <div class="hb-kpi"><div class="hk-l">Completion Rate</div><div class="hk-v">100%</div></div>
+          <div class="hb-kpi"><div class="hk-l">Repeat Rate ≥2</div><div class="hk-v">68.4%</div></div>
+          <div class="hb-kpi"><div class="hk-l">Goox distribuiti</div><div class="hk-v">30.345</div></div>
+        </div>
+      </div>
+    </div>
 
-  <div class="split-2">
+    <div class="split-2">
+      <div class="card">
+        <div class="card-head">Score Bands — Qualità delle risposte</div>
+        <div class="bands4">
+          <div class="band4 low"><div class="bv">1.1%</div><div class="bl">0–39%</div></div>
+          <div class="band4 med"><div class="bv">14.0%</div><div class="bl">40–69%</div></div>
+          <div class="band4 hi"><div class="bv">16.5%</div><div class="bl">70–99%</div></div>
+          <div class="band4 perf"><div class="bv">68.1%</div><div class="bl">100%</div></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-head">CTA Performance</div>
+        <div class="kpi-grid g2" style="gap:8px">
+          <div class="kpi-card" style="padding:12px 14px"><div class="kl">Home CTR</div><div class="kv" style="font-size:20px">13.5%</div><div class="ks">38 click / 282 player</div></div>
+          <div class="kpi-card" style="padding:12px 14px"><div class="kl">End-game CTR</div><div class="kv" style="font-size:20px">8.5%</div><div class="ks">24 click / 282 player</div></div>
+          <div class="kpi-card" style="padding:12px 14px"><div class="kl">Abandonment</div><div class="kv" style="font-size:20px;color:#1B7A4F">0.2%</div><div class="ks">9 / 5.261 sessioni</div></div>
+          <div class="kpi-card" style="padding:12px 14px"><div class="kl">Avg Gameplay</div><div class="kv" style="font-size:20px">3m 0s</div><div class="ks">per sessione</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="split-2">
+      <div class="card">
+        <div class="card-head">Orario di gioco</div>
+        <div class="time-bars">
+          <div class="time-row"><div class="time-label">Notte (00–05)</div><div class="time-track"><div class="time-fill" style="width:0.3%;background:#CF0A2C"></div></div><div class="time-pct">0.3%</div></div>
+          <div class="time-row"><div class="time-label">Mattina (06–11)</div><div class="time-track"><div class="time-fill" style="width:16.4%;background:#CF0A2C"></div></div><div class="time-pct">16.4%</div></div>
+          <div class="time-row"><div class="time-label">Pranzo (12–14)</div><div class="time-track"><div class="time-fill" style="width:27.7%;background:#CF0A2C"></div></div><div class="time-pct">27.7%</div></div>
+          <div class="time-row"><div class="time-label">Pomeriggio (15–18)</div><div class="time-track"><div class="time-fill" style="width:21.3%;background:#CF0A2C"></div></div><div class="time-pct">21.3%</div></div>
+          <div class="time-row"><div class="time-label">Sera (18–23)</div><div class="time-track"><div class="time-fill" style="width:29.9%;background:#E01783"></div></div><div class="time-pct" style="color:#E01783;font-weight:900">29.9%</div></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-head">Game-by-game</div>
+        <table class="ct-table">
+          <thead><tr><th>Gioco</th><th>Plays</th><th>Players</th><th>Goox</th></tr></thead>
+          <tbody>
+            <tr><td>G1</td><td>182</td><td>182</td><td>8.253</td></tr>
+            <tr><td>G2</td><td>188</td><td>188</td><td>8.300</td></tr>
+            <tr><td>G3</td><td>253</td><td>253</td><td>13.792</td></tr>
+            <tr class="total-row"><td>Totali</td><td>623</td><td>282</td><td>30.345</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
     <div class="card">
-      <div class="card-head">Cosa portare al primo incontro</div>
-      <div style="display:flex;flex-direction:column;gap:9px;font-size:13px;color:var(--text)">
-        <div style="display:flex;gap:8px"><span style="color:var(--teal);font-weight:900">→</span>Le domande di business a cui vuoi rispondere</div>
-        <div style="display:flex;gap:8px"><span style="color:var(--teal);font-weight:900">→</span>Il profilo del tuo consumatore target (demografico, geografico)</div>
-        <div style="display:flex;gap:8px"><span style="color:var(--teal);font-weight:900">→</span>I competitor che vuoi includere nell'analisi (se rilevante)</div>
-        <div style="display:flex;gap:8px"><span style="color:var(--teal);font-weight:900">→</span>Eventuali ricerche precedenti da usare come baseline</div>
-        <div style="display:flex;gap:8px"><span style="color:var(--teal);font-weight:900">→</span>Il timeline e le scadenze interne di progetto</div>
+      <div class="card-head huaw">Accuratezza per domanda — Avg 89.4%</div>
+      <table class="ct-table">
+        <thead><tr><th style="text-align:left">Domanda</th><th>Tentativi</th><th>Corrette</th><th>Success Rate</th></tr></thead>
+        <tbody>
+          <tr><td>Huawei è un'azienda di quale Paese?</td><td>182</td><td>131</td><td>72.0%</td></tr>
+          <tr><td>Huawei produce smartphone?</td><td>182</td><td>173</td><td>95.1%</td></tr>
+          <tr><td>Huawei produce anche smartwatch sportivi?</td><td>182</td><td>180</td><td>98.9%</td></tr>
+          <tr><td>Chi ha fondato Huawei?</td><td>182</td><td>142</td><td>78.0%</td></tr>
+          <tr><td>Huawei è forte soprattutto nella...</td><td>182</td><td>152</td><td>83.5%</td></tr>
+          <tr><td>Come si chiama la serie smartphone business?</td><td>188</td><td>136</td><td>72.3%</td></tr>
+          <tr><td>Huawei vende auricolari wireless?</td><td>188</td><td>186</td><td>98.9%</td></tr>
+          <tr><td>In quale anno nasce Huawei?</td><td>188</td><td>140</td><td>74.5%</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ── REMUNERO ── -->
+  <div id="brand-remu" class="brand-section">
+    <div class="hero-brand remu" data-wm="REMUNERO">
+      <div class="hb-left">
+        <div class="hb-eyebrow">REMUNERO · FEB–MAR 2026 · CODICE REMUNERO-01-0226</div>
+        <div class="hb-title">Campagna product awareness<br>💰 Fintech / HR</div>
+        <div class="hb-sub">3 game · 982 plays · Aggiornato Apr 10, 2026</div>
+        <div class="hb-kpis">
+          <div class="hb-kpi"><div class="hk-l">Total Plays</div><div class="hk-v">982</div></div>
+          <div class="hb-kpi"><div class="hk-l">Unique Players</div><div class="hk-v">385</div></div>
+          <div class="hb-kpi"><div class="hk-l">Avg Score</div><div class="hk-v">68.6%</div></div>
+          <div class="hb-kpi"><div class="hk-l">Completion Rate</div><div class="hk-v">100%</div></div>
+          <div class="hb-kpi"><div class="hk-l">Repeat Rate ≥2</div><div class="hk-v">80.5%</div></div>
+          <div class="hb-kpi"><div class="hk-l">Goox distribuiti</div><div class="hk-v">40.455</div></div>
+        </div>
       </div>
     </div>
-    <div class="card" style="border-color:var(--pink-bd);background:var(--pink-lt)">
-      <div class="card-head" style="color:var(--pink)">Perché scegliere mygoo</div>
-      <div style="display:flex;flex-direction:column;gap:9px;font-size:13px;color:var(--text)">
-        <div style="display:flex;gap:8px"><span style="color:var(--pink);font-weight:900">✦</span>Dato di percezione autentico, non razionalizzato</div>
-        <div style="display:flex;gap:8px"><span style="color:var(--pink);font-weight:900">✦</span>Tempi rapidi: risultati in 7–14 giorni</div>
-        <div style="display:flex;gap:8px"><span style="color:var(--pink);font-weight:900">✦</span>Community reale, engagement alto, tasso di completamento elevato</div>
-        <div style="display:flex;gap:8px"><span style="color:var(--pink);font-weight:900">✦</span>Zero-party data: 100% GDPR compliant</div>
-        <div style="display:flex;gap:8px"><span style="color:var(--pink);font-weight:900">✦</span>Report azionabile, non un documento da archiviare</div>
+
+    <div class="split-2">
+      <div class="card">
+        <div class="card-head">Score Bands — Qualità delle risposte</div>
+        <div class="bands4">
+          <div class="band4 low"><div class="bv">9.5%</div><div class="bl">0–39%</div></div>
+          <div class="band4 med"><div class="bv">38.9%</div><div class="bl">40–69%</div></div>
+          <div class="band4 hi"><div class="bv">18.5%</div><div class="bl">70–99%</div></div>
+          <div class="band4 perf"><div class="bv">32.1%</div><div class="bl">100%</div></div>
+        </div>
       </div>
+      <div class="card">
+        <div class="card-head">CTA Performance</div>
+        <div class="kpi-grid g2" style="gap:8px">
+          <div class="kpi-card" style="padding:12px 14px"><div class="kl">Home CTR</div><div class="kv" style="font-size:20px">15.3%</div><div class="ks">59 click / 385 player</div></div>
+          <div class="kpi-card" style="padding:12px 14px"><div class="kl">End-game CTR</div><div class="kv" style="font-size:20px">14.8%</div><div class="ks">57 click / 385 player</div></div>
+          <div class="kpi-card" style="padding:12px 14px"><div class="kl">Abandonment</div><div class="kv" style="font-size:20px;color:#1B7A4F">0.1%</div><div class="ks">1 / 869 sessioni</div></div>
+          <div class="kpi-card" style="padding:12px 14px"><div class="kl">Avg Gameplay</div><div class="kv" style="font-size:20px">0m 55s</div><div class="ks">per sessione</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="split-2">
+      <div class="card">
+        <div class="card-head">Orario di gioco</div>
+        <div class="time-bars">
+          <div class="time-row"><div class="time-label">Notte (00–05)</div><div class="time-track"><div class="time-fill" style="width:5.5%;background:#6B21A8"></div></div><div class="time-pct">5.5%</div></div>
+          <div class="time-row"><div class="time-label">Mattina (06–11)</div><div class="time-track"><div class="time-fill" style="width:15.3%;background:#6B21A8"></div></div><div class="time-pct">15.3%</div></div>
+          <div class="time-row"><div class="time-label">Pranzo (12–14)</div><div class="time-track"><div class="time-fill" style="width:36%;background:#E01783"></div></div><div class="time-pct" style="color:#E01783;font-weight:900">36.0%</div></div>
+          <div class="time-row"><div class="time-label">Pomeriggio (15–18)</div><div class="time-track"><div class="time-fill" style="width:16.8%;background:#6B21A8"></div></div><div class="time-pct">16.8%</div></div>
+          <div class="time-row"><div class="time-label">Sera (19–23)</div><div class="time-track"><div class="time-fill" style="width:26.4%;background:#6B21A8"></div></div><div class="time-pct">26.4%</div></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-head">Game-by-game</div>
+        <table class="ct-table">
+          <thead><tr><th>Gioco</th><th>Plays</th><th>Players</th><th>Goox</th></tr></thead>
+          <tbody>
+            <tr><td>Game 01</td><td>350</td><td>350</td><td>11.815</td></tr>
+            <tr><td>Game 02</td><td>325</td><td>325</td><td>15.765</td></tr>
+            <tr><td>Game 03</td><td>307</td><td>307</td><td>12.875</td></tr>
+            <tr class="total-row"><td>Totali</td><td>982</td><td>385</td><td>40.455</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── RENAULT ── -->
+  <div id="brand-rena" class="brand-section">
+    <div class="hero-brand rena" data-wm="RENAULT">
+      <div class="hb-left">
+        <div class="hb-eyebrow">RENAULT · GEN–FEB 2026 · CODICE RENAULT-VARCA-03-0126</div>
+        <div class="hb-title">Campagna product awareness<br>🚗 Automotive / EV</div>
+        <div class="hb-sub">6 game · 1.654 plays · Aggiornato May 06, 2026</div>
+        <div class="hb-kpis">
+          <div class="hb-kpi"><div class="hk-l">Total Plays</div><div class="hk-v">1.654</div></div>
+          <div class="hb-kpi"><div class="hk-l">Unique Players</div><div class="hk-v">394</div></div>
+          <div class="hb-kpi"><div class="hk-l">Avg Score</div><div class="hk-v">72.0%</div></div>
+          <div class="hb-kpi"><div class="hk-l">Completion Rate</div><div class="hk-v">100%</div></div>
+          <div class="hb-kpi"><div class="hk-l">Repeat Rate ≥2</div><div class="hk-v" style="color:#FFD700">82.0% 🏆</div></div>
+          <div class="hb-kpi"><div class="hk-l">Goox distribuiti</div><div class="hk-v">75.618</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="split-2">
+      <div class="card">
+        <div class="card-head">Score Bands — Qualità delle risposte</div>
+        <div class="bands4">
+          <div class="band4 low"><div class="bv">15.4%</div><div class="bl">0–39%</div></div>
+          <div class="band4 med"><div class="bv">23.0%</div><div class="bl">40–69%</div></div>
+          <div class="band4 hi"><div class="bv">18.5%</div><div class="bl">70–99%</div></div>
+          <div class="band4 perf"><div class="bv">43.2%</div><div class="bl">100%</div></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-head">CTA Performance 🏆 Best CTR</div>
+        <div class="kpi-grid g2" style="gap:8px">
+          <div class="kpi-card" style="padding:12px 14px"><div class="kl">Home CTR</div><div class="kv" style="font-size:20px;color:#003189">19.3%</div><div class="ks">76 click / 394 player</div></div>
+          <div class="kpi-card" style="padding:12px 14px"><div class="kl">End-game CTR</div><div class="kv" style="font-size:20px;color:#003189">20.1%</div><div class="ks">79 click / 394 player</div></div>
+          <div class="kpi-card" style="padding:12px 14px"><div class="kl">Abandonment</div><div class="kv" style="font-size:20px;color:#1B7A4F">0.0%</div><div class="ks">zero abbandoni</div></div>
+          <div class="kpi-card" style="padding:12px 14px"><div class="kl">Avg Gameplay</div><div class="kv" style="font-size:20px">0m 41s</div><div class="ks">per sessione</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="split-2">
+      <div class="card">
+        <div class="card-head">Orario di gioco</div>
+        <div class="time-bars">
+          <div class="time-row"><div class="time-label">Notte (00–05)</div><div class="time-track"><div class="time-fill" style="width:0.5%;background:#003189"></div></div><div class="time-pct">0.5%</div></div>
+          <div class="time-row"><div class="time-label">Mattina (06–11)</div><div class="time-track"><div class="time-fill" style="width:16.4%;background:#003189"></div></div><div class="time-pct">16.4%</div></div>
+          <div class="time-row"><div class="time-label">Pranzo (12–16)</div><div class="time-track"><div class="time-fill" style="width:30.2%;background:#003189"></div></div><div class="time-pct">30.2%</div></div>
+          <div class="time-row"><div class="time-label">Pomeriggio (15–18)</div><div class="time-track"><div class="time-fill" style="width:17.1%;background:#003189"></div></div><div class="time-pct">17.1%</div></div>
+          <div class="time-row"><div class="time-label">Sera (19–23)</div><div class="time-track"><div class="time-fill" style="width:35.8%;background:#E01783"></div></div><div class="time-pct" style="color:#E01783;font-weight:900">35.8%</div></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-head">Game-by-game (6 game)</div>
+        <table class="ct-table">
+          <thead><tr><th>Gioco</th><th>Plays</th><th>Players</th><th>Goox</th></tr></thead>
+          <tbody>
+            <tr><td>RENAULT-1</td><td>328</td><td>328</td><td>11.260</td></tr>
+            <tr><td>RENAULT-2</td><td>306</td><td>306</td><td>14.710</td></tr>
+            <tr><td>RENAULT-3</td><td>268</td><td>268</td><td>13.560</td></tr>
+            <tr><td>RENAULT-4</td><td>275</td><td>275</td><td>12.840</td></tr>
+            <tr><td>RENAULT-5</td><td>292</td><td>292</td><td>15.590</td></tr>
+            <tr><td>RENAULT-6</td><td>185</td><td>185</td><td>7.658</td></tr>
+            <tr class="total-row"><td>Totali</td><td>1.654</td><td>394</td><td>75.618</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">Accuratezza per domanda — Avg 73.0% · Renault Mégane E-Tech</div>
+      <table class="ct-table">
+        <thead><tr><th style="text-align:left">Domanda</th><th>Tentativi</th><th>Corrette</th><th>Success Rate</th></tr></thead>
+        <tbody>
+          <tr><td>Autonomia WLTP Megane E-Tech 60 kWh fino a 470 km?</td><td>888</td><td>615</td><td>69.3%</td></tr>
+          <tr><td>Quale frenata rigenerativa offre guida quasi a un solo pedale?</td><td>895</td><td>563</td><td>62.9%</td></tr>
+          <tr><td>Con che potenza ricarica in corrente continua (DC)?</td><td>596</td><td>372</td><td>62.4%</td></tr>
+          <tr><td>Quanto tempo per ricaricare via wallbox 7 kW?</td><td>895</td><td>576</td><td>64.4%</td></tr>
+          <tr><td>Quanto potente è il motore Megane E-Tech Electric?</td><td>1.058</td><td>772</td><td>73.0%</td></tr>
+          <tr><td>In 30 min su colonnina rapida recupera quanta autonomia?</td><td>574</td><td>458</td><td>79.8%</td></tr>
+          <tr><td>Quanto si risparmia all'anno vs termico?</td><td>759</td><td>538</td><td>70.9%</td></tr>
+          <tr><td>L'assistenza "Active Driver Assist" combina cosa?</td><td>1.058</td><td>946</td><td>89.4%</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 
@@ -972,6 +1191,12 @@ function showTab(id, btn) {
   document.getElementById('tab-' + id).classList.add('active');
   btn.classList.add('active');
   window.scrollTo({top: 0, behavior: 'smooth'});
+}
+function showBrand(id, btn) {
+  document.querySelectorAll('.brand-section').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.brand-btn').forEach(t => t.classList.remove('active'));
+  document.getElementById('brand-' + id).classList.add('active');
+  btn.classList.add('active');
 }
 </script>
 </body>
