@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>mygoo.fun — Ricerche di Mercato per Brand</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --teal:#2B5253;--teal-md:#3D6A6B;--teal-lt:#EDF4F4;--teal-bd:#C0D8D8;
+  --pink:#E01783;--pink-lt:#FDF0F7;--pink-bd:#F5A7D4;
+  --green:#1B7A4F;--green-lt:#EDF7F2;
+  --amber:#D97706;--amber-lt:#FFFBEB;
+  --white:#FFFFFF;--border:#E2ECEC;
+  --text:#1C2E2E;--gray:#607070;--lgray:#96AAAA;
+  --bg:#E8EDED;
+  --r:10px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:linear-gradient(to bottom,#fff 0%,#f4f8f8 100%);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 24px;height:60px;box-shadow:0 2px 16px rgba(43,82,83,.10)}
+nav .nav-logo{height:32px;display:block}
+.nav-tabs{display:flex;gap:3px}
+.nav-tab{background:none;border:none;cursor:pointer;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:.03em;color:var(--gray);padding:7px 13px;border-radius:8px;transition:background .15s,color .15s}
+.nav-tab:hover{background:var(--teal-lt);color:var(--teal)}
+.nav-tab.active{background:var(--teal);color:#fff}
+.nav-badge{background:var(--pink);color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;letter-spacing:.06em;white-space:nowrap}
+
+/* TABS */
+.tab-content{display:none}.tab-content.active{display:block}
+
+/* LAYOUT */
+.wrap{max-width:1080px;margin:0 auto;padding:40px 24px 80px;display:flex;flex-direction:column;gap:28px}
+
+/* HERO */
+.hero-cover{border-radius:16px;padding:44px 52px;position:relative;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.20);display:flex;align-items:flex-start;justify-content:space-between;gap:24px;background:var(--teal)}
+.hero-cover::after{content:attr(data-watermark);position:absolute;right:-20px;bottom:-30px;font-size:clamp(60px,10vw,120px);font-weight:900;color:rgba(255,255,255,.05);letter-spacing:-4px;pointer-events:none;white-space:nowrap}
+.hero-text{flex:1}
+.hero-cover .eyebrow{font-size:11px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:12px}
+.hero-cover .ht{font-size:clamp(24px,3.8vw,44px);font-weight:900;color:#fff;line-height:1.08;margin-bottom:14px}
+.hero-cover .ht em{font-style:normal;color:var(--pink);font-weight:900}
+.hero-cover .hb{font-size:15px;color:rgba(255,255,255,.7);max-width:520px;line-height:1.7}
+.hero-meta{margin-top:22px;display:flex;gap:10px;flex-wrap:wrap}
+.hero-meta-item{background:rgba(255,255,255,.1);border-radius:8px;padding:8px 14px}
+.hero-meta-item .ml{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:3px}
+.hero-meta-item .mv{font-size:14px;font-weight:800;color:#fff}
+.hero-logo{flex-shrink:0;background:rgba(255,255,255,.1);border-radius:14px;padding:20px 22px;display:flex;flex-direction:column;align-items:center;gap:10px}
+.hero-logo img{display:block}
+.hero-logo .brand-name{font-size:10px;font-weight:700;letter-spacing:.15em;color:rgba(255,255,255,.6);text-transform:uppercase}
+
+/* KPI GRID */
+.kpi-grid{display:grid;gap:12px}
+.g5{grid-template-columns:repeat(5,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}
+.kpi-card{background:var(--white);border-radius:var(--r);border:1.5px solid var(--border);padding:18px 20px;box-shadow:0 2px 8px rgba(43,82,83,.06)}
+.kpi-card .kl{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);margin-bottom:7px}
+.kpi-card .kv{font-size:clamp(20px,2.4vw,30px);font-weight:900;color:var(--teal);line-height:1}
+.kpi-card .ks{font-size:12px;color:var(--lgray);margin-top:5px;line-height:1.5}
+.kpi-card.pink .kv{color:var(--pink)}
+
+/* SECTION HEADER */
+.sec-label{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--pink);margin-bottom:5px}
+.sec-title{font-size:clamp(17px,2.4vw,26px);font-weight:900;color:var(--text);line-height:1.1;border-left:4px solid var(--pink);padding-left:13px;margin-bottom:16px}
+
+/* CARD */
+.card{background:var(--white);border-radius:var(--r);border:1.5px solid var(--border);padding:22px 24px;box-shadow:0 2px 8px rgba(43,82,83,.06)}
+.card-head{font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gray);padding-bottom:10px;border-bottom:1px solid var(--border);margin-bottom:16px;display:flex;align-items:center;gap:7px}
+.card-head::before{content:'';width:3px;height:11px;border-radius:2px;background:var(--pink);flex-shrink:0}
+
+/* SPLITS */
+.split-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.split-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+
+/* STEP FLOW */
+.step-flow{display:flex;flex-direction:column;gap:0}
+.step-item{display:flex;gap:20px;position:relative;padding-bottom:28px}
+.step-item:last-child{padding-bottom:0}
+.step-item:not(:last-child)::after{content:'';position:absolute;left:22px;top:44px;bottom:0;width:2px;background:var(--teal-bd)}
+.step-num{width:44px;height:44px;border-radius:50%;background:var(--teal);color:#fff;font-size:16px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 4px 12px rgba(43,82,83,.25)}
+.step-body{flex:1;padding-top:8px}
+.step-title{font-size:14px;font-weight:800;color:var(--teal);margin-bottom:5px}
+.step-desc{font-size:13px;color:var(--gray);line-height:1.65}
+
+/* FEATURE CARDS */
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.feat-card{background:var(--white);border-radius:12px;border:1.5px solid var(--border);padding:20px 20px 22px;box-shadow:0 2px 8px rgba(43,82,83,.06)}
+.feat-icon{font-size:28px;margin-bottom:12px;display:block}
+.feat-title{font-size:13px;font-weight:800;color:var(--teal);margin-bottom:7px;text-transform:uppercase;letter-spacing:.06em}
+.feat-desc{font-size:13px;color:var(--gray);line-height:1.65}
+
+/* METRIC TYPE CARDS */
+.metric-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.metric-card{background:var(--white);border-radius:12px;border:1.5px solid var(--border);padding:20px 22px;box-shadow:0 2px 8px rgba(43,82,83,.06);display:flex;gap:16px}
+.metric-icon{width:48px;height:48px;border-radius:10px;background:var(--teal-lt);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.metric-body{}
+.metric-title{font-size:13px;font-weight:800;color:var(--teal);margin-bottom:5px}
+.metric-desc{font-size:12px;color:var(--gray);line-height:1.6}
+.metric-tags{margin-top:8px;display:flex;flex-wrap:wrap;gap:5px}
+.metric-tag{background:var(--teal-lt);color:var(--teal);font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;letter-spacing:.04em}
+
+/* SECTOR CHIPS */
+.sector-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.sector-card{background:var(--white);border-radius:10px;border:1.5px solid var(--border);padding:16px 16px 18px;text-align:center;box-shadow:0 2px 6px rgba(43,82,83,.05)}
+.sector-emoji{font-size:28px;display:block;margin-bottom:8px}
+.sector-name{font-size:12px;font-weight:800;color:var(--teal);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+.sector-use{font-size:11px;color:var(--lgray);line-height:1.5}
+
+/* REPORT PREVIEW */
+.report-preview{background:linear-gradient(135deg,#1C2E2E 0%,#2B5253 100%);border-radius:14px;padding:28px 32px;color:#fff;position:relative;overflow:hidden}
+.report-preview::after{content:'REPORT';position:absolute;right:-10px;bottom:-20px;font-size:120px;font-weight:900;color:rgba(255,255,255,.04);letter-spacing:-4px;pointer-events:none}
+.report-preview .rp-label{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:10px}
+.report-preview .rp-title{font-size:20px;font-weight:900;color:#fff;margin-bottom:18px}
+.report-items{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.report-item{background:rgba(255,255,255,.07);border-radius:10px;padding:14px 16px;border:1px solid rgba(255,255,255,.1)}
+.report-item .ri-icon{font-size:18px;margin-bottom:8px;display:block}
+.report-item .ri-title{font-size:11px;font-weight:800;color:rgba(255,255,255,.9);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+.report-item .ri-desc{font-size:11px;color:rgba(255,255,255,.5);line-height:1.55}
+
+/* DIFFERENTIATOR TABLE */
+.diff-table{width:100%;border-collapse:collapse;font-size:13px}
+.diff-table th{padding:10px 14px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-bottom:2px solid var(--border);color:var(--gray);text-align:center}
+.diff-table th:first-child{text-align:left}
+.diff-table th.hl{color:var(--teal);background:var(--teal-lt)}
+.diff-table td{padding:11px 14px;border-bottom:1px solid var(--border);text-align:center}
+.diff-table td:first-child{text-align:left;font-weight:600;color:var(--text)}
+.diff-table td.hl{background:var(--teal-lt);font-weight:700;color:var(--teal)}
+.diff-table tr:last-child td{border-bottom:none}
+.chk{color:#1B7A4F;font-size:15px}.xmk{color:#C62828;font-size:14px}.neu{color:var(--lgray);font-size:12px}
+
+/* PRICING */
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.price-card{background:var(--white);border-radius:14px;border:1.5px solid var(--border);padding:26px 22px 28px;box-shadow:0 2px 8px rgba(43,82,83,.06);display:flex;flex-direction:column;gap:0;position:relative}
+.price-card.featured{border-color:var(--teal);box-shadow:0 4px 24px rgba(43,82,83,.18)}
+.price-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--teal);color:#fff;font-size:10px;font-weight:700;padding:3px 12px;border-radius:20px;letter-spacing:.08em;white-space:nowrap}
+.price-tier{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--lgray);margin-bottom:10px}
+.price-name{font-size:20px;font-weight:900;color:var(--teal);margin-bottom:8px}
+.price-desc{font-size:12px;color:var(--gray);line-height:1.6;margin-bottom:20px;flex:1}
+.price-features{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:22px}
+.price-features li{font-size:12px;color:var(--text);display:flex;align-items:flex-start;gap:7px;line-height:1.5}
+.price-features li::before{content:'✓';color:var(--teal);font-weight:900;font-size:12px;flex-shrink:0;margin-top:1px}
+.price-cta{background:var(--teal);color:#fff;border:none;border-radius:8px;padding:11px 18px;font-family:'Inter',sans-serif;font-size:13px;font-weight:700;cursor:pointer;width:100%;transition:opacity .15s}
+.price-cta:hover{opacity:.85}
+.price-card.featured .price-cta{background:var(--pink)}
+
+/* CTA BOX */
+.cta-box{background:var(--pink);border-radius:14px;padding:36px 44px;text-align:center;color:#fff;position:relative;overflow:hidden}
+.cta-box::after{content:'→';position:absolute;right:20px;bottom:-20px;font-size:140px;font-weight:900;color:rgba(255,255,255,.07);pointer-events:none}
+.cta-box .ct{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:10px}
+.cta-box .ch{font-size:clamp(20px,3vw,32px);font-weight:900;color:#fff;line-height:1.15;margin-bottom:12px}
+.cta-box .cs{font-size:14px;color:rgba(255,255,255,.7);max-width:520px;margin:0 auto 24px;line-height:1.65}
+.cta-btn{display:inline-block;background:#fff;color:var(--pink);font-family:'Inter',sans-serif;font-size:14px;font-weight:800;padding:13px 32px;border-radius:10px;border:none;cursor:pointer;letter-spacing:.02em;text-decoration:none;transition:opacity .15s}
+.cta-btn:hover{opacity:.9}
+
+/* QUOTE BOX */
+.quote-box{background:var(--teal-lt);border-radius:12px;border-left:4px solid var(--teal);padding:20px 24px}
+.quote-text{font-size:14px;line-height:1.75;color:var(--text);font-style:italic}
+.quote-source{font-size:11px;font-weight:700;color:var(--teal);margin-top:10px;text-transform:uppercase;letter-spacing:.1em}
+
+/* SYSTEM 1 BOX */
+.system1-box{background:linear-gradient(135deg,#1C2E2E 0%,#2B5253 100%);border-radius:14px;padding:26px 30px;color:#fff;position:relative;overflow:hidden}
+.system1-box::after{content:'"';position:absolute;right:20px;bottom:-20px;font-size:140px;font-weight:900;color:rgba(255,255,255,.05);line-height:1}
+.system1-box .s1-label{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:10px}
+.system1-box .s1-text{font-size:14px;line-height:1.75;color:rgba(255,255,255,.88)}
+.system1-box .s1-text strong{color:#fff}
+
+/* TIMELINE */
+.timeline{display:flex;gap:0;position:relative}
+.timeline::before{content:'';position:absolute;top:22px;left:0;right:0;height:2px;background:var(--teal-bd);z-index:0}
+.tl-step{flex:1;display:flex;flex-direction:column;align-items:center;position:relative;z-index:1}
+.tl-dot{width:44px;height:44px;border-radius:50%;background:var(--teal);color:#fff;font-size:14px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 4px var(--teal-lt);margin-bottom:14px}
+.tl-title{font-size:11px;font-weight:800;color:var(--teal);text-transform:uppercase;letter-spacing:.06em;text-align:center;margin-bottom:5px}
+.tl-desc{font-size:11px;color:var(--gray);text-align:center;line-height:1.6;max-width:120px}
+
+/* FOOTER */
+footer{background:var(--teal);color:rgba(255,255,255,.6);text-align:center;padding:30px 24px;font-size:12px;line-height:1.8}
+footer img{height:18px;margin-bottom:8px;display:block;margin-left:auto;margin-right:auto;opacity:.7}
+footer a{color:rgba(255,255,255,.7);text-decoration:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .feat-grid{grid-template-columns:repeat(2,1fr)}
+  .sector-grid{grid-template-columns:repeat(2,1fr)}
+  .price-grid{grid-template-columns:1fr 1fr}
+  .report-items{grid-template-columns:1fr 1fr}
+  .timeline{flex-direction:column;gap:20px}
+  .timeline::before{display:none}
+  .tl-step{flex-direction:row;align-items:flex-start;gap:16px}
+  .tl-dot{flex-shrink:0;margin-bottom:0}
+  .tl-title,.tl-desc{text-align:left;max-width:none}
+}
+@media(max-width:768px){
+  nav{padding:0 12px}
+  .hero-cover{padding:28px 22px;flex-direction:column}
+  .hero-logo{display:none}
+  .wrap{padding:20px 14px 60px}
+  .split-2,.split-3,.feat-grid,.metric-grid{grid-template-columns:1fr}
+  .g4,.g3{grid-template-columns:repeat(2,1fr)}
+  .nav-tab{font-size:11px;padding:6px 8px}
+  .nav-badge{display:none}
+  .price-grid{grid-template-columns:1fr}
+  .report-items{grid-template-columns:1fr}
+  .sector-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){.g4,.g3,.g2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav>
+  <img src="logo_Mygoo.fun_vectorColored.png" alt="mygoo.fun" class="nav-logo">
+  <div class="nav-tabs">
+    <button class="nav-tab active" onclick="showTab('perche',this)">✦ Perché mygoo</button>
+    <button class="nav-tab" onclick="showTab('funziona',this)">⚙ Come funziona</button>
+    <button class="nav-tab" onclick="showTab('misuri',this)">📊 Cosa misuri</button>
+    <button class="nav-tab" onclick="showTab('report',this)">📋 Il Report</button>
+    <button class="nav-tab" onclick="showTab('attiva',this)">→ Attiva</button>
+  </div>
+  <div class="nav-badge">RICERCHE DI MERCATO</div>
+</nav>
+
+
+<!-- ═══════════════════════════════════ PERCHÉ MYGOO -->
+<div id="tab-perche" class="tab-content active">
+<div class="wrap">
+
+  <div class="hero-cover" data-watermark="mygoo">
+    <div class="hero-text">
+      <div class="eyebrow">GUESS WHAT YOU KNOW · MYGOO.FUN</div>
+      <div class="ht">La prima piattaforma che misura come<br>il tuo brand vive <em>nella mente dei consumatori.</em></div>
+      <div class="hb">Percezione istintiva. Dato reale. Nessun filtro. mygoo.fun cattura la reazione non mediata dei consumatori attraverso un'esperienza gamificata — prima che la mente razionale intervenga.</div>
+      <div class="hero-meta">
+        <div class="hero-meta-item"><div class="ml">Metodo</div><div class="mv">System 1 Thinking</div></div>
+        <div class="hero-meta-item"><div class="ml">Formato</div><div class="mv">Gamificato</div></div>
+        <div class="hero-meta-item"><div class="ml">Dati</div><div class="mv">Zero-party</div></div>
+        <div class="hero-meta-item"><div class="ml">Tempo risposta</div><div class="mv">~50 secondi</div></div>
+      </div>
+    </div>
+    <div class="hero-logo">
+      <img src="logo_Mygoo.fun_vectorColored.png" alt="mygoo.fun" style="height:52px;filter:brightness(0) invert(1);opacity:.85">
+      <div class="brand-name">mygoo.fun</div>
+    </div>
+  </div>
+
+  <div>
+    <div class="sec-label">Il problema delle ricerche tradizionali</div>
+    <div class="sec-title">Il tuo cliente non mente. Ma nel momento in cui elabora una risposta, il dato si corrompe.</div>
+  </div>
+
+  <div class="split-3">
+    <div class="card" style="border-top:3px solid #C62828">
+      <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#C62828;margin-bottom:10px">Focus Group</div>
+      <div style="font-size:14px;font-weight:800;color:var(--text);margin-bottom:8px">Ambiente artificiale</div>
+      <div style="font-size:13px;color:var(--gray);line-height:1.65">Le persone si influenzano a vicenda e razionalizzano le risposte. Tra la domanda e la risposta si inserisce il filtro: l'immagine di sé, l'attesa sociale, la risposta «giusta».</div>
+    </div>
+    <div class="card" style="border-top:3px solid #C62828">
+      <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#C62828;margin-bottom:10px">Survey Online</div>
+      <div style="font-size:14px;font-weight:800;color:var(--text);margin-bottom:8px">Riflessione prolungata</div>
+      <div style="font-size:13px;color:var(--gray);line-height:1.65">Domande a freddo, tempo illimitato per rispondere. Il filtro cognitivo è massimo. Non per malafede: è la struttura stessa dello strumento a corrompere il dato.</div>
+    </div>
+    <div class="card" style="border-top:3px solid #C62828">
+      <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#C62828;margin-bottom:10px">Brand Tracking</div>
+      <div style="font-size:14px;font-weight:800;color:var(--text);margin-bottom:8px">Dichiarazioni, non percezioni</div>
+      <div style="font-size:13px;color:var(--gray);line-height:1.65">Misura cosa le persone <em>dichiarano</em> di pensare. Non cosa sentono istintivamente. La reazione vera — quella che accade prima del pensiero — non viene mai catturata.</div>
+    </div>
+  </div>
+
+  <div class="system1-box">
+    <div class="s1-label">System 1 Thinking — Daniel Kahneman</div>
+    <div class="s1-text">
+      Il nostro cervello opera su due livelli: il <strong>Sistema 1</strong> — veloce, istintivo, emotivo — e il Sistema 2, lento e razionale. Le decisioni di acquisto sono guidate quasi sempre dal Sistema 1. mygoo.fun intercetta quel momento: <strong>esposizione breve, risposta sotto lieve pressione temporale, motivazione da reward</strong>. Il risultato è un dato di percezione autentico, non razionalizzato, impossibile da catturare con i metodi tradizionali.
+    </div>
+  </div>
+
+  <div class="split-2">
+    <div class="card">
+      <div class="card-head">Survey tradizionale</div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--gray)"><span style="color:#C62828;font-size:16px;flex-shrink:0">✗</span> L'utente riflette e razionalizza le risposte</div>
+        <div style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--gray)"><span style="color:#C62828;font-size:16px;flex-shrink:0">✗</span> Esperienza noiosa, alto tasso di abbandono</div>
+        <div style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--gray)"><span style="color:#C62828;font-size:16px;flex-shrink:0">✗</span> Risposta socialmente desiderabile, non autentica</div>
+        <div style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--gray)"><span style="color:#C62828;font-size:16px;flex-shrink:0">✗</span> Tempi di raccolta dati lunghi (settimane)</div>
+        <div style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--gray)"><span style="color:#C62828;font-size:16px;flex-shrink:0">✗</span> Nessuna componente emotiva o motivazionale</div>
+      </div>
+    </div>
+    <div class="card" style="border-color:var(--teal-bd)">
+      <div class="card-head" style="color:var(--teal)">mygoo.fun</div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--text)"><span style="color:#1B7A4F;font-size:16px;flex-shrink:0">✓</span> Risposta istintiva in &lt;50 secondi per game</div>
+        <div style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--text)"><span style="color:#1B7A4F;font-size:16px;flex-shrink:0">✓</span> Esperienza gamificata, engagement alto</div>
+        <div style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--text)"><span style="color:#1B7A4F;font-size:16px;flex-shrink:0">✓</span> Reward system: motivazione intrinseca ed estrinseca</div>
+        <div style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--text)"><span style="color:#1B7A4F;font-size:16px;flex-shrink:0">✓</span> Dati disponibili in tempo reale</div>
+        <div style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--text)"><span style="color:#1B7A4F;font-size:16px;flex-shrink:0">✓</span> Zero-party data: il dato è ceduto volontariamente</div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="sec-label">Il dato del futuro</div>
+    <div class="sec-title">Zero-party data: il nuovo oro del marketing.</div>
+  </div>
+
+  <div class="card" style="padding:0;overflow:hidden">
+    <table class="diff-table">
+      <thead>
+        <tr>
+          <th style="text-align:left;padding-left:20px">Tipo di dato</th>
+          <th>Modalità di raccolta</th>
+          <th>Consenso</th>
+          <th class="hl">Qualità & futuro</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding-left:20px"><strong>Third-party data</strong><br><span style="font-size:11px;color:var(--lgray)">Cookie, tracking, pixel</span></td>
+          <td style="font-size:12px">Raccolta senza consenso esplicito</td>
+          <td><span class="xmk">✗</span></td>
+          <td class="hl" style="font-size:12px;color:#C62828;font-weight:700">In estinzione con la fine dei cookie</td>
+        </tr>
+        <tr>
+          <td style="padding-left:20px"><strong>First-party data</strong><br><span style="font-size:11px;color:var(--lgray)">CRM, form, acquisti</span></td>
+          <td style="font-size:12px">Raccolta con consenso, spesso superficiale</td>
+          <td><span class="neu">~</span></td>
+          <td class="hl" style="font-size:12px;color:var(--amber);font-weight:700">Utile ma parziale, dipende dal CRM</td>
+        </tr>
+        <tr>
+          <td style="padding-left:20px"><strong>Zero-party data</strong><br><span style="font-size:11px;color:var(--lgray)">mygoo.fun</span></td>
+          <td style="font-size:12px">Profiling attivo, esplicito, motivato dal gioco</td>
+          <td><span class="chk">✓</span></td>
+          <td class="hl" style="font-size:12px;color:#1B7A4F;font-weight:700">Il dato più prezioso — dichiarato, non inferito</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div>
+    <div class="sec-label">Il timing è adesso</div>
+    <div class="sec-title">Il mercato ha creato lo spazio. mygoo.fun lo occupa.</div>
+  </div>
+
+  <div class="kpi-grid g2">
+    <div class="kpi-card" style="border-left:4px solid var(--pink)">
+      <div class="kl">🍪 Cookie deprecation</div>
+      <div style="font-size:13px;color:var(--text);line-height:1.65;margin-top:6px">I cookie third-party sono in fase di progressiva eliminazione. Le aziende hanno urgente bisogno di nuove fonti di dato qualitativo e profilazione diretta.</div>
+    </div>
+    <div class="kpi-card" style="border-left:4px solid var(--pink)">
+      <div class="kl">📉 Attention economy in crisi</div>
+      <div style="font-size:13px;color:var(--text);line-height:1.65;margin-top:6px">L'attenzione media sull'advertising digitale è sotto i 5 secondi. Chi compra spazi pubblicitari non sa più se viene visto davvero. mygoo garantisce oltre 10 minuti di sessione.</div>
+    </div>
+    <div class="kpi-card" style="border-left:4px solid var(--teal)">
+      <div class="kl">🎯 Domanda di zero-party data</div>
+      <div style="font-size:13px;color:var(--text);line-height:1.65;margin-top:6px">I brand cercano dati di prima mano, raccolti con consenso, non aggregati e non inferiti. Il mercato chiede esattamente ciò che mygoo produce.</div>
+    </div>
+    <div class="kpi-card" style="border-left:4px solid var(--teal)">
+      <div class="kl">🎮 Gamification matura</div>
+      <div style="font-size:13px;color:var(--text);line-height:1.65;margin-top:6px">Il gaming come strumento di engagement è ormai mainstream. Duolingo insegna: le persone completano sessioni quotidiane per reward di pochi centesimi. La meccanica funziona.</div>
+    </div>
+  </div>
+
+  <div>
+    <div class="sec-label">I settori che usano mygoo</div>
+    <div class="sec-title">Ogni brand ha una percezione. mygoo la misura.</div>
+  </div>
+
+  <div class="sector-grid">
+    <div class="sector-card"><span class="sector-emoji">🍫</span><div class="sector-name">Food & Beverage</div><div class="sector-use">Percezione di gusto, associazioni di prodotto, test pack</div></div>
+    <div class="sector-card"><span class="sector-emoji">🚗</span><div class="sector-name">Automotive</div><div class="sector-use">Brand awareness, valori percepiti, confronto modelli</div></div>
+    <div class="sector-card"><span class="sector-emoji">📱</span><div class="sector-name">Tech & Consumer</div><div class="sector-use">Posizionamento, affinità generazionale, sentiment</div></div>
+    <div class="sector-card"><span class="sector-emoji">☕</span><div class="sector-name">Lusso & Premium</div><div class="sector-use">Coerenza del brand, aspirazionalità, NPS istintivo</div></div>
+    <div class="sector-card"><span class="sector-emoji">🏦</span><div class="sector-name">Finanza & Assicurazioni</div><div class="sector-use">Trust score, percezione di sicurezza, reputazione</div></div>
+    <div class="sector-card"><span class="sector-emoji">💊</span><div class="sector-name">Healthcare & Pharma</div><div class="sector-use">Affidabilità percepita, comunicazione empatica</div></div>
+    <div class="sector-card"><span class="sector-emoji">👗</span><div class="sector-name">Fashion & Retail</div><div class="sector-use">Identità di brand, coerenza visiva, desiderabilità</div></div>
+    <div class="sector-card"><span class="sector-emoji">🏠</span><div class="sector-name">Real Estate & Living</div><div class="sector-use">Percezione di qualità, aspirazione abitativa, fiducia</div></div>
+  </div>
+
+</div>
+</div>
+
+
+<!-- ═══════════════════════════════════ COME FUNZIONA -->
+<div id="tab-funziona" class="tab-content">
+<div class="wrap">
+
+  <div class="hero-cover" data-watermark="PROCESSO" style="background:linear-gradient(135deg,#1C2E2E,#2B5253)">
+    <div class="hero-text">
+      <div class="eyebrow">PROCESSO · COME FUNZIONA</div>
+      <div class="ht">Da brief a insight<br><em>in pochi giorni.</em></div>
+      <div class="hb">Un processo semplice e guidato: tu definisci gli obiettivi di ricerca, noi costruiamo i game, raccogliamo i dati e ti consegniamo un report strutturato e azionabile.</div>
+    </div>
+  </div>
+
+  <div class="kpi-grid g4">
+    <div class="kpi-card"><div class="kl">Durata media campagna</div><div class="kv">7–14 gg</div><div class="ks">dalla firma del brief alla consegna del report</div></div>
+    <div class="kpi-card"><div class="kl">Game per campagna</div><div class="kv">4–5</div><div class="ks">sessioni di gioco tematizzate sul brief</div></div>
+    <div class="kpi-card"><div class="kl">Domande per game</div><div class="kv">5–7</div><div class="ks">domande a risposta istintiva per sessione</div></div>
+    <div class="kpi-card pink"><div class="kl">Attenzione per sessione</div><div class="kv">&gt;10 min</div><div class="ks">tempo medio di engagement dell'utente finale</div></div>
+  </div>
+
+  <div>
+    <div class="sec-label">Il processo in 5 passi</div>
+    <div class="sec-title">Come si attiva una ricerca di mercato con mygoo</div>
+  </div>
+
+  <div class="card" style="padding:32px 36px">
+    <div class="step-flow">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">Brief & obiettivi di ricerca</div>
+          <div class="step-desc">Definisci insieme al team mygoo le domande di business che vuoi rispondere: percezione del brand, test di un nuovo prodotto, analisi competitiva, sentiment su una campagna. Bastano 1–2 meeting di allineamento.</div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">Costruzione dei game</div>
+          <div class="step-desc">Il team mygoo traduce il tuo brief in una sequenza di 4–5 game gamificati: ogni game contiene 5–7 domande a risposta rapida, immagini, stimoli visivi e meccaniche di reward. I game vengono sottoposti alla tua approvazione prima della pubblicazione.</div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">Distribuzione alla community</div>
+          <div class="step-desc">I game vengono distribuiti alla base utenti di mygoo.fun, segmentata per età, genere, area geografica, interessi e abitudini di consumo. Puoi definire il profilo del campione target insieme al nostro team.</div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <div class="step-title">Raccolta dati in real-time</div>
+          <div class="step-desc">Mentre gli utenti giocano, la piattaforma raccoglie le risposte istantaneamente. Potrai seguire l'avanzamento della campagna su una dashboard dedicata: sample size, completamento, distribuzioni geografiche e demografiche.</div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <div class="step-title">Report & presentazione dei risultati</div>
+          <div class="step-desc">A raccolta completata ricevi un report strutturato con visualizzazioni, score, benchmark di settore e commento qualitativo. Il team mygoo è disponibile per una sessione di presentazione e Q&A con il tuo team marketing o management.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="sec-label">I 5 moduli di gioco</div>
+    <div class="sec-title">Ogni touchpoint pubblicitario ha il suo modulo dedicato.</div>
+  </div>
+
+  <div class="kpi-grid g5">
+    <div class="kpi-card" style="text-align:center;border-top:3px solid var(--teal)">
+      <div style="font-size:24px;margin-bottom:8px">🧠</div>
+      <div class="kl" style="text-align:center">01 · Brand Game</div>
+      <div class="ks" style="text-align:center">Caratteristiche e attributi del prodotto. Come il brand vive nella mente del consumatore.</div>
+    </div>
+    <div class="kpi-card" style="text-align:center;border-top:3px solid var(--teal)">
+      <div style="font-size:24px;margin-bottom:8px">📦</div>
+      <div class="kl" style="text-align:center">02 · Pack Game</div>
+      <div class="ks" style="text-align:center">Impatto visivo del packaging. Riconoscibilità, appeal e coerenza con il brand.</div>
+    </div>
+    <div class="kpi-card" style="text-align:center;border-top:3px solid var(--teal)">
+      <div style="font-size:24px;margin-bottom:8px">🏙</div>
+      <div class="kl" style="text-align:center">03 · Outdoor Game</div>
+      <div class="ks" style="text-align:center">Efficacia della comunicazione esterna. OOH, affissioni, banner, cartellonistica.</div>
+    </div>
+    <div class="kpi-card" style="text-align:center;border-top:3px solid var(--pink)">
+      <div style="font-size:24px;margin-bottom:8px">📺</div>
+      <div class="kl" style="text-align:center">04 · Spot Game</div>
+      <div class="ks" style="text-align:center">Recall e impatto degli spot TV e video. Cosa rimane dopo l'esposizione?</div>
+    </div>
+    <div class="kpi-card" style="text-align:center;border-top:3px solid var(--pink)">
+      <div style="font-size:24px;margin-bottom:8px">🎙</div>
+      <div class="kl" style="text-align:center">05 · Radio/Channel</div>
+      <div class="ks" style="text-align:center">Riconoscimento audio e web TV. Identità sonora e recall del messaggio.</div>
+    </div>
+  </div>
+
+  <div>
+    <div class="sec-label">Attenzione garantita</div>
+    <div class="sec-title">mygoo.fun vs advertising digitale: il gap di attenzione è reale.</div>
+  </div>
+
+  <div class="card" style="padding:0;overflow:hidden">
+    <table class="diff-table">
+      <thead>
+        <tr>
+          <th style="text-align:left;padding-left:20px">Canale</th>
+          <th>Attenzione media</th>
+          <th class="hl">Rapporto vs mygoo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding-left:20px">Facebook mobile</td>
+          <td style="font-weight:700;color:#C62828">1.7 sec</td>
+          <td class="hl" style="color:#C62828;font-weight:700">6× inferiore</td>
+        </tr>
+        <tr>
+          <td style="padding-left:20px">Facebook desktop</td>
+          <td style="font-weight:700;color:#C62828">2.5 sec</td>
+          <td class="hl" style="color:#C62828;font-weight:700">4× inferiore</td>
+        </tr>
+        <tr>
+          <td style="padding-left:20px">Display statico</td>
+          <td style="font-weight:700;color:var(--amber)">4.1 sec</td>
+          <td class="hl" style="color:var(--amber);font-weight:700">2.4× inferiore</td>
+        </tr>
+        <tr>
+          <td style="padding-left:20px"><strong>mygoo.fun</strong></td>
+          <td style="font-weight:900;color:#1B7A4F;font-size:16px">10.0 sec</td>
+          <td class="hl" style="color:#1B7A4F;font-weight:900">Benchmark</td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="padding:10px 20px;font-size:11px;color:var(--lgray);border-top:1px solid var(--border)">Fonte: Facebook/Meta, Eyesee Research</div>
+  </div>
+
+  <div>
+    <div class="sec-label">Il modello</div>
+    <div class="sec-title">Un valore reale per tutti e tre gli attori.</div>
+  </div>
+
+  <div class="split-3">
+    <div class="card" style="text-align:center;border-top:3px solid var(--teal)">
+      <div style="font-size:36px;margin-bottom:10px">👤</div>
+      <div style="font-size:14px;font-weight:900;color:var(--teal);margin-bottom:6px;text-transform:uppercase;letter-spacing:.06em">Utente</div>
+      <div style="font-size:13px;color:var(--gray);line-height:1.65;margin-bottom:14px">Gioca, risponde, impara. Ottiene gift card reali. Reward immediato e spendibile.</div>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <div style="background:var(--teal-lt);border-radius:6px;padding:6px 10px;font-size:11px;font-weight:700;color:var(--teal)">Esperienza coinvolgente</div>
+        <div style="background:var(--teal-lt);border-radius:6px;padding:6px 10px;font-size:11px;font-weight:700;color:var(--teal)">Reward reale</div>
+        <div style="background:var(--teal-lt);border-radius:6px;padding:6px 10px;font-size:11px;font-weight:700;color:var(--teal)">Zero advertising invasivo</div>
+      </div>
+    </div>
+    <div class="card" style="text-align:center;border-top:3px solid var(--pink)">
+      <div style="font-size:36px;margin-bottom:10px">🏢</div>
+      <div style="font-size:14px;font-weight:900;color:var(--pink);margin-bottom:6px;text-transform:uppercase;letter-spacing:.06em">Brand</div>
+      <div style="font-size:13px;color:var(--gray);line-height:1.65;margin-bottom:14px">Dati qualitativi autentici: awareness, brand recall, affinità per segmento demografico.</div>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <div style="background:var(--pink-lt);border-radius:6px;padding:6px 10px;font-size:11px;font-weight:700;color:var(--pink)">Report dettagliato</div>
+        <div style="background:var(--pink-lt);border-radius:6px;padding:6px 10px;font-size:11px;font-weight:700;color:var(--pink)">Zero-party data</div>
+        <div style="background:var(--pink-lt);border-radius:6px;padding:6px 10px;font-size:11px;font-weight:700;color:var(--pink)">Dato non filtrabile</div>
+      </div>
+    </div>
+    <div class="card" style="text-align:center;border-top:3px solid #3F51B5">
+      <div style="font-size:36px;margin-bottom:10px">📡</div>
+      <div style="font-size:14px;font-weight:900;color:#3F51B5;margin-bottom:6px;text-transform:uppercase;letter-spacing:.06em">Media / Editore</div>
+      <div style="font-size:13px;color:var(--gray);line-height:1.65;margin-bottom:14px">Audience qualificata, engagement elevato. Monetizzazione premium su contenuto utile.</div>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <div style="background:#EEF2FF;border-radius:6px;padding:6px 10px;font-size:11px;font-weight:700;color:#3F51B5">10+ minuti di sessione</div>
+        <div style="background:#EEF2FF;border-radius:6px;padding:6px 10px;font-size:11px;font-weight:700;color:#3F51B5">Audience profilata</div>
+        <div style="background:#EEF2FF;border-radius:6px;padding:6px 10px;font-size:11px;font-weight:700;color:#3F51B5">Monetizzazione premium</div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="sec-label">L'esperienza dell'utente finale</div>
+    <div class="sec-title">Perché i consumatori giocano — e rispondono davvero</div>
+  </div>
+
+  <div class="feat-grid">
+    <div class="feat-card">
+      <span class="feat-icon">🎮</span>
+      <div class="feat-title">Gamificazione autentica</div>
+      <div class="feat-desc">L'utente non percepisce di rispondere a un survey. Partecipa a un gioco con meccaniche di progressione, punteggio e reward. L'engagement è genuino.</div>
+    </div>
+    <div class="feat-card">
+      <span class="feat-icon">⚡</span>
+      <div class="feat-title">Pressione temporale controllata</div>
+      <div class="feat-desc">Ogni risposta viene raccolta in una finestra di tempo breve. Questo impedisce la razionalizzazione e cattura la prima reazione — quella più autentica.</div>
+    </div>
+    <div class="feat-card">
+      <span class="feat-icon">🎁</span>
+      <div class="feat-title">Sistema di reward</div>
+      <div class="feat-desc">Gli utenti ricevono punti, badge e premi reali per la loro partecipazione. La motivazione è sia estrinseca (premi) che intrinseca (competizione, curiosità).</div>
+    </div>
+    <div class="feat-card">
+      <span class="feat-icon">🔒</span>
+      <div class="feat-title">Zero-party data</div>
+      <div class="feat-desc">I dati vengono ceduti volontariamente dall'utente in cambio di una value proposition esplicita. Nessun tracciamento passivo, nessun problema di consenso GDPR.</div>
+    </div>
+    <div class="feat-card">
+      <span class="feat-icon">📍</span>
+      <div class="feat-title">Contesto meteorologico</div>
+      <div class="feat-desc">mygoo.fun nasce dall'integrazione con dati meteo: il contesto ambientale (caldo, freddo, pioggia) arricchisce il profilo della risposta con una variabile di stato emotivo unica.</div>
+    </div>
+    <div class="feat-card">
+      <span class="feat-icon">📱</span>
+      <div class="feat-title">Mobile-first</div>
+      <div class="feat-desc">I game sono ottimizzati per smartphone. Gli utenti partecipano nei momenti di micro-attenzione (trasporti, pausa caffè), quando la risposta istintiva è più autentica.</div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+
+<!-- ═══════════════════════════════════ COSA MISURI -->
+<div id="tab-misuri" class="tab-content">
+<div class="wrap">
+
+  <div class="hero-cover" data-watermark="INSIGHT" style="background:linear-gradient(135deg,#4A1060,#8B21A8)">
+    <div class="hero-text">
+      <div class="eyebrow">TIPOLOGIE DI RICERCA · COSA MISURI</div>
+      <div class="ht">Ogni domanda<br><em>di brand ha una risposta.</em></div>
+      <div class="hb">Dalla brand awareness al test di prodotto, dal monitoraggio della reputazione all'analisi competitiva. mygoo.fun copre tutto il ciclo di vita della ricerca di mercato.</div>
+    </div>
+  </div>
+
+  <div>
+    <div class="sec-label">Aree di ricerca</div>
+    <div class="sec-title">Cosa puoi misurare con una campagna mygoo</div>
+  </div>
+
+  <div class="metric-grid">
+    <div class="metric-card">
+      <div class="metric-icon">🧠</div>
+      <div class="metric-body">
+        <div class="metric-title">Brand Perception & Awareness</div>
+        <div class="metric-desc">Come il tuo brand viene percepito a livello istintivo: valori associati, temperatura emotiva, posizionamento spontaneo nella mente del consumatore.</div>
+        <div class="metric-tags"><span class="metric-tag">Notorietà spontanea</span><span class="metric-tag">Valori percepiti</span><span class="metric-tag">Associazioni visive</span><span class="metric-tag">Sentiment</span></div>
+      </div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-icon">🧪</div>
+      <div class="metric-body">
+        <div class="metric-title">Product & Concept Testing</div>
+        <div class="metric-desc">Testa nuovi prodotti, packaging, naming o concept prima del lancio. Misura l'appeal immediato, la comprensione del messaggio e la propensione all'acquisto.</div>
+        <div class="metric-tags"><span class="metric-tag">Pack test</span><span class="metric-tag">Naming</span><span class="metric-tag">Concept appeal</span><span class="metric-tag">Propensione acquisto</span></div>
+      </div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-icon">📣</div>
+      <div class="metric-body">
+        <div class="metric-title">Advertising & Campaign Testing</div>
+        <div class="metric-desc">Valuta l'efficacia di una campagna pubblicitaria: coerenza con il brand, recall spontaneo, emozioni evocate, call-to-action percepita.</div>
+        <div class="metric-tags"><span class="metric-tag">Recall</span><span class="metric-tag">Likability</span><span class="metric-tag">Coerenza brand</span><span class="metric-tag">Emozioni</span></div>
+      </div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-icon">⚔️</div>
+      <div class="metric-body">
+        <div class="metric-title">Analisi Competitiva</div>
+        <div class="metric-desc">Confronta il posizionamento del tuo brand con i principali competitor sulle dimensioni che contano: qualità percepita, fiducia, innovazione, valore del prezzo.</div>
+        <div class="metric-tags"><span class="metric-tag">Benchmarking</span><span class="metric-tag">Share of mind</span><span class="metric-tag">Differenziatori</span><span class="metric-tag">Gap analysis</span></div>
+      </div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-icon">❤️</div>
+      <div class="metric-body">
+        <div class="metric-title">Brand Health Monitoring</div>
+        <div class="metric-desc">Misura periodicamente la salute del tuo brand nel tempo: monitora l'evoluzione della reputazione, rileva segnali deboli di crisi, valuta l'impatto di eventi aziendali.</div>
+        <div class="metric-tags"><span class="metric-tag">Tracking</span><span class="metric-tag">NPS istintivo</span><span class="metric-tag">Reputazione</span><span class="metric-tag">Trend temporale</span></div>
+      </div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-icon">👥</div>
+      <div class="metric-body">
+        <div class="metric-title">Segmentazione & Profiling</div>
+        <div class="metric-desc">Scopri come diverse fasce demografiche percepiscono il tuo brand. Gen Z vs Boomer, Nord vs Sud, urban vs suburban: ogni segmento racconta una storia diversa.</div>
+        <div class="metric-tags"><span class="metric-tag">Demografico</span><span class="metric-tag">Geografico</span><span class="metric-tag">Generazionale</span><span class="metric-tag">Lifestyle</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="sec-label">mygoo vs metodi tradizionali</div>
+    <div class="sec-title">Cosa ottieni che i survey classici non danno</div>
+  </div>
+
+  <div class="card" style="padding:0;overflow:hidden">
+    <table class="diff-table">
+      <thead>
+        <tr>
+          <th style="text-align:left;padding-left:20px">Capacità di misurazione</th>
+          <th>Survey tradizionale</th>
+          <th>Focus group</th>
+          <th class="hl">mygoo.fun</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding-left:20px">Risposta istintiva non razionalizzata</td>
+          <td><span class="xmk">✗</span></td>
+          <td><span class="xmk">✗</span></td>
+          <td class="hl"><span class="chk">✓</span></td>
+        </tr>
+        <tr>
+          <td style="padding-left:20px">Dati quantitativi su larga scala</td>
+          <td><span class="chk">✓</span></td>
+          <td><span class="xmk">✗</span></td>
+          <td class="hl"><span class="chk">✓</span></td>
+        </tr>
+        <tr>
+          <td style="padding-left:20px">Engagement alto (tasso di completamento)</td>
+          <td><span class="xmk">✗</span></td>
+          <td><span class="chk">✓</span></td>
+          <td class="hl"><span class="chk">✓</span></td>
+        </tr>
+        <tr>
+          <td style="padding-left:20px">Zero-party data (consenso esplicito)</td>
+          <td><span class="neu">~</span></td>
+          <td><span class="chk">✓</span></td>
+          <td class="hl"><span class="chk">✓</span></td>
+        </tr>
+        <tr>
+          <td style="padding-left:20px">Contesto emotivo/ambientale</td>
+          <td><span class="xmk">✗</span></td>
+          <td><span class="neu">~</span></td>
+          <td class="hl"><span class="chk">✓</span></td>
+        </tr>
+        <tr>
+          <td style="padding-left:20px">Tempi rapidi (dati in 7–14 giorni)</td>
+          <td><span class="neu">~</span></td>
+          <td><span class="xmk">✗</span></td>
+          <td class="hl"><span class="chk">✓</span></td>
+        </tr>
+        <tr>
+          <td style="padding-left:20px">Eliminazione bias da desiderabilità sociale</td>
+          <td><span class="xmk">✗</span></td>
+          <td><span class="xmk">✗</span></td>
+          <td class="hl"><span class="chk">✓</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="quote-box">
+    <div class="quote-text">«Le prime reazioni non mediate rivelano associazioni di marca che le survey classiche non catturano, perché appena l'utente "riflette", razionalizza e inquina il dato. mygoo cattura esattamente quel momento di verità.»</div>
+    <div class="quote-source">Principio metodologico — System 1 Thinking, D. Kahneman</div>
+  </div>
+
+</div>
+</div>
+
+
+<!-- ═══════════════════════════════════ IL REPORT -->
+<div id="tab-report" class="tab-content">
+<div class="wrap">
+
+  <div class="hero-cover" data-watermark="REPORT" style="background:linear-gradient(135deg,#1C2E2E,#2B5253)">
+    <div class="hero-text">
+      <div class="eyebrow">OUTPUT · IL REPORT</div>
+      <div class="ht">Dati strutturati,<br><em>insight azionabili.</em></div>
+      <div class="hb">Non un documento da archiviare. Un report progettato per essere letto in 15 minuti dal CEO e in un'ora dall'intera direzione marketing, con finding chiari e raccomandazioni prioritizzate.</div>
+    </div>
+  </div>
+
+  <div>
+    <div class="sec-label">Cosa trovi nel report</div>
+    <div class="sec-title">Struttura del deliverable finale</div>
+  </div>
+
+  <div class="report-preview">
+    <div class="rp-label">Struttura del report mygoo</div>
+    <div class="rp-title">Ogni campagna consegna questi moduli</div>
+    <div class="report-items">
+      <div class="report-item">
+        <span class="ri-icon">🎯</span>
+        <div class="ri-title">Executive Summary</div>
+        <div class="ri-desc">I 3–5 finding principali con raccomandazioni pratiche. Pensato per il management.</div>
+      </div>
+      <div class="report-item">
+        <span class="ri-icon">📊</span>
+        <div class="ri-title">KPI di percezione</div>
+        <div class="ri-desc">Score strutturati per ogni dimensione misurata: brand appeal, trust, innovazione, valore, coerenza.</div>
+      </div>
+      <div class="report-item">
+        <span class="ri-icon">👥</span>
+        <div class="ri-title">Profilo del campione</div>
+        <div class="ri-desc">Chi ha risposto: distribuzione demografica, geografica, comportamentale e per fascia d'età.</div>
+      </div>
+      <div class="report-item">
+        <span class="ri-icon">📈</span>
+        <div class="ri-title">Distribuzioni & bande</div>
+        <div class="ri-desc">Come si distribuiscono le risposte: da critico a perfetto. Identifica i cluster di percezione.</div>
+      </div>
+      <div class="report-item">
+        <span class="ri-icon">⚔️</span>
+        <div class="ri-title">Benchmark competitivo</div>
+        <div class="ri-desc">Dove si posiziona il tuo brand rispetto ai competitor sulla stessa audience e sulle stesse dimensioni.</div>
+      </div>
+      <div class="report-item">
+        <span class="ri-icon">🔬</span>
+        <div class="ri-title">Deep-dive per segmento</div>
+        <div class="ri-desc">Come cambia la percezione per fasce d'età, genere, area geografica e altri attributi rilevanti.</div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="sec-label">Esempio di metriche</div>
+    <div class="sec-title">I dati che ricevi: score, distribuzioni, benchmark</div>
+  </div>
+
+  <div class="kpi-grid g4">
+    <div class="kpi-card"><div class="kl">Success Rate</div><div class="kv">%</div><div class="ks">percentuale di risposte corrette: indica quanto il brand è già presente nella mente del consumatore</div></div>
+    <div class="kpi-card"><div class="kl">Brand Recall Index</div><div class="kv">0–100</div><div class="ks">riconoscimento immediato del brand — non dichiarato, ma misurato sulla prima reazione</div></div>
+    <div class="kpi-card pink"><div class="kl">Ripartizione risposte</div><div class="kv">Full</div><div class="ks">distribuzione completa per domanda, segmento demografico e affinità merceologica</div></div>
+    <div class="kpi-card"><div class="kl">CTA / CTR integrato</div><div class="kv">Live</div><div class="ks">call-to-action misurabili integrabili direttamente nel flusso di gioco</div></div>
+  </div>
+
+  <div class="split-2">
+    <div class="card">
+      <div class="card-head">Formati di consegna</div>
+      <div style="display:flex;flex-direction:column;gap:10px;font-size:13px;color:var(--text)">
+        <div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)"><span style="font-size:18px">📊</span><div><strong>Dashboard interattiva</strong><br><span style="color:var(--gray);font-size:12px">Accesso online al report navigabile con filtri per segmento</span></div></div>
+        <div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)"><span style="font-size:18px">📋</span><div><strong>PDF Executive</strong><br><span style="color:var(--gray);font-size:12px">Report stampabile ottimizzato per presentazioni al management</span></div></div>
+        <div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)"><span style="font-size:18px">📁</span><div><strong>Data export</strong><br><span style="color:var(--gray);font-size:12px">File Excel/CSV con i dati grezzi aggregati per analisi interne</span></div></div>
+        <div style="display:flex;align-items:center;gap:10px;padding:8px 0"><span style="font-size:18px">🎙</span><div><strong>Sessione di presentazione</strong><br><span style="color:var(--gray);font-size:12px">Call o meeting con il team mygoo per walkthrough e Q&A</span></div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-head">Criteri di qualità del dato</div>
+      <div style="display:flex;flex-direction:column;gap:10px;font-size:13px;color:var(--text)">
+        <div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)"><span style="font-size:18px">✅</span><div><strong>Sample minimo garantito</strong><br><span style="color:var(--gray);font-size:12px">Soglia minima di risposte valide definita nel contratto</span></div></div>
+        <div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)"><span style="font-size:18px">🎯</span><div><strong>Profilazione target</strong><br><span style="color:var(--gray);font-size:12px">Il campione è filtrato sul profilo demografico del tuo consumatore</span></div></div>
+        <div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)"><span style="font-size:18px">🚫</span><div><strong>Bot detection & quality control</strong><br><span style="color:var(--gray);font-size:12px">Risposte non genuine filtrate automaticamente dalla piattaforma</span></div></div>
+        <div style="display:flex;align-items:center;gap:10px;padding:8px 0"><span style="font-size:18px">🔒</span><div><strong>GDPR compliant</strong><br><span style="color:var(--gray);font-size:12px">Zero-party data con consenso esplicito dell'utente finale</span></div></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+
+<!-- ═══════════════════════════════════ ATTIVA -->
+<div id="tab-attiva" class="tab-content">
+<div class="wrap">
+
+  <div class="hero-cover" data-watermark="START" style="background:linear-gradient(135deg,#A01060,#E01783)">
+    <div class="hero-text">
+      <div class="eyebrow">ATTIVA UNA CAMPAGNA</div>
+      <div class="ht">Inizia a misurare<br><em>la tua percezione oggi.</em></div>
+      <div class="hb">Scegli il pacchetto più adatto alle tue esigenze. Dal singolo test di prodotto al programma continuativo di brand health monitoring.</div>
+    </div>
+  </div>
+
+  <div>
+    <div class="sec-label">Pacchetti disponibili</div>
+    <div class="sec-title">Tre livelli di approfondimento per ogni obiettivo di ricerca</div>
+  </div>
+
+  <div class="price-grid">
+    <div class="price-card">
+      <div class="price-tier">Pacchetto</div>
+      <div class="price-name">Snapshot</div>
+      <div class="price-desc">Ideale per un primo test di percezione o per validare rapidamente un'ipotesi di brand. Una campagna focalizzata su una singola area di ricerca.</div>
+      <ul class="price-features">
+        <li>1 campagna (4 game, fino a 7 domande ciascuno)</li>
+        <li>Campione: 200–500 rispondenti profilati</li>
+        <li>Report executive + data export</li>
+        <li>1 sessione di presentazione risultati</li>
+        <li>Tempi: 7–10 giorni lavorativi</li>
+      </ul>
+      <button class="price-cta" onclick="alert('Contatta il team mygoo per un preventivo personalizzato.')">Richiedi preventivo</button>
+    </div>
+    <div class="price-card featured">
+      <div class="price-badge">PIÙ RICHIESTO</div>
+      <div class="price-tier">Pacchetto</div>
+      <div class="price-name">Brand Deep Dive</div>
+      <div class="price-desc">La soluzione completa per chi vuole una visione a 360° del proprio brand: percezione, competitivo, segmentazione per target.</div>
+      <ul class="price-features">
+        <li>2–3 campagne coordinate</li>
+        <li>Campione: 500–1.500 rispondenti</li>
+        <li>Analisi competitiva inclusa (fino a 3 competitor)</li>
+        <li>Segmentazione avanzata per target (età, geo, genere)</li>
+        <li>Dashboard interattiva + report PDF executive</li>
+        <li>2 sessioni di presentazione risultati</li>
+        <li>Tempi: 10–14 giorni lavorativi</li>
+      </ul>
+      <button class="price-cta" onclick="alert('Contatta il team mygoo per un preventivo personalizzato.')">Richiedi preventivo</button>
+    </div>
+    <div class="price-card">
+      <div class="price-tier">Pacchetto</div>
+      <div class="price-name">Monitoring</div>
+      <div class="price-desc">Per chi vuole monitorare la salute del brand nel tempo: campagne trimestrali con metriche coerenti per tracciare l'evoluzione della percezione.</div>
+      <ul class="price-features">
+        <li>4 campagne all'anno (cadenza trimestrale)</li>
+        <li>Campione: 300–800 rispondenti per wave</li>
+        <li>Trend analysis e comparazione tra wave</li>
+        <li>Alert su variazioni significative di percezione</li>
+        <li>Dashboard live con storico aggiornato</li>
+        <li>Dedicated account manager</li>
+      </ul>
+      <button class="price-cta" onclick="alert('Contatta il team mygoo per un preventivo personalizzato.')">Richiedi preventivo</button>
+    </div>
+  </div>
+
+  <div>
+    <div class="sec-label">Tempistiche</div>
+    <div class="sec-title">Dal contatto alla consegna del report</div>
+  </div>
+
+  <div class="card" style="padding:32px 36px">
+    <div class="timeline">
+      <div class="tl-step">
+        <div class="tl-dot">1</div>
+        <div class="tl-title">Kick-off</div>
+        <div class="tl-desc">Brief, allineamento obiettivi, definizione campione target</div>
+      </div>
+      <div class="tl-step">
+        <div class="tl-dot">2</div>
+        <div class="tl-title">Design game</div>
+        <div class="tl-desc">Produzione dei game, validazione con il cliente</div>
+      </div>
+      <div class="tl-step">
+        <div class="tl-dot">3</div>
+        <div class="tl-title">Raccolta dati</div>
+        <div class="tl-desc">Distribuzione alla community, monitoraggio in real-time</div>
+      </div>
+      <div class="tl-step">
+        <div class="tl-dot">4</div>
+        <div class="tl-title">Analisi</div>
+        <div class="tl-desc">Elaborazione dati, scoring, benchmark, commento qualitativo</div>
+      </div>
+      <div class="tl-step">
+        <div class="tl-dot">5</div>
+        <div class="tl-title">Consegna</div>
+        <div class="tl-desc">Report, dashboard e sessione di presentazione al team</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-box">
+    <div class="ct">Guess What You Know</div>
+    <div class="ch">La percezione istintiva non mente.<br>Ascoltiamola insieme.</div>
+    <div class="cs">Scopri cosa pensa davvero chi guarda il tuo brand. Parla con il nostro team: definiremo insieme gli obiettivi, il profilo del campione e il pacchetto più adatto. Risposta garantita entro 24 ore.</div>
+    <a href="mailto:info@mygoo.fun" class="cta-btn">Contatta il team →</a>
+  </div>
+
+  <div class="split-2">
+    <div class="card">
+      <div class="card-head">Cosa portare al primo incontro</div>
+      <div style="display:flex;flex-direction:column;gap:9px;font-size:13px;color:var(--text)">
+        <div style="display:flex;gap:8px"><span style="color:var(--teal);font-weight:900">→</span>Le domande di business a cui vuoi rispondere</div>
+        <div style="display:flex;gap:8px"><span style="color:var(--teal);font-weight:900">→</span>Il profilo del tuo consumatore target (demografico, geografico)</div>
+        <div style="display:flex;gap:8px"><span style="color:var(--teal);font-weight:900">→</span>I competitor che vuoi includere nell'analisi (se rilevante)</div>
+        <div style="display:flex;gap:8px"><span style="color:var(--teal);font-weight:900">→</span>Eventuali ricerche precedenti da usare come baseline</div>
+        <div style="display:flex;gap:8px"><span style="color:var(--teal);font-weight:900">→</span>Il timeline e le scadenze interne di progetto</div>
+      </div>
+    </div>
+    <div class="card" style="border-color:var(--pink-bd);background:var(--pink-lt)">
+      <div class="card-head" style="color:var(--pink)">Perché scegliere mygoo</div>
+      <div style="display:flex;flex-direction:column;gap:9px;font-size:13px;color:var(--text)">
+        <div style="display:flex;gap:8px"><span style="color:var(--pink);font-weight:900">✦</span>Dato di percezione autentico, non razionalizzato</div>
+        <div style="display:flex;gap:8px"><span style="color:var(--pink);font-weight:900">✦</span>Tempi rapidi: risultati in 7–14 giorni</div>
+        <div style="display:flex;gap:8px"><span style="color:var(--pink);font-weight:900">✦</span>Community reale, engagement alto, tasso di completamento elevato</div>
+        <div style="display:flex;gap:8px"><span style="color:var(--pink);font-weight:900">✦</span>Zero-party data: 100% GDPR compliant</div>
+        <div style="display:flex;gap:8px"><span style="color:var(--pink);font-weight:900">✦</span>Report azionabile, non un documento da archiviare</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+
+<footer>
+  <img src="logo_Mygoo.fun_vectorColored.png" alt="mygoo.fun">
+  mygoo.fun · Ricerche di Mercato per Brand<br>
+  Un prodotto <strong style="color:rgba(255,255,255,.85)">Ermeutika</strong> · <a href="mailto:info@mygoo.fun">info@mygoo.fun</a>
+</footer>
+
+<script>
+function showTab(id, btn) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+</script>
+</body>
+</html>
