@@ -257,6 +257,86 @@ footer a{color:rgba(255,255,255,.7);text-decoration:none}
 .nav-drop-item:hover{background:var(--teal-lt);color:var(--teal)}
 .nav-drop-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
 
+/* BRAND COLORS */
+--nesp:#1a1a1a;
+
+/* KPI CARD BRAND VARIANTS */
+.kpi-card.a-nesp .kv{color:#1a1a1a}
+.kpi-card.a-huaw .kv{color:#CF0A2C}
+.kpi-card.a-remu .kv{color:#6B21A8}
+.kpi-card.a-rena .kv{color:#003189}
+.kpi-card.a-pink .kv{color:#E01783}
+.kpi-card.sm{padding:11px 13px}
+.kpi-card.sm .kv{font-size:16px}
+
+/* SEC-TITLE BRAND */
+.sec-title.nesp{border-color:#1a1a1a}
+.sec-title.huaw{border-color:#CF0A2C}
+.sec-title.remu{border-color:#6B21A8}
+.sec-title.rena{border-color:#003189}
+
+/* CARD-HEAD BRAND */
+.card-head.nesp::before{background:#1a1a1a}
+.card-head.huaw::before{background:#CF0A2C}
+.card-head.remu::before{background:#6B21A8}
+.card-head.rena::before{background:#003189}
+
+/* PLAYER MIX */
+.player-mix{display:flex;gap:12px}
+.mix-card{flex:1;border-radius:8px;padding:14px;display:flex;flex-direction:column;gap:4px}
+.mix-card.new{background:var(--teal-lt);border:1.5px solid var(--teal-bd)}
+.mix-card.ret{background:#F0F4FF;border:1.5px solid #C5CAE9}
+.mix-pct{font-size:24px;font-weight:900}
+.mix-card.new .mix-pct{color:var(--teal)}
+.mix-card.ret .mix-pct{color:#3F51B5}
+.mix-label{font-size:11px;font-weight:600;color:var(--gray)}
+
+/* SCORE BANDS */
+.bands-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.band-card{border-radius:8px;padding:13px 14px;text-align:center}
+.band-card.low{background:#FFF3F3;border:1.5px solid #FFD0D0}
+.band-card.med{background:#FFF8E1;border:1.5px solid #FFE082}
+.band-card.hi{background:#E8F5E9;border:1.5px solid #A5D6A7}
+.band-card.perf{background:#E8F4FD;border:1.5px solid #90CAF9}
+.band-pct{font-size:20px;font-weight:900;margin-bottom:2px}
+.band-card.low .band-pct{color:#C62828}
+.band-card.med .band-pct{color:#F57F17}
+.band-card.hi .band-pct{color:#2E7D32}
+.band-card.perf .band-pct{color:#1565C0}
+.band-label{font-size:11px;font-weight:600;color:var(--gray)}
+
+/* BAR CHART BRAND FILLS */
+.bar-fill{height:100%;border-radius:4px;background:var(--teal)}
+.bar-fill.nesp{background:#1a1a1a}
+.bar-fill.huaw{background:#CF0A2C}
+.bar-fill.remu{background:#6B21A8}
+.bar-fill.rena{background:#003189}
+
+/* DATA TABLE */
+.data-table{width:100%;border-collapse:collapse;font-size:13px}
+.data-table th{text-align:left;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);padding:7px 10px;border-bottom:2px solid var(--border)}
+.data-table td{padding:9px 10px;border-bottom:1px solid var(--border)}
+.data-table tbody tr:last-child td{border-bottom:none;font-weight:700;color:var(--teal)}
+.data-table.nesp tbody tr:last-child td{color:#1a1a1a}
+.data-table.huaw tbody tr:last-child td{color:#CF0A2C}
+.data-table.remu tbody tr:last-child td{color:#6B21A8}
+.data-table.rena tbody tr:last-child td{color:#003189}
+.data-table .num{font-weight:700}
+.data-table .goox{color:var(--teal-md)}
+
+/* HERO COVER BRAND */
+.hero-cover.nesp{background:#1a1a1a}
+.hero-cover.huaw{background:#CF0A2C}
+.hero-cover.remu{background:#6B21A8}
+.hero-cover.rena{background:#003189}
+
+/* BAR CHART */
+.bar-chart{display:flex;flex-direction:column;gap:9px}
+.bar-row{display:flex;align-items:center;gap:10px}
+.bar-label{font-size:11px;color:var(--gray);width:155px;flex-shrink:0;text-align:right}
+.bar-track{flex:1;background:var(--teal-lt);border-radius:4px;height:18px;overflow:hidden}
+.bar-pct{font-size:11px;font-weight:700;width:42px;flex-shrink:0}
+
 /* RESPONSIVE */
 @media(max-width:900px){
   .feat-grid{grid-template-columns:repeat(2,1fr)}
@@ -913,114 +993,134 @@ footer a{color:rgba(255,255,255,.7);text-decoration:none}
     <button onclick="showTab('report',document.getElementById('nav-btn-report'))" style="background:none;border:none;cursor:pointer;font-size:12px;font-weight:600;color:var(--gray);display:flex;align-items:center;gap:5px;padding:0;font-family:'Inter',sans-serif">← Torna alla panoramica</button>
   </div>
 
-  <div class="hero-brand nesp" data-wm="NESPRESSO">
-    <div class="hb-left">
-      <div class="hb-eyebrow">NESPRESSO · MARZO 2026 · CODICE NESPRESSO_0326</div>
-      <div class="hb-title">Campagna brand awareness — ☕ Luxury Coffee</div>
-      <div class="hb-sub">3 game · Aggiornato Mar 27, 2026 15:33 CET</div>
-      <div class="hb-kpis">
-        <div class="hb-kpi"><div class="hk-l">Total Plays</div><div class="hk-v">229</div></div>
-        <div class="hb-kpi"><div class="hk-l">Unique Players</div><div class="hk-v">176</div></div>
-        <div class="hb-kpi"><div class="hk-l">Plays / Player</div><div class="hk-v">1.3</div></div>
-        <div class="hb-kpi"><div class="hk-l">Avg Score</div><div class="hk-v">84.4%</div></div>
-        <div class="hb-kpi"><div class="hk-l">Completion Rate</div><div class="hk-v">100%</div></div>
-        <div class="hb-kpi"><div class="hk-l">Repeat Rate ≥2</div><div class="hk-v">30.1%</div></div>
-        <div class="hb-kpi"><div class="hk-l">Goox / Sessione</div><div class="hk-v">49.05</div></div>
-        <div class="hb-kpi"><div class="hk-l">Avg Gameplay</div><div class="hk-v">3m 0s</div></div>
+  <div class="hero-cover nesp" data-watermark="NESPRESSO">
+    <div class="hero-text">
+      <div class="eyebrow">CAMPAIGN REPORT · MARZO 2026</div>
+      <div class="ht">Nespresso <em>× MyGoo</em></div>
+      <div class="hb">NESPRESSO_2026_ — Last refreshed: Mar 27, 2026 15:33:07 CET</div>
+      <div class="hero-meta">
+        <div class="hero-meta-item"><div class="ml">Campagna</div><div class="mv">NESPRESSO_0326</div></div>
+        <div class="hero-meta-item"><div class="ml">Giochi</div><div class="mv">3 quiz</div></div>
+        <div class="hero-meta-item"><div class="ml">Completion</div><div class="mv">100%</div></div>
+      </div>
+    </div>
+    <div class="hero-logo">
+      <svg width="54" height="54" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
+        <rect width="56" height="56" rx="6" fill="rgba(255,255,255,0.15)"/>
+        <rect x="5" y="5" width="46" height="46" rx="4" fill="white"/>
+        <path d="M 12 14 L 12 42 L 19 42 L 19 25 L 37 42 L 44 42 L 44 14 L 37 14 L 37 31 L 19 14 Z" fill="#1a1a1a"/>
+      </svg>
+      <div class="brand-name">Nespresso</div>
+    </div>
+  </div>
+
+  <div>
+    <div class="sec-label">Summary Statistics</div>
+    <div class="sec-title nesp">Dati principali</div>
+    <div class="kpi-grid g5">
+      <div class="kpi-card a-nesp"><div class="kl">Total Plays</div><div class="kv">229</div><div class="ks">giocate totali</div></div>
+      <div class="kpi-card"><div class="kl">Avg Gameplay</div><div class="kv">3m 0s</div><div class="ks">durata media</div></div>
+      <div class="kpi-card a-nesp"><div class="kl">Unique Players</div><div class="kv">176</div><div class="ks">giocatori unici</div></div>
+      <div class="kpi-card"><div class="kl">Plays / Player</div><div class="kv">1.3</div><div class="ks">media per utente</div></div>
+      <div class="kpi-card a-pink"><div class="kl">Goox distribuiti</div><div class="kv">11.233</div><div class="ks">crediti totali</div></div>
+    </div>
+  </div>
+
+  <div class="kpi-grid g4">
+    <div class="kpi-card"><div class="kl">Completion Rate</div><div class="kv">100%</div></div>
+    <div class="kpi-card"><div class="kl">Avg Score</div><div class="kv">84.4%</div></div>
+    <div class="kpi-card"><div class="kl">Goox / Sessione</div><div class="kv">49.05</div></div>
+    <div class="kpi-card"><div class="kl">Repeat Rate ≥2</div><div class="kv">30.1%</div></div>
+  </div>
+
+  <div class="split-2">
+    <div class="card">
+      <div class="card-head nesp">Player Mix</div>
+      <div class="player-mix">
+        <div class="mix-card new"><div class="mix-pct">1.1%</div><div class="mix-label">First-time Players</div></div>
+        <div class="mix-card ret"><div class="mix-pct">98.9%</div><div class="mix-label">Returning Players</div></div>
+      </div>
+      <div style="margin-top:10px;font-size:12px;color:var(--gray)">Totale players campagna: <strong>176</strong></div>
+    </div>
+    <div class="card">
+      <div class="card-head nesp">Reward Distribution</div>
+      <div class="kpi-grid g3" style="gap:10px">
+        <div class="kpi-card sm"><div class="kl">Median P50</div><div class="kv">70</div><div class="ks">goox / player</div></div>
+        <div class="kpi-card sm"><div class="kl">P90</div><div class="kv">140</div><div class="ks">goox / player</div></div>
+        <div class="kpi-card sm"><div class="kl">Top 10% Share</div><div class="kv">22.4%</div><div class="ks">dei crediti</div></div>
       </div>
     </div>
   </div>
 
-    <div class="section-nav">
-      <button class="section-btn active" onclick="showSection('nesp','pan',this)">📊 Panoramica</button>
-      <button class="section-btn" onclick="showSection('nesp','score',this)">🎯 Score & Engagement</button>
-      <button class="section-btn" onclick="showSection('nesp','game',this)">🎮 Game & CTA</button>
+  <div class="split-2">
+    <div class="card">
+      <div class="card-head nesp">Attempts by Time of Day</div>
+      <div class="bar-chart">
+        <div class="bar-row"><div class="bar-label">Notte (00–05)</div><div class="bar-track"><div class="bar-fill nesp" style="width:5.2%"></div></div><div class="bar-pct">5.2%</div></div>
+        <div class="bar-row"><div class="bar-label">Mattina (06–11)</div><div class="bar-track"><div class="bar-fill nesp" style="width:16.2%"></div></div><div class="bar-pct">16.2%</div></div>
+        <div class="bar-row"><div class="bar-label">Pranzo (12–14)</div><div class="bar-track"><div class="bar-fill nesp" style="width:36.7%"></div></div><div class="bar-pct">36.7%</div></div>
+        <div class="bar-row"><div class="bar-label">Pomeriggio (15–18)</div><div class="bar-track"><div class="bar-fill nesp" style="width:16.2%"></div></div><div class="bar-pct">16.2%</div></div>
+        <div class="bar-row"><div class="bar-label">Sera (19–23)</div><div class="bar-track"><div class="bar-fill nesp" style="width:25.8%"></div></div><div class="bar-pct">25.8%</div></div>
+      </div>
     </div>
+    <div class="card">
+      <div class="card-head nesp">Completion Quality (Score Bands)</div>
+      <div class="bands-grid">
+        <div class="band-card low"><div class="band-pct">13.5%</div><div class="band-label">0–39%</div></div>
+        <div class="band-card med"><div class="band-pct">17.0%</div><div class="band-label">40–69%</div></div>
+        <div class="band-card hi"><div class="band-pct">0.0%</div><div class="band-label">70–99%</div></div>
+        <div class="band-card perf"><div class="band-pct">68.8%</div><div class="band-label">100%</div></div>
+      </div>
+    </div>
+  </div>
 
-    <div id="sec-nesp-pan" class="section-content active">
-      <div class="kpi-grid g3">
-        <div class="kpi-card"><div class="kl">Goox Distribuiti</div><div class="kv">11.233</div><div class="ks">reward totali erogati</div></div>
-        <div class="kpi-card"><div class="kl">Started Sessions</div><div class="kv">256</div><div class="ks">sessioni avviate</div></div>
-        <div class="kpi-card"><div class="kl">Abandoned</div><div class="kv" style="color:#1B7A4F">0</div><div class="ks">abbandoni — 0.0%</div></div>
-      </div>
-      <div class="split-2">
-        <div class="card">
-          <div class="card-head">Player Mix</div>
-          <div class="mix2">
-            <div class="mix-box new"><div class="mix-val">1.1%</div><div class="mix-lbl">First-time Players</div></div>
-            <div class="mix-box ret"><div class="mix-val">98.9%</div><div class="mix-lbl">Returning Players</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-head">Reward Distribution</div>
-          <div class="kpi-grid g3" style="gap:8px">
-            <div class="kpi-card" style="padding:11px 12px;text-align:center"><div class="kl" style="text-align:center">Median P50</div><div class="kv" style="font-size:18px;text-align:center">70</div><div class="ks" style="text-align:center">goox/player</div></div>
-            <div class="kpi-card" style="padding:11px 12px;text-align:center"><div class="kl" style="text-align:center">P90</div><div class="kv" style="font-size:18px;text-align:center">140</div><div class="ks" style="text-align:center">goox/player</div></div>
-            <div class="kpi-card" style="padding:11px 12px;text-align:center"><div class="kl" style="text-align:center">Top 10% Share</div><div class="kv" style="font-size:18px;text-align:center">22.4%</div><div class="ks" style="text-align:center">dei crediti</div></div>
-          </div>
-        </div>
-      </div>
+  <div class="card">
+    <div class="card-head nesp">Repeat Plays per Player (Stickiness) — Repeat Rate: 30.1%</div>
+    <div class="bar-chart">
+      <div class="bar-row"><div class="bar-label">1 play</div><div class="bar-track"><div class="bar-fill nesp" style="width:69.9%"></div></div><div class="bar-pct">69.9%</div></div>
+      <div class="bar-row"><div class="bar-label">2 plays</div><div class="bar-track"><div class="bar-fill nesp" style="width:30.1%"></div></div><div class="bar-pct">30.1%</div></div>
+      <div class="bar-row"><div class="bar-label">3–4 plays</div><div class="bar-track"><div class="bar-fill nesp" style="width:0%"></div></div><div class="bar-pct">0.0%</div></div>
     </div>
+  </div>
 
-    <div id="sec-nesp-score" class="section-content">
-      <div class="card">
-        <div class="card-head">Score Bands — Qualità delle risposte</div>
-        <div class="bands4">
-          <div class="band4 low"><div class="bv">13.5%</div><div class="bl">0–39% Critico</div></div>
-          <div class="band4 med"><div class="bv">17.0%</div><div class="bl">40–69% Medio</div></div>
-          <div class="band4 hi"><div class="bv">0.0%</div><div class="bl">70–99% Alto</div></div>
-          <div class="band4 perf"><div class="bv">68.8%</div><div class="bl">100% Perfetto</div></div>
-        </div>
-      </div>
-      <div class="split-2">
-        <div class="card">
-          <div class="card-head">Repeat Plays — Stickiness</div>
-          <div class="bar-chart">
-            <div class="bar-row"><div class="bar-label">1 play</div><div class="bar-track"><div class="bar-fill" style="width:69.9%"></div></div><div class="bar-pct">69.9%</div></div>
-            <div class="bar-row"><div class="bar-label">2 plays</div><div class="bar-track"><div class="bar-fill" style="width:30.1%"></div></div><div class="bar-pct">30.1%</div></div>
-            <div class="bar-row"><div class="bar-label">3–4 plays</div><div class="bar-track"><div class="bar-fill" style="width:0%"></div></div><div class="bar-pct">0.0%</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-head">Orario di gioco</div>
-          <div class="time-bars">
-            <div class="time-row"><div class="time-label">Notte (00–05)</div><div class="time-track"><div class="time-fill" style="width:5.2%;background:#2B5253"></div></div><div class="time-pct">5.2%</div></div>
-            <div class="time-row"><div class="time-label">Mattina (06–11)</div><div class="time-track"><div class="time-fill" style="width:16.2%;background:#2B5253"></div></div><div class="time-pct">16.2%</div></div>
-            <div class="time-row"><div class="time-label">Pranzo (12–14)</div><div class="time-track"><div class="time-fill" style="width:36.7%;background:#E01783"></div></div><div class="time-pct" style="color:#E01783;font-weight:900">36.7%</div></div>
-            <div class="time-row"><div class="time-label">Pomeriggio (15–18)</div><div class="time-track"><div class="time-fill" style="width:16.2%;background:#2B5253"></div></div><div class="time-pct">16.2%</div></div>
-            <div class="time-row"><div class="time-label">Sera (19–23)</div><div class="time-track"><div class="time-fill" style="width:25.8%;background:#2B5253"></div></div><div class="time-pct">25.8%</div></div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="card">
+    <div class="card-head nesp">Game-by-Game Statistics</div>
+    <table class="data-table nesp">
+      <thead><tr><th>Gioco</th><th>Total Plays</th><th>Unique Players</th><th>Plays / Player</th><th>Credits Distribuiti</th></tr></thead>
+      <tbody>
+        <tr><td>NESPRESSO_0326_G1</td><td class="num">172</td><td class="num">172</td><td class="num">1.0</td><td class="num goox">7.722 goox</td></tr>
+        <tr><td>NESPRESSO_0326_G2</td><td class="num">57</td><td class="num">57</td><td class="num">1.0</td><td class="num goox">3.511 goox</td></tr>
+        <tr><td>NESPRESSO_0326_G3</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num goox">0 goox</td></tr>
+        <tr><td>Totali</td><td class="num">229</td><td class="num">176</td><td class="num">1.3</td><td class="num goox">11.233 goox</td></tr>
+      </tbody>
+    </table>
+  </div>
 
-    <div id="sec-nesp-game" class="section-content">
-      <div class="split-2">
-        <div class="card">
-          <div class="card-head">Game-by-game</div>
-          <table class="ct-table">
-            <thead><tr><th>Gioco</th><th>Plays</th><th>Players</th><th>Goox</th></tr></thead>
-            <tbody>
-              <tr><td>G1</td><td>172</td><td>172</td><td>7.722</td></tr>
-              <tr><td>G2</td><td>57</td><td>57</td><td>3.511</td></tr>
-              <tr><td>G3</td><td>—</td><td>—</td><td>—</td></tr>
-              <tr class="total-row"><td>Totali</td><td>229</td><td>176</td><td>11.233</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="card">
-          <div class="card-head">CTA Performance</div>
-          <div style="display:flex;flex-direction:column;gap:8px;font-size:13px">
-            <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)"><span style="color:var(--gray)">Home CTR</span><strong>9.1% <span style="font-size:11px;color:var(--lgray)">(16 / 176 player)</span></strong></div>
-            <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)"><span style="color:var(--gray)">End-game CTR</span><strong>2.8% <span style="font-size:11px;color:var(--lgray)">(5 / 176 player)</span></strong></div>
-            <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)"><span style="color:var(--gray)">CTR / Completer</span><strong>19.2%</strong></div>
-            <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)"><span style="color:var(--gray)">Completed Games</span><strong>217</strong></div>
-            <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)"><span style="color:var(--gray)">Abandonment Rate</span><strong style="color:#1B7A4F">0.0%</strong></div>
-            <div style="display:flex;justify-content:space-between;padding:7px 0"><span style="color:var(--gray)">Timeout Rate</span><strong>0.8%</strong></div>
-          </div>
-        </div>
+  <div class="split-2">
+    <div class="card">
+      <div class="card-head nesp">CTA Performance</div>
+      <div class="kpi-grid g2" style="gap:10px;margin-bottom:10px">
+        <div class="kpi-card sm"><div class="kl">Home CTR</div><div class="kv">9.1%</div><div class="ks">16 clicks / 176 players</div></div>
+        <div class="kpi-card sm"><div class="kl">End-game CTR</div><div class="kv">2.8%</div><div class="ks">5 clicks / 176 players</div></div>
+      </div>
+      <div class="kpi-grid g3" style="gap:10px">
+        <div class="kpi-card sm"><div class="kl">Completed Games</div><div class="kv">217</div></div>
+        <div class="kpi-card sm"><div class="kl">End-game Clicks</div><div class="kv">5</div></div>
+        <div class="kpi-card sm"><div class="kl">CTR / Completer</div><div class="kv">19.2%</div></div>
       </div>
     </div>
+    <div class="card">
+      <div class="card-head nesp">Abandonment &amp; Timeout</div>
+      <div class="kpi-grid g2" style="gap:10px;margin-bottom:10px">
+        <div class="kpi-card sm"><div class="kl">Started Sessions</div><div class="kv">256</div></div>
+        <div class="kpi-card sm"><div class="kl">Abandoned</div><div class="kv">0</div></div>
+      </div>
+      <div class="kpi-grid g2" style="gap:10px">
+        <div class="kpi-card sm"><div class="kl">Abandonment Rate</div><div class="kv" style="color:#2E7D32">0.0%</div></div>
+        <div class="kpi-card sm"><div class="kl">Timeout Rate</div><div class="kv">0.8%</div></div>
+      </div>
+    </div>
+  </div>
 
 </div>
 </div>
@@ -1033,136 +1133,159 @@ footer a{color:rgba(255,255,255,.7);text-decoration:none}
     <button onclick="showTab('report',document.getElementById('nav-btn-report'))" style="background:none;border:none;cursor:pointer;font-size:12px;font-weight:600;color:var(--gray);display:flex;align-items:center;gap:5px;padding:0;font-family:'Inter',sans-serif">← Torna alla panoramica</button>
   </div>
 
-  <div class="hero-brand huaw" data-wm="HUAWEI">
-    <div class="hb-left">
-      <div class="hb-eyebrow">HUAWEI · MARZO–APRILE 2026 · CODICE HUAWEI_0326</div>
-      <div class="hb-title">Campagna brand awareness — 📱 Consumer Tech</div>
-      <div class="hb-sub">3 game · Aggiornato May 05, 2026 13:24 CEST</div>
-      <div class="hb-kpis">
-        <div class="hb-kpi"><div class="hk-l">Total Plays</div><div class="hk-v">623</div></div>
-        <div class="hb-kpi"><div class="hk-l">Unique Players</div><div class="hk-v">282</div></div>
-        <div class="hb-kpi"><div class="hk-l">Plays / Player</div><div class="hk-v">2.2</div></div>
-        <div class="hb-kpi"><div class="hk-l">Avg Score</div><div class="hk-v">89.4%</div></div>
-        <div class="hb-kpi"><div class="hk-l">Completion Rate</div><div class="hk-v">100%</div></div>
-        <div class="hb-kpi"><div class="hk-l">Repeat Rate ≥2</div><div class="hk-v">68.4%</div></div>
-        <div class="hb-kpi"><div class="hk-l">Goox / Sessione</div><div class="hk-v">48.71</div></div>
-        <div class="hb-kpi"><div class="hk-l">Avg Gameplay</div><div class="hk-v">3m 0s</div></div>
+  <div class="hero-cover huaw" data-watermark="HUAWEI">
+    <div class="hero-text">
+      <div class="eyebrow">CAMPAIGN REPORT · MARZO–APRILE 2026</div>
+      <div class="ht">Huawei <em>× MyGoo</em></div>
+      <div class="hb">HUAWEI_2026_22 — Last refreshed: May 05, 2026 13:24 CEST</div>
+      <div class="hero-meta">
+        <div class="hero-meta-item"><div class="ml">Campagna</div><div class="mv">HUAWEI_0326</div></div>
+        <div class="hero-meta-item"><div class="ml">Giochi</div><div class="mv">3 quiz</div></div>
+        <div class="hero-meta-item"><div class="ml">Completion</div><div class="mv">100%</div></div>
+      </div>
+    </div>
+    <div class="hero-logo">
+      <svg width="54" height="54" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
+        <rect width="56" height="56" rx="6" fill="rgba(255,255,255,0.15)"/>
+        <ellipse cx="28" cy="16" rx="5" ry="12" fill="white" opacity=".95"/>
+        <ellipse cx="28" cy="16" rx="5" ry="12" fill="white" opacity=".95" transform="rotate(90,28,28)"/>
+        <ellipse cx="28" cy="16" rx="5" ry="12" fill="white" opacity=".95" transform="rotate(180,28,28)"/>
+        <ellipse cx="28" cy="16" rx="5" ry="12" fill="white" opacity=".95" transform="rotate(270,28,28)"/>
+        <ellipse cx="28" cy="16" rx="5" ry="12" fill="white" opacity=".5" transform="rotate(45,28,28)"/>
+        <ellipse cx="28" cy="16" rx="5" ry="12" fill="white" opacity=".5" transform="rotate(135,28,28)"/>
+        <ellipse cx="28" cy="16" rx="5" ry="12" fill="white" opacity=".5" transform="rotate(225,28,28)"/>
+        <ellipse cx="28" cy="16" rx="5" ry="12" fill="white" opacity=".5" transform="rotate(315,28,28)"/>
+      </svg>
+      <div class="brand-name">Huawei</div>
+    </div>
+  </div>
+
+  <div>
+    <div class="sec-label">Summary Statistics</div>
+    <div class="sec-title huaw">Dati principali</div>
+    <div class="kpi-grid g5">
+      <div class="kpi-card a-huaw"><div class="kl">Total Plays</div><div class="kv">623</div><div class="ks">giocate totali</div></div>
+      <div class="kpi-card"><div class="kl">Avg Gameplay</div><div class="kv">3m 0s</div><div class="ks">durata media</div></div>
+      <div class="kpi-card a-huaw"><div class="kl">Unique Players</div><div class="kv">282</div><div class="ks">giocatori unici</div></div>
+      <div class="kpi-card"><div class="kl">Plays / Player</div><div class="kv">2.2</div><div class="ks">media per utente</div></div>
+      <div class="kpi-card a-pink"><div class="kl">Goox distribuiti</div><div class="kv">30.345</div><div class="ks">crediti totali</div></div>
+    </div>
+  </div>
+
+  <div class="kpi-grid g4">
+    <div class="kpi-card"><div class="kl">Completion Rate</div><div class="kv">100%</div></div>
+    <div class="kpi-card"><div class="kl">Avg Score</div><div class="kv">89.4%</div></div>
+    <div class="kpi-card"><div class="kl">Goox / Sessione</div><div class="kv">48.71</div></div>
+    <div class="kpi-card"><div class="kl">Repeat Rate ≥2</div><div class="kv">68.4%</div></div>
+  </div>
+
+  <div class="split-2">
+    <div class="card">
+      <div class="card-head huaw">Player Mix</div>
+      <div class="player-mix">
+        <div class="mix-card new"><div class="mix-pct">4.6%</div><div class="mix-label">First-time Players</div></div>
+        <div class="mix-card ret"><div class="mix-pct">95.4%</div><div class="mix-label">Returning Players</div></div>
+      </div>
+      <div style="margin-top:10px;font-size:12px;color:var(--gray)">Totale players campagna: <strong>282</strong></div>
+    </div>
+    <div class="card">
+      <div class="card-head huaw">Reward Distribution</div>
+      <div class="kpi-grid g3" style="gap:10px">
+        <div class="kpi-card sm"><div class="kl">Median P50</div><div class="kv">77</div><div class="ks">goox / player</div></div>
+        <div class="kpi-card sm"><div class="kl">P90</div><div class="kv">210</div><div class="ks">goox / player</div></div>
+        <div class="kpi-card sm"><div class="kl">Top 10% Share</div><div class="kv">20.1%</div><div class="ks">dei crediti</div></div>
       </div>
     </div>
   </div>
 
-    <div class="section-nav">
-      <button class="section-btn active" onclick="showSection('huaw','pan',this)">📊 Panoramica</button>
-      <button class="section-btn" onclick="showSection('huaw','score',this)">🎯 Score & Engagement</button>
-      <button class="section-btn" onclick="showSection('huaw','domande',this)">❓ Domande</button>
-      <button class="section-btn" onclick="showSection('huaw','game',this)">🎮 Game & CTA</button>
+  <div class="split-2">
+    <div class="card">
+      <div class="card-head huaw">Attempts by Time of Day</div>
+      <div class="bar-chart">
+        <div class="bar-row"><div class="bar-label">Notte (00–05)</div><div class="bar-track"><div class="bar-fill huaw" style="width:0.3%"></div></div><div class="bar-pct">0.3%</div></div>
+        <div class="bar-row"><div class="bar-label">Mattina (06–11)</div><div class="bar-track"><div class="bar-fill huaw" style="width:16.4%"></div></div><div class="bar-pct">16.4%</div></div>
+        <div class="bar-row"><div class="bar-label">Pranzo (12–14)</div><div class="bar-track"><div class="bar-fill huaw" style="width:27.7%"></div></div><div class="bar-pct">27.7%</div></div>
+        <div class="bar-row"><div class="bar-label">Pomeriggio (15–18)</div><div class="bar-track"><div class="bar-fill huaw" style="width:21.3%"></div></div><div class="bar-pct">21.3%</div></div>
+        <div class="bar-row"><div class="bar-label">Sera (18–23)</div><div class="bar-track"><div class="bar-fill huaw" style="width:29.9%"></div></div><div class="bar-pct">29.9%</div></div>
+      </div>
     </div>
+    <div class="card">
+      <div class="card-head huaw">Completion Quality (Score Bands)</div>
+      <div class="bands-grid">
+        <div class="band-card low"><div class="band-pct">1.1%</div><div class="band-label">0–39%</div></div>
+        <div class="band-card med"><div class="band-pct">14.0%</div><div class="band-label">40–69%</div></div>
+        <div class="band-card hi"><div class="band-pct">16.5%</div><div class="band-label">70–99%</div></div>
+        <div class="band-card perf"><div class="band-pct">68.1%</div><div class="band-label">100%</div></div>
+      </div>
+    </div>
+  </div>
 
-    <div id="sec-huaw-pan" class="section-content active">
-      <div class="kpi-grid g3">
-        <div class="kpi-card"><div class="kl">Goox Distribuiti</div><div class="kv">30.345</div><div class="ks">reward totali erogati</div></div>
-        <div class="kpi-card"><div class="kl">Started Sessions</div><div class="kv">5.261</div><div class="ks">sessioni avviate</div></div>
-        <div class="kpi-card"><div class="kl">Abandoned</div><div class="kv" style="color:#1B7A4F">9</div><div class="ks">0.2% abbandoni</div></div>
-      </div>
-      <div class="split-2">
-        <div class="card">
-          <div class="card-head">Player Mix</div>
-          <div class="mix2">
-            <div class="mix-box new"><div class="mix-val">4.6%</div><div class="mix-lbl">First-time Players</div></div>
-            <div class="mix-box ret"><div class="mix-val">95.4%</div><div class="mix-lbl">Returning Players</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-head">Reward Distribution</div>
-          <div class="kpi-grid g3" style="gap:8px">
-            <div class="kpi-card" style="padding:11px 12px;text-align:center"><div class="kl" style="text-align:center">Median P50</div><div class="kv" style="font-size:18px;text-align:center">77</div><div class="ks" style="text-align:center">goox/player</div></div>
-            <div class="kpi-card" style="padding:11px 12px;text-align:center"><div class="kl" style="text-align:center">P90</div><div class="kv" style="font-size:18px;text-align:center">210</div><div class="ks" style="text-align:center">goox/player</div></div>
-            <div class="kpi-card" style="padding:11px 12px;text-align:center"><div class="kl" style="text-align:center">Top 10% Share</div><div class="kv" style="font-size:18px;text-align:center">20.1%</div><div class="ks" style="text-align:center">dei crediti</div></div>
-          </div>
-        </div>
-      </div>
+  <div class="card">
+    <div class="card-head huaw">Repeat Plays per Player (Stickiness) — Repeat Rate: 68.4%</div>
+    <div class="bar-chart">
+      <div class="bar-row"><div class="bar-label">1 play</div><div class="bar-track"><div class="bar-fill huaw" style="width:31.6%"></div></div><div class="bar-pct">31.6%</div></div>
+      <div class="bar-row"><div class="bar-label">2 plays</div><div class="bar-track"><div class="bar-fill huaw" style="width:15.8%"></div></div><div class="bar-pct">15.8%</div></div>
+      <div class="bar-row"><div class="bar-label">3–4 plays</div><div class="bar-track"><div class="bar-fill huaw" style="width:52.5%"></div></div><div class="bar-pct">52.5%</div></div>
+      <div class="bar-row"><div class="bar-label">5+ plays</div><div class="bar-track"><div class="bar-fill huaw" style="width:0%"></div></div><div class="bar-pct">0.0%</div></div>
     </div>
+  </div>
 
-    <div id="sec-huaw-score" class="section-content">
-      <div class="card">
-        <div class="card-head">Score Bands — Qualità delle risposte</div>
-        <div class="bands4">
-          <div class="band4 low"><div class="bv">1.1%</div><div class="bl">0–39% Critico</div></div>
-          <div class="band4 med"><div class="bv">14.0%</div><div class="bl">40–69% Medio</div></div>
-          <div class="band4 hi"><div class="bv">16.5%</div><div class="bl">70–99% Alto</div></div>
-          <div class="band4 perf"><div class="bv">68.1%</div><div class="bl">100% Perfetto</div></div>
-        </div>
-      </div>
-      <div class="split-2">
-        <div class="card">
-          <div class="card-head">Repeat Plays — Stickiness</div>
-          <div class="bar-chart">
-            <div class="bar-row"><div class="bar-label">1 play</div><div class="bar-track"><div class="bar-fill" style="width:31.6%;background:#CF0A2C"></div></div><div class="bar-pct">31.6%</div></div>
-            <div class="bar-row"><div class="bar-label">2 plays</div><div class="bar-track"><div class="bar-fill" style="width:15.8%;background:#CF0A2C"></div></div><div class="bar-pct">15.8%</div></div>
-            <div class="bar-row"><div class="bar-label">3–4 plays</div><div class="bar-track"><div class="bar-fill" style="width:52.5%;background:#CF0A2C"></div></div><div class="bar-pct">52.5%</div></div>
-            <div class="bar-row"><div class="bar-label">5+ plays</div><div class="bar-track"><div class="bar-fill" style="width:0%;background:#CF0A2C"></div></div><div class="bar-pct">0.0%</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-head">Orario di gioco</div>
-          <div class="time-bars">
-            <div class="time-row"><div class="time-label">Notte (00–05)</div><div class="time-track"><div class="time-fill" style="width:0.3%;background:#CF0A2C"></div></div><div class="time-pct">0.3%</div></div>
-            <div class="time-row"><div class="time-label">Mattina (06–11)</div><div class="time-track"><div class="time-fill" style="width:16.4%;background:#CF0A2C"></div></div><div class="time-pct">16.4%</div></div>
-            <div class="time-row"><div class="time-label">Pranzo (12–14)</div><div class="time-track"><div class="time-fill" style="width:27.7%;background:#CF0A2C"></div></div><div class="time-pct">27.7%</div></div>
-            <div class="time-row"><div class="time-label">Pomeriggio (15–18)</div><div class="time-track"><div class="time-fill" style="width:21.3%;background:#CF0A2C"></div></div><div class="time-pct">21.3%</div></div>
-            <div class="time-row"><div class="time-label">Sera (18–23)</div><div class="time-track"><div class="time-fill" style="width:29.9%;background:#E01783"></div></div><div class="time-pct" style="color:#E01783;font-weight:900">29.9%</div></div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="card">
+    <div class="card-head huaw">Game-by-Game Statistics</div>
+    <table class="data-table huaw">
+      <thead><tr><th>Gioco</th><th>Total Plays</th><th>Unique Players</th><th>Plays / Player</th><th>Credits Distribuiti</th></tr></thead>
+      <tbody>
+        <tr><td>HUAWEI_0326_G1</td><td class="num">182</td><td class="num">182</td><td class="num">1.0</td><td class="num goox">8.253 goox</td></tr>
+        <tr><td>HUAWEI_0326_G2</td><td class="num">188</td><td class="num">188</td><td class="num">1.0</td><td class="num goox">8.300 goox</td></tr>
+        <tr><td>HUAWEI_0326_G3</td><td class="num">253</td><td class="num">253</td><td class="num">1.0</td><td class="num goox">13.792 goox</td></tr>
+        <tr><td>Totali</td><td class="num">623</td><td class="num">282</td><td class="num">2.2</td><td class="num goox">30.345 goox</td></tr>
+      </tbody>
+    </table>
+  </div>
 
-    <div id="sec-huaw-domande" class="section-content">
-      <div class="card">
-        <div class="card-head">Accuratezza per domanda — Avg Score 89.4%</div>
-        <table class="ct-table">
-          <thead><tr><th style="text-align:left">Domanda</th><th>Tentativi</th><th>Corrette</th><th>Success Rate</th></tr></thead>
-          <tbody>
-            <tr><td>Huawei è un'azienda di quale Paese?</td><td>182</td><td>131</td><td>72.0%</td></tr>
-            <tr><td>Huawei produce smartphone?</td><td>182</td><td>173</td><td>95.1%</td></tr>
-            <tr><td>Huawei produce anche smartwatch sportivi?</td><td>182</td><td>180</td><td>98.9%</td></tr>
-            <tr><td>Chi ha fondato Huawei?</td><td>182</td><td>142</td><td>78.0%</td></tr>
-            <tr><td>Huawei è forte soprattutto nella...</td><td>182</td><td>152</td><td>83.5%</td></tr>
-            <tr><td>Come si chiama la serie smartphone business Huawei?</td><td>188</td><td>136</td><td>72.3%</td></tr>
-            <tr><td>Huawei produce smartwatch?</td><td>188</td><td>181</td><td>96.3%</td></tr>
-            <tr><td>Huawei vende auricolari wireless?</td><td>188</td><td>186</td><td>98.9%</td></tr>
-            <tr><td>In quale anno nasce Huawei?</td><td>188</td><td>140</td><td>74.5%</td></tr>
-          </tbody>
-        </table>
+  <div class="split-2">
+    <div class="card">
+      <div class="card-head huaw">CTA Performance</div>
+      <div class="kpi-grid g2" style="gap:10px;margin-bottom:10px">
+        <div class="kpi-card sm"><div class="kl">Home CTR</div><div class="kv">13.5%</div><div class="ks">38 clicks / 282 players</div></div>
+        <div class="kpi-card sm"><div class="kl">End-game CTR</div><div class="kv">8.5%</div><div class="ks">24 clicks / 282 players</div></div>
+      </div>
+      <div class="kpi-grid g3" style="gap:10px">
+        <div class="kpi-card sm"><div class="kl">End-game Clicks</div><div class="kv">24</div></div>
+        <div class="kpi-card sm"><div class="kl">CTR / Completer</div><div class="kv">92.3%</div></div>
+        <div class="kpi-card sm"><div class="kl">CTR / Session</div><div class="kv">0.5%</div></div>
       </div>
     </div>
+    <div class="card">
+      <div class="card-head huaw">Abandonment &amp; Timeout</div>
+      <div class="kpi-grid g2" style="gap:10px;margin-bottom:10px">
+        <div class="kpi-card sm"><div class="kl">Started Sessions</div><div class="kv">5.261</div></div>
+        <div class="kpi-card sm"><div class="kl">Abandoned</div><div class="kv">9</div></div>
+      </div>
+      <div class="kpi-grid g2" style="gap:10px">
+        <div class="kpi-card sm"><div class="kl">Abandonment Rate</div><div class="kv" style="color:#2E7D32">0.2%</div></div>
+        <div class="kpi-card sm"><div class="kl">Timeout Rate</div><div class="kv">0.2%</div></div>
+      </div>
+    </div>
+  </div>
 
-    <div id="sec-huaw-game" class="section-content">
-      <div class="split-2">
-        <div class="card">
-          <div class="card-head">Game-by-game</div>
-          <table class="ct-table">
-            <thead><tr><th>Gioco</th><th>Plays</th><th>Players</th><th>Goox</th></tr></thead>
-            <tbody>
-              <tr><td>G1</td><td>182</td><td>182</td><td>8.253</td></tr>
-              <tr><td>G2</td><td>188</td><td>188</td><td>8.300</td></tr>
-              <tr><td>G3</td><td>253</td><td>253</td><td>13.792</td></tr>
-              <tr class="total-row"><td>Totali</td><td>623</td><td>282</td><td>30.345</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="card">
-          <div class="card-head">CTA Performance</div>
-          <div style="display:flex;flex-direction:column;gap:8px;font-size:13px">
-            <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)"><span style="color:var(--gray)">Home CTR</span><strong>13.5% <span style="font-size:11px;color:var(--lgray)">(38 / 282 player)</span></strong></div>
-            <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)"><span style="color:var(--gray)">End-game CTR</span><strong>8.5% <span style="font-size:11px;color:var(--lgray)">(24 / 282 player)</span></strong></div>
-            <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)"><span style="color:var(--gray)">CTR / Completer</span><strong>92.3%</strong></div>
-            <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)"><span style="color:var(--gray)">CTR / Session</span><strong>0.5%</strong></div>
-            <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)"><span style="color:var(--gray)">Abandonment Rate</span><strong style="color:#1B7A4F">0.2%</strong></div>
-            <div style="display:flex;justify-content:space-between;padding:7px 0"><span style="color:var(--gray)">Timeout Rate</span><strong>0.2%</strong></div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="card">
+    <div class="card-head huaw">Question Analysis · Accuratezza risposte — Overall: 89.4%</div>
+    <table class="data-table huaw">
+      <thead><tr><th>Domanda</th><th>Tentativi</th><th>Corrette</th><th>Success Rate</th></tr></thead>
+      <tbody>
+        <tr><td>Huawei è un'azienda di quale Paese?</td><td class="num">182</td><td class="num">131</td><td class="num">72.0%</td></tr>
+        <tr><td>Huawei produce smartphone?</td><td class="num">182</td><td class="num">173</td><td class="num">95.1%</td></tr>
+        <tr><td>Huawei produce anche smartwatch sportivi?</td><td class="num">182</td><td class="num">180</td><td class="num">98.9%</td></tr>
+        <tr><td>Chi ha fondato Huawei?</td><td class="num">182</td><td class="num">142</td><td class="num">78.0%</td></tr>
+        <tr><td>Huawei è forte soprattutto nella...</td><td class="num">182</td><td class="num">152</td><td class="num">83.5%</td></tr>
+        <tr><td>Come si chiama la serie smartphone business Huawei?</td><td class="num">188</td><td class="num">136</td><td class="num">72.3%</td></tr>
+        <tr><td>Huawei produce smartwatch?</td><td class="num">188</td><td class="num">181</td><td class="num">96.3%</td></tr>
+        <tr><td>Huawei vende auricolari wireless?</td><td class="num">188</td><td class="num">186</td><td class="num">98.9%</td></tr>
+        <tr><td>In quale anno nasce Huawei?</td><td class="num">188</td><td class="num">140</td><td class="num">74.5%</td></tr>
+      </tbody>
+    </table>
+  </div>
 
 </div>
 </div>
@@ -1175,134 +1298,151 @@ footer a{color:rgba(255,255,255,.7);text-decoration:none}
     <button onclick="showTab('report',document.getElementById('nav-btn-report'))" style="background:none;border:none;cursor:pointer;font-size:12px;font-weight:600;color:var(--gray);display:flex;align-items:center;gap:5px;padding:0;font-family:'Inter',sans-serif">← Torna alla panoramica</button>
   </div>
 
-  <div class="hero-brand remu" data-wm="REMUNERO">
-    <div class="hb-left">
-      <div class="hb-eyebrow">REMUNERO · FEB–MAR 2026 · CODICE REMUNERO-01-0226</div>
-      <div class="hb-title">Campagna product awareness — 💰 Fintech / HR</div>
-      <div class="hb-sub">3 game · Aggiornato Apr 10, 2026 14:07 CEST</div>
-      <div class="hb-kpis">
-        <div class="hb-kpi"><div class="hk-l">Total Plays</div><div class="hk-v">982</div></div>
-        <div class="hb-kpi"><div class="hk-l">Unique Players</div><div class="hk-v">385</div></div>
-          <div class="hb-kpi"><div class="hk-l">Plays / Player</div><div class="hk-v">2.6</div></div>
-          <div class="hb-kpi"><div class="hk-l">Avg Score</div><div class="hk-v">68.6%</div></div>
-          <div class="hb-kpi"><div class="hk-l">Completion Rate</div><div class="hk-v">100%</div></div>
-          <div class="hb-kpi"><div class="hk-l">Repeat Rate ≥2</div><div class="hk-v">80.5%</div></div>
-          <div class="hb-kpi"><div class="hk-l">Goox / Sessione</div><div class="hk-v">41.2</div></div>
-          <div class="hb-kpi"><div class="hk-l">Avg Gameplay</div><div class="hk-v">0m 55s</div></div>
-        </div>
+  <div class="hero-cover remu" data-watermark="REMUNERO">
+    <div class="hero-text">
+      <div class="eyebrow">CAMPAIGN REPORT · FEBBRAIO–MARZO 2026</div>
+      <div class="ht">Remunero <em>× MyGoo</em></div>
+      <div class="hb">REMUNERO-01-0226 — Last refreshed: Apr 10, 2026 14:07:16 CEST</div>
+      <div class="hero-meta">
+        <div class="hero-meta-item"><div class="ml">Campagna</div><div class="mv">REMUNERO-0226</div></div>
+        <div class="hero-meta-item"><div class="ml">Giochi</div><div class="mv">3 quiz</div></div>
+        <div class="hero-meta-item"><div class="ml">Completion</div><div class="mv">100%</div></div>
       </div>
     </div>
+    <div class="hero-logo">
+      <svg width="54" height="54" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
+        <rect width="56" height="56" rx="6" fill="rgba(255,255,255,0.15)"/>
+        <circle cx="28" cy="28" r="23" fill="white"/>
+        <text x="28" y="37" font-family="Georgia,serif" font-size="30" font-weight="900" fill="#6B21A8" text-anchor="middle">R</text>
+      </svg>
+      <div class="brand-name">Remunero</div>
+    </div>
+  </div>
 
-    <div class="section-nav">
-      <button class="section-btn active" onclick="showSection('remu','pan',this)">📊 Panoramica</button>
-      <button class="section-btn" onclick="showSection('remu','score',this)">🎯 Score & Engagement</button>
-      <button class="section-btn" onclick="showSection('remu','domande',this)">❓ Domande</button>
-      <button class="section-btn" onclick="showSection('remu','game',this)">🎮 Game & CTA</button>
+  <div>
+    <div class="sec-label">Summary Statistics</div>
+    <div class="sec-title remu">Dati principali</div>
+    <div class="kpi-grid g5">
+      <div class="kpi-card a-remu"><div class="kl">Total Plays</div><div class="kv">982</div><div class="ks">giocate totali</div></div>
+      <div class="kpi-card"><div class="kl">Avg Gameplay</div><div class="kv">0m 55s</div><div class="ks">durata media</div></div>
+      <div class="kpi-card a-remu"><div class="kl">Unique Players</div><div class="kv">385</div><div class="ks">giocatori unici</div></div>
+      <div class="kpi-card"><div class="kl">Plays / Player</div><div class="kv">2.6</div><div class="ks">media per utente</div></div>
+      <div class="kpi-card a-pink"><div class="kl">Goox distribuiti</div><div class="kv">40.455</div><div class="ks">crediti totali</div></div>
     </div>
+  </div>
 
-    <div id="sec-remu-pan" class="section-content active">
-      <div class="kpi-grid g3">
-        <div class="kpi-card"><div class="kl">Goox Distribuiti</div><div class="kv">40.455</div><div class="ks">reward totali erogati</div></div>
-        <div class="kpi-card"><div class="kl">Started Sessions</div><div class="kv">869</div><div class="ks">sessioni avviate</div></div>
-        <div class="kpi-card"><div class="kl">Abandoned</div><div class="kv" style="color:#1B7A4F">1</div><div class="ks">0.1% abbandoni</div></div>
-      </div>
-      <div class="split-2">
-        <div class="card">
-          <div class="card-head">Player Mix</div>
-          <div class="mix2">
-            <div class="mix-box new"><div class="mix-val">8.1%</div><div class="mix-lbl">First-time Players</div></div>
-            <div class="mix-box ret"><div class="mix-val">91.9%</div><div class="mix-lbl">Returning Players</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-head">Reward Distribution</div>
-          <div class="kpi-grid g3" style="gap:8px">
-            <div class="kpi-card" style="padding:11px 12px;text-align:center"><div class="kl" style="text-align:center">Median P50</div><div class="kv" style="font-size:18px;text-align:center">50</div><div class="ks" style="text-align:center">goox/player</div></div>
-            <div class="kpi-card" style="padding:11px 12px;text-align:center"><div class="kl" style="text-align:center">P90</div><div class="kv" style="font-size:18px;text-align:center">300</div><div class="ks" style="text-align:center">goox/player</div></div>
-            <div class="kpi-card" style="padding:11px 12px;text-align:center"><div class="kl" style="text-align:center">Top 10% Share</div><div class="kv" style="font-size:18px;text-align:center">28.9%</div><div class="ks" style="text-align:center">dei crediti</div></div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="kpi-grid g4">
+    <div class="kpi-card"><div class="kl">Completion Rate</div><div class="kv">100%</div></div>
+    <div class="kpi-card"><div class="kl">Avg Score</div><div class="kv">68.6%</div></div>
+    <div class="kpi-card"><div class="kl">Goox / Sessione</div><div class="kv">41.2</div></div>
+    <div class="kpi-card"><div class="kl">Repeat Rate ≥2</div><div class="kv">80.5%</div></div>
+  </div>
 
-    <div id="sec-remu-score" class="section-content">
-      <div class="card">
-        <div class="card-head">Score Bands — Qualità delle risposte</div>
-        <div class="bands4">
-          <div class="band4 low"><div class="bv">9.5%</div><div class="bl">0–39% Critico</div></div>
-          <div class="band4 med"><div class="bv">38.9%</div><div class="bl">40–69% Medio</div></div>
-          <div class="band4 hi"><div class="bv">18.5%</div><div class="bl">70–99% Alto</div></div>
-          <div class="band4 perf"><div class="bv">32.1%</div><div class="bl">100% Perfetto</div></div>
-        </div>
+  <div class="split-2">
+    <div class="card">
+      <div class="card-head remu">Player Mix</div>
+      <div class="player-mix">
+        <div class="mix-card new"><div class="mix-pct">8.1%</div><div class="mix-label">First-time Players</div></div>
+        <div class="mix-card ret"><div class="mix-pct">91.9%</div><div class="mix-label">Returning Players</div></div>
       </div>
-      <div class="split-2">
-        <div class="card">
-          <div class="card-head">Repeat Plays — Stickiness</div>
-          <div class="bar-chart">
-            <div class="bar-row"><div class="bar-label">1 play</div><div class="bar-track"><div class="bar-fill" style="width:19.5%;background:#6B21A8"></div></div><div class="bar-pct">19.5%</div></div>
-            <div class="bar-row"><div class="bar-label">2 plays</div><div class="bar-track"><div class="bar-fill" style="width:6%;background:#6B21A8"></div></div><div class="bar-pct">6.0%</div></div>
-            <div class="bar-row"><div class="bar-label">3–4 plays</div><div class="bar-track"><div class="bar-fill" style="width:74.5%;background:#6B21A8"></div></div><div class="bar-pct">74.5%</div></div>
-            <div class="bar-row"><div class="bar-label">5+ plays</div><div class="bar-track"><div class="bar-fill" style="width:0%;background:#6B21A8"></div></div><div class="bar-pct">0.0%</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-head">Orario di gioco</div>
-          <div class="time-bars">
-            <div class="time-row"><div class="time-label">Notte (00–05)</div><div class="time-track"><div class="time-fill" style="width:5.5%;background:#6B21A8"></div></div><div class="time-pct">5.5%</div></div>
-            <div class="time-row"><div class="time-label">Mattina (06–11)</div><div class="time-track"><div class="time-fill" style="width:15.3%;background:#6B21A8"></div></div><div class="time-pct">15.3%</div></div>
-            <div class="time-row"><div class="time-label">Pranzo (12–14)</div><div class="time-track"><div class="time-fill" style="width:36%;background:#E01783"></div></div><div class="time-pct" style="color:#E01783;font-weight:900">36.0%</div></div>
-            <div class="time-row"><div class="time-label">Pomeriggio (15–18)</div><div class="time-track"><div class="time-fill" style="width:16.8%;background:#6B21A8"></div></div><div class="time-pct">16.8%</div></div>
-            <div class="time-row"><div class="time-label">Sera (19–23)</div><div class="time-track"><div class="time-fill" style="width:26.4%;background:#6B21A8"></div></div><div class="time-pct">26.4%</div></div>
-          </div>
-        </div>
+      <div style="margin-top:10px;font-size:12px;color:var(--gray)">Totale players campagna: <strong>385</strong></div>
+    </div>
+    <div class="card">
+      <div class="card-head remu">Reward Distribution</div>
+      <div class="kpi-grid g3" style="gap:10px">
+        <div class="kpi-card sm"><div class="kl">Median P50</div><div class="kv">50</div><div class="ks">goox / player</div></div>
+        <div class="kpi-card sm"><div class="kl">P90</div><div class="kv">300</div><div class="ks">goox / player</div></div>
+        <div class="kpi-card sm"><div class="kl">Top 10% Share</div><div class="kv">28.9%</div><div class="ks">dei crediti</div></div>
       </div>
     </div>
+  </div>
 
-    <div id="sec-remu-domande" class="section-content">
-      <div class="card">
-        <div class="card-head">Accuratezza per domanda — Avg Score 68.6%</div>
-        <table class="ct-table">
-          <thead><tr><th style="text-align:left">Domanda</th><th>Tentativi</th><th>Corrette</th><th>Success Rate</th></tr></thead>
-          <tbody>
-            <tr><td>Quanti Euro ti chiede Remunero per ottenere la restituzione della TARI?</td><td>350</td><td>279</td><td>79.7%</td></tr>
-            <tr><td>In quali Comuni Remunero restituisce la TARI?</td><td>350</td><td>303</td><td>86.6%</td></tr>
-            <tr><td>Quanti parametri devi rispettare per ottenere la restituzione della TARI?</td><td>350</td><td>175</td><td>50.0%</td></tr>
-            <tr><td>Quante tasse risparmia la partita IVA che utilizza il conto Remunero?</td><td>350</td><td>189</td><td>54.0%</td></tr>
-            <tr><td>Remunero si occupa di:</td><td>350</td><td>157</td><td>44.9%</td></tr>
-            <tr><td>Cosa restituisce Remunero?</td><td>325</td><td>220</td><td>67.7%</td></tr>
-            <tr><td>Qual è uno dei requisiti fondamentali per ottenere la restituzione della TARI?</td><td>325</td><td>272</td><td>83.7%</td></tr>
-          </tbody>
-        </table>
+  <div class="split-2">
+    <div class="card">
+      <div class="card-head remu">Attempts by Time of Day</div>
+      <div class="bar-chart">
+        <div class="bar-row"><div class="bar-label">Notte (00–05)</div><div class="bar-track"><div class="bar-fill remu" style="width:5.5%"></div></div><div class="bar-pct">5.5%</div></div>
+        <div class="bar-row"><div class="bar-label">Mattina (06–11)</div><div class="bar-track"><div class="bar-fill remu" style="width:15.3%"></div></div><div class="bar-pct">15.3%</div></div>
+        <div class="bar-row"><div class="bar-label">Pranzo (12–14)</div><div class="bar-track"><div class="bar-fill remu" style="width:36.0%"></div></div><div class="bar-pct">36.0%</div></div>
+        <div class="bar-row"><div class="bar-label">Pomeriggio (15–18)</div><div class="bar-track"><div class="bar-fill remu" style="width:16.8%"></div></div><div class="bar-pct">16.8%</div></div>
+        <div class="bar-row"><div class="bar-label">Sera (19–23)</div><div class="bar-track"><div class="bar-fill remu" style="width:26.4%"></div></div><div class="bar-pct">26.4%</div></div>
       </div>
     </div>
+    <div class="card">
+      <div class="card-head remu">Completion Quality (Score Bands)</div>
+      <div class="bands-grid">
+        <div class="band-card low"><div class="band-pct">9.5%</div><div class="band-label">0–39%</div></div>
+        <div class="band-card med"><div class="band-pct">38.9%</div><div class="band-label">40–69%</div></div>
+        <div class="band-card hi"><div class="band-pct">18.5%</div><div class="band-label">70–99%</div></div>
+        <div class="band-card perf"><div class="band-pct">32.1%</div><div class="band-label">100%</div></div>
+      </div>
+    </div>
+  </div>
 
-    <div id="sec-remu-game" class="section-content">
-      <div class="split-2">
-        <div class="card">
-          <div class="card-head">Game-by-game</div>
-          <table class="ct-table">
-            <thead><tr><th>Gioco</th><th>Plays</th><th>Players</th><th>Goox</th></tr></thead>
-            <tbody>
-              <tr><td>Game 01</td><td>350</td><td>350</td><td>11.815</td></tr>
-              <tr><td>Game 02</td><td>325</td><td>325</td><td>15.765</td></tr>
-              <tr><td>Game 03</td><td>307</td><td>307</td><td>12.875</td></tr>
-              <tr class="total-row"><td>Totali</td><td>982</td><td>385</td><td>40.455</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="card">
-          <div class="card-head">CTA Performance</div>
-          <div style="display:flex;flex-direction:column;gap:8px;font-size:13px">
-            <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)"><span style="color:var(--gray)">Home CTR</span><strong>15.3% <span style="font-size:11px;color:var(--lgray)">(59 / 385 player)</span></strong></div>
-            <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)"><span style="color:var(--gray)">End-game CTR</span><strong>14.8% <span style="font-size:11px;color:var(--lgray)">(57 / 385 player)</span></strong></div>
-            <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)"><span style="color:var(--gray)">Completed Games</span><strong>735</strong></div>
-            <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)"><span style="color:var(--gray)">CTR / Completer</span><strong>219.2%</strong></div>
-            <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)"><span style="color:var(--gray)">Abandonment Rate</span><strong style="color:#1B7A4F">0.1%</strong></div>
-            <div style="display:flex;justify-content:space-between;padding:7px 0"><span style="color:var(--gray)">Timeout Rate</span><strong>1.5%</strong></div>
-          </div>
-        </div>
+  <div class="card">
+    <div class="card-head remu">Repeat Plays per Player (Stickiness) — Repeat Rate: 80.5%</div>
+    <div class="bar-chart">
+      <div class="bar-row"><div class="bar-label">1 play</div><div class="bar-track"><div class="bar-fill remu" style="width:19.5%"></div></div><div class="bar-pct">19.5%</div></div>
+      <div class="bar-row"><div class="bar-label">2 plays</div><div class="bar-track"><div class="bar-fill remu" style="width:6.0%"></div></div><div class="bar-pct">6.0%</div></div>
+      <div class="bar-row"><div class="bar-label">3–4 plays</div><div class="bar-track"><div class="bar-fill remu" style="width:74.5%"></div></div><div class="bar-pct">74.5%</div></div>
+      <div class="bar-row"><div class="bar-label">5+ plays</div><div class="bar-track"><div class="bar-fill remu" style="width:0%"></div></div><div class="bar-pct">0.0%</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head remu">Game-by-Game Statistics</div>
+    <table class="data-table remu">
+      <thead><tr><th>Gioco</th><th>Total Plays</th><th>Unique Players</th><th>Plays / Player</th><th>Credits Distribuiti</th></tr></thead>
+      <tbody>
+        <tr><td>REMUNERO-01-0226</td><td class="num">350</td><td class="num">350</td><td class="num">1.0</td><td class="num goox">11.815 goox</td></tr>
+        <tr><td>REMUNERO-02-0226</td><td class="num">325</td><td class="num">325</td><td class="num">1.0</td><td class="num goox">15.765 goox</td></tr>
+        <tr><td>REMUNERO-03-0226</td><td class="num">307</td><td class="num">307</td><td class="num">1.0</td><td class="num goox">12.875 goox</td></tr>
+        <tr><td>Totali</td><td class="num">982</td><td class="num">385</td><td class="num">2.6</td><td class="num goox">40.455 goox</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="split-2">
+    <div class="card">
+      <div class="card-head remu">CTA Performance</div>
+      <div class="kpi-grid g2" style="gap:10px;margin-bottom:10px">
+        <div class="kpi-card sm"><div class="kl">Home CTR</div><div class="kv">15.3%</div><div class="ks">59 clicks / 385 players</div></div>
+        <div class="kpi-card sm"><div class="kl">End-game CTR</div><div class="kv">14.8%</div><div class="ks">57 clicks / 385 players</div></div>
+      </div>
+      <div class="kpi-grid g3" style="gap:10px">
+        <div class="kpi-card sm"><div class="kl">Completed Games</div><div class="kv">735</div></div>
+        <div class="kpi-card sm"><div class="kl">End-game Clicks</div><div class="kv">57</div></div>
+        <div class="kpi-card sm"><div class="kl">CTR / Completer</div><div class="kv">219.2%</div></div>
       </div>
     </div>
+    <div class="card">
+      <div class="card-head remu">Abandonment &amp; Timeout</div>
+      <div class="kpi-grid g2" style="gap:10px;margin-bottom:10px">
+        <div class="kpi-card sm"><div class="kl">Started Sessions</div><div class="kv">869</div></div>
+        <div class="kpi-card sm"><div class="kl">Abandoned</div><div class="kv">1</div></div>
+      </div>
+      <div class="kpi-grid g2" style="gap:10px">
+        <div class="kpi-card sm"><div class="kl">Abandonment Rate</div><div class="kv" style="color:#2E7D32">0.1%</div></div>
+        <div class="kpi-card sm"><div class="kl">Timeout Rate</div><div class="kv">1.5%</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head remu">Question Analysis · Accuratezza risposte — Overall: 68.6%</div>
+    <table class="data-table remu">
+      <thead><tr><th>Domanda</th><th>Tentativi</th><th>Corrette</th><th>Success Rate</th></tr></thead>
+      <tbody>
+        <tr><td>Quanti Euro ti chiede Remunero per ottenere la restituzione della TARI?</td><td class="num">350</td><td class="num">279</td><td class="num">79.7%</td></tr>
+        <tr><td>In quali Comuni Remunero restituisce la TARI?</td><td class="num">350</td><td class="num">303</td><td class="num">86.6%</td></tr>
+        <tr><td>Quanti parametri devi rispettare per ottenere la restituzione della TARI?</td><td class="num">350</td><td class="num">175</td><td class="num">50.0%</td></tr>
+        <tr><td>Quante tasse risparmia la partita Iva che utilizza il conto Remunero?</td><td class="num">350</td><td class="num">189</td><td class="num">54.0%</td></tr>
+        <tr><td>Remunero si occupa di:</td><td class="num">350</td><td class="num">157</td><td class="num">44.9%</td></tr>
+        <tr><td>Cosa restituisce Remunero?</td><td class="num">325</td><td class="num">220</td><td class="num">67.7%</td></tr>
+        <tr><td>Qual è uno dei requisiti fondamentali per ottenere la restituzione della TARI?</td><td class="num">325</td><td class="num">272</td><td class="num">83.7%</td></tr>
+      </tbody>
+    </table>
+  </div>
 
 </div>
 </div>
@@ -1315,142 +1455,159 @@ footer a{color:rgba(255,255,255,.7);text-decoration:none}
     <button onclick="showTab('report',document.getElementById('nav-btn-report'))" style="background:none;border:none;cursor:pointer;font-size:12px;font-weight:600;color:var(--gray);display:flex;align-items:center;gap:5px;padding:0;font-family:'Inter',sans-serif">← Torna alla panoramica</button>
   </div>
 
-  <div class="hero-brand rena" data-wm="RENAULT">
-    <div class="hb-left">
-      <div class="hb-eyebrow">RENAULT · GEN–FEB 2026 · CODICE RENAULT-VARCA-03-0126</div>
-      <div class="hb-title">Campagna product awareness — 🚗 Automotive / EV</div>
-      <div class="hb-sub">6 game · Aggiornato May 06, 2026 08:31 CEST</div>
-      <div class="hb-kpis">
-          <div class="hb-kpi"><div class="hk-l">Total Plays</div><div class="hk-v">1.654</div></div>
-          <div class="hb-kpi"><div class="hk-l">Unique Players</div><div class="hk-v">394</div></div>
-          <div class="hb-kpi"><div class="hk-l">Plays / Player</div><div class="hk-v">4.2</div></div>
-          <div class="hb-kpi"><div class="hk-l">Avg Score</div><div class="hk-v">72.0%</div></div>
-          <div class="hb-kpi"><div class="hk-l">Completion Rate</div><div class="hk-v">100%</div></div>
-          <div class="hb-kpi"><div class="hk-l">Repeat Rate ≥2</div><div class="hk-v" style="color:#FFD700">82.0% 🏆</div></div>
-          <div class="hb-kpi"><div class="hk-l">Goox / Sessione</div><div class="hk-v">45.72</div></div>
-          <div class="hb-kpi"><div class="hk-l">Avg Gameplay</div><div class="hk-v">0m 41s</div></div>
-        </div>
+  <div class="hero-cover rena" data-watermark="RENAULT">
+    <div class="hero-text">
+      <div class="eyebrow">CAMPAIGN REPORT · SETTEMBRE 2025 – GENNAIO 2026</div>
+      <div class="ht">Renault <em>× MyGoo</em></div>
+      <div class="hb">RENAULT-VARCA-03-0126 — Last refreshed: May 06, 2026 08:31:05 CEST</div>
+      <div class="hero-meta">
+        <div class="hero-meta-item"><div class="ml">Campagna</div><div class="mv">RENAULT-VARCA-03-0126</div></div>
+        <div class="hero-meta-item"><div class="ml">Giochi</div><div class="mv">6 quiz</div></div>
+        <div class="hero-meta-item"><div class="ml">Completion</div><div class="mv">100%</div></div>
       </div>
     </div>
+    <div class="hero-logo">
+      <svg width="54" height="54" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
+        <rect width="56" height="56" rx="6" fill="rgba(255,255,255,0.15)"/>
+        <polygon points="28,4 52,28 28,52 4,28" fill="none" stroke="white" stroke-width="3.5"/>
+        <polygon points="28,13 43,28 28,43 13,28" fill="none" stroke="white" stroke-width="3.5"/>
+        <polygon points="28,21 35,28 28,35 21,28" fill="white"/>
+      </svg>
+      <div class="brand-name">Renault</div>
+    </div>
+  </div>
 
-    <div class="section-nav">
-      <button class="section-btn active" onclick="showSection('rena','pan',this)">📊 Panoramica</button>
-      <button class="section-btn" onclick="showSection('rena','score',this)">🎯 Score & Engagement</button>
-      <button class="section-btn" onclick="showSection('rena','domande',this)">❓ Domande</button>
-      <button class="section-btn" onclick="showSection('rena','game',this)">🎮 Game & CTA</button>
+  <div>
+    <div class="sec-label">Summary Statistics</div>
+    <div class="sec-title rena">Dati principali</div>
+    <div class="kpi-grid g5">
+      <div class="kpi-card a-rena"><div class="kl">Total Plays</div><div class="kv">1.654</div><div class="ks">giocate totali</div></div>
+      <div class="kpi-card"><div class="kl">Avg Gameplay</div><div class="kv">0m 41s</div><div class="ks">durata media</div></div>
+      <div class="kpi-card a-rena"><div class="kl">Unique Players</div><div class="kv">394</div><div class="ks">giocatori unici</div></div>
+      <div class="kpi-card"><div class="kl">Plays / Player</div><div class="kv">4.2</div><div class="ks">media per utente</div></div>
+      <div class="kpi-card a-pink"><div class="kl">Goox distribuiti</div><div class="kv">75.618</div><div class="ks">crediti totali</div></div>
     </div>
+  </div>
 
-    <div id="sec-rena-pan" class="section-content active">
-      <div class="kpi-grid g3">
-        <div class="kpi-card"><div class="kl">Goox Distribuiti</div><div class="kv">75.618</div><div class="ks">reward totali erogati</div></div>
-        <div class="kpi-card"><div class="kl">Started Sessions</div><div class="kv">1.474</div><div class="ks">sessioni avviate</div></div>
-        <div class="kpi-card"><div class="kl">Abandoned</div><div class="kv" style="color:#1B7A4F">0</div><div class="ks">0.0% abbandoni — 14 timeout (0.9%)</div></div>
-      </div>
-      <div class="split-2">
-        <div class="card">
-          <div class="card-head">Player Mix</div>
-          <div class="mix2">
-            <div class="mix-box new"><div class="mix-val">7.9%</div><div class="mix-lbl">First-time Players</div></div>
-            <div class="mix-box ret"><div class="mix-val">92.1%</div><div class="mix-lbl">Returning Players</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-head">Reward Distribution</div>
-          <div class="kpi-grid g3" style="gap:8px">
-            <div class="kpi-card" style="padding:11px 12px;text-align:center"><div class="kl" style="text-align:center">Median P50</div><div class="kv" style="font-size:18px;text-align:center">120</div><div class="ks" style="text-align:center">goox/player</div></div>
-            <div class="kpi-card" style="padding:11px 12px;text-align:center"><div class="kl" style="text-align:center">P90</div><div class="kv" style="font-size:18px;text-align:center">555</div><div class="ks" style="text-align:center">goox/player</div></div>
-            <div class="kpi-card" style="padding:11px 12px;text-align:center"><div class="kl" style="text-align:center">Top 10% Share</div><div class="kv" style="font-size:18px;text-align:center">29.4%</div><div class="ks" style="text-align:center">dei crediti</div></div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="kpi-grid g4">
+    <div class="kpi-card"><div class="kl">Completion Rate</div><div class="kv">100%</div></div>
+    <div class="kpi-card"><div class="kl">Avg Score</div><div class="kv">72.0%</div></div>
+    <div class="kpi-card"><div class="kl">Goox / Sessione</div><div class="kv">45.72</div></div>
+    <div class="kpi-card"><div class="kl">Repeat Rate ≥2</div><div class="kv">82.0%</div></div>
+  </div>
 
-    <div id="sec-rena-score" class="section-content">
-      <div class="card">
-        <div class="card-head">Score Bands — Qualità delle risposte</div>
-        <div class="bands4">
-          <div class="band4 low"><div class="bv">15.4%</div><div class="bl">0–39% Critico</div></div>
-          <div class="band4 med"><div class="bv">23.0%</div><div class="bl">40–69% Medio</div></div>
-          <div class="band4 hi"><div class="bv">18.5%</div><div class="bl">70–99% Alto</div></div>
-          <div class="band4 perf"><div class="bv">43.2%</div><div class="bl">100% Perfetto</div></div>
-        </div>
+  <div class="split-2">
+    <div class="card">
+      <div class="card-head rena">Player Mix</div>
+      <div class="player-mix">
+        <div class="mix-card new"><div class="mix-pct">7.9%</div><div class="mix-label">First-time Players</div></div>
+        <div class="mix-card ret"><div class="mix-pct">92.1%</div><div class="mix-label">Returning Players</div></div>
       </div>
-      <div class="split-2">
-        <div class="card">
-          <div class="card-head">Repeat Plays — Stickiness 🏆 Best Engagement</div>
-          <div class="bar-chart">
-            <div class="bar-row"><div class="bar-label">1 play</div><div class="bar-track"><div class="bar-fill" style="width:15%;background:#003189"></div></div><div class="bar-pct">15.0%</div></div>
-            <div class="bar-row"><div class="bar-label">2 plays</div><div class="bar-track"><div class="bar-fill" style="width:8.9%;background:#003189"></div></div><div class="bar-pct">8.9%</div></div>
-            <div class="bar-row"><div class="bar-label">3–4 plays</div><div class="bar-track"><div class="bar-fill" style="width:18.5%;background:#003189"></div></div><div class="bar-pct">18.5%</div></div>
-            <div class="bar-row"><div class="bar-label">5+ plays</div><div class="bar-track"><div class="bar-fill" style="width:57.6%;background:#E01783"></div></div><div class="bar-pct" style="color:#E01783;font-weight:900">57.6%</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-head">Orario di gioco</div>
-          <div class="time-bars">
-            <div class="time-row"><div class="time-label">Notte (00–05)</div><div class="time-track"><div class="time-fill" style="width:0.5%;background:#003189"></div></div><div class="time-pct">0.5%</div></div>
-            <div class="time-row"><div class="time-label">Mattina (06–11)</div><div class="time-track"><div class="time-fill" style="width:16.4%;background:#003189"></div></div><div class="time-pct">16.4%</div></div>
-            <div class="time-row"><div class="time-label">Pranzo (12–16)</div><div class="time-track"><div class="time-fill" style="width:30.2%;background:#003189"></div></div><div class="time-pct">30.2%</div></div>
-            <div class="time-row"><div class="time-label">Pomeriggio (15–18)</div><div class="time-track"><div class="time-fill" style="width:17.1%;background:#003189"></div></div><div class="time-pct">17.1%</div></div>
-            <div class="time-row"><div class="time-label">Sera (19–23)</div><div class="time-track"><div class="time-fill" style="width:35.8%;background:#E01783"></div></div><div class="time-pct" style="color:#E01783;font-weight:900">35.8%</div></div>
-          </div>
-        </div>
+      <div style="margin-top:10px;font-size:12px;color:var(--gray)">Totale players campagna: <strong>394</strong></div>
+    </div>
+    <div class="card">
+      <div class="card-head rena">Reward Distribution</div>
+      <div class="kpi-grid g3" style="gap:10px">
+        <div class="kpi-card sm"><div class="kl">Median P50</div><div class="kv">120</div><div class="ks">goox / player</div></div>
+        <div class="kpi-card sm"><div class="kl">P90</div><div class="kv">555</div><div class="ks">goox / player</div></div>
+        <div class="kpi-card sm"><div class="kl">Top 10% Share</div><div class="kv">29.4%</div><div class="ks">dei crediti</div></div>
       </div>
     </div>
+  </div>
 
-    <div id="sec-rena-domande" class="section-content">
-      <div class="card">
-        <div class="card-head">Accuratezza per domanda — Avg Score 73.0% · Renault Mégane E-Tech Electric</div>
-        <table class="ct-table">
-          <thead><tr><th style="text-align:left">Domanda</th><th>Tentativi</th><th>Corrette</th><th>Success Rate</th></tr></thead>
-          <tbody>
-            <tr><td>Autonomia WLTP Mégane E-Tech con batteria 60 kWh fino a 470 km?</td><td>888</td><td>615</td><td>69.3%</td></tr>
-            <tr><td>Quale frenata rigenerativa offre una guida quasi a "un solo pedale"?</td><td>895</td><td>563</td><td>62.9%</td></tr>
-            <tr><td>Con che potenza ricarica in corrente continua (DC)?</td><td>596</td><td>372</td><td>62.4%</td></tr>
-            <tr><td>Quanto tempo per ricaricare completamente via wallbox 7 kW?</td><td>895</td><td>576</td><td>64.4%</td></tr>
-            <tr><td>Quanto potente è il motore Mégane E-Tech Electric?</td><td>1.058</td><td>772</td><td>73.0%</td></tr>
-            <tr><td>In 30 minuti su colonnina rapida recupera fino a quanta autonomia?</td><td>574</td><td>458</td><td>79.8%</td></tr>
-            <tr><td>Quanto si risparmia all'anno sui costi energetici vs termico?</td><td>759</td><td>538</td><td>70.9%</td></tr>
-            <tr><td>L'assistenza "Active Driver Assist" combina cosa?</td><td>1.058</td><td>946</td><td>89.4%</td></tr>
-          </tbody>
-        </table>
+  <div class="split-2">
+    <div class="card">
+      <div class="card-head rena">Attempts by Time of Day</div>
+      <div class="bar-chart">
+        <div class="bar-row"><div class="bar-label">Notte (00–05)</div><div class="bar-track"><div class="bar-fill rena" style="width:0.5%"></div></div><div class="bar-pct">0.5%</div></div>
+        <div class="bar-row"><div class="bar-label">Mattina (06–11)</div><div class="bar-track"><div class="bar-fill rena" style="width:16.4%"></div></div><div class="bar-pct">16.4%</div></div>
+        <div class="bar-row"><div class="bar-label">Pranzo (12–16)</div><div class="bar-track"><div class="bar-fill rena" style="width:30.2%"></div></div><div class="bar-pct">30.2%</div></div>
+        <div class="bar-row"><div class="bar-label">Pomeriggio (15–18)</div><div class="bar-track"><div class="bar-fill rena" style="width:17.1%"></div></div><div class="bar-pct">17.1%</div></div>
+        <div class="bar-row"><div class="bar-label">Sera (19–23)</div><div class="bar-track"><div class="bar-fill rena" style="width:35.8%"></div></div><div class="bar-pct">35.8%</div></div>
       </div>
     </div>
+    <div class="card">
+      <div class="card-head rena">Completion Quality (Score Bands)</div>
+      <div class="bands-grid">
+        <div class="band-card low"><div class="band-pct">15.4%</div><div class="band-label">0–39%</div></div>
+        <div class="band-card med"><div class="band-pct">23.0%</div><div class="band-label">40–69%</div></div>
+        <div class="band-card hi"><div class="band-pct">18.5%</div><div class="band-label">70–99%</div></div>
+        <div class="band-card perf"><div class="band-pct">43.2%</div><div class="band-label">100%</div></div>
+      </div>
+    </div>
+  </div>
 
-    <div id="sec-rena-game" class="section-content">
-      <div class="split-2">
-        <div class="card">
-          <div class="card-head">Game-by-game (6 game)</div>
-          <table class="ct-table">
-            <thead><tr><th>Gioco</th><th>Plays</th><th>Players</th><th>Goox</th></tr></thead>
-            <tbody>
-              <tr><td>RENAULT-1</td><td>328</td><td>328</td><td>11.260</td></tr>
-              <tr><td>RENAULT-2</td><td>306</td><td>306</td><td>14.710</td></tr>
-              <tr><td>RENAULT-3</td><td>268</td><td>268</td><td>13.560</td></tr>
-              <tr><td>RENAULT-4</td><td>275</td><td>275</td><td>12.840</td></tr>
-              <tr><td>RENAULT-5</td><td>292</td><td>292</td><td>15.590</td></tr>
-              <tr><td>RENAULT-6</td><td>185</td><td>185</td><td>7.658</td></tr>
-              <tr class="total-row"><td>Totali</td><td>1.654</td><td>394</td><td>75.618</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="card">
-          <div class="card-head">CTA Performance 🏆 Best CTR</div>
-          <div style="display:flex;flex-direction:column;gap:8px;font-size:13px">
-            <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)"><span style="color:var(--gray)">Home CTR</span><strong style="color:#003189">19.3% <span style="font-size:11px;color:var(--lgray)">(76 / 394 player)</span></strong></div>
-            <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)"><span style="color:var(--gray)">End-game CTR</span><strong style="color:#003189">20.1% <span style="font-size:11px;color:var(--lgray)">(79 / 394 player)</span></strong></div>
-            <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)"><span style="color:var(--gray)">Completed Games</span><strong>1.266</strong></div>
-            <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)"><span style="color:var(--gray)">CTR / Session</span><strong>6.2%</strong></div>
-            <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)"><span style="color:var(--gray)">Abandonment Rate</span><strong style="color:#1B7A4F">0.0%</strong></div>
-            <div style="display:flex;justify-content:space-between;padding:7px 0"><span style="color:var(--gray)">Timeout Rate</span><strong>0.9% (14 sessioni)</strong></div>
-          </div>
-        </div>
+  <div class="card">
+    <div class="card-head rena">Repeat Plays per Player (Stickiness) — Repeat Rate: 82.0%</div>
+    <div class="bar-chart">
+      <div class="bar-row"><div class="bar-label">1 play</div><div class="bar-track"><div class="bar-fill rena" style="width:15.0%"></div></div><div class="bar-pct">15.0%</div></div>
+      <div class="bar-row"><div class="bar-label">2 plays</div><div class="bar-track"><div class="bar-fill rena" style="width:8.9%"></div></div><div class="bar-pct">8.9%</div></div>
+      <div class="bar-row"><div class="bar-label">3–4 plays</div><div class="bar-track"><div class="bar-fill rena" style="width:18.5%"></div></div><div class="bar-pct">18.5%</div></div>
+      <div class="bar-row"><div class="bar-label">5+ plays</div><div class="bar-track"><div class="bar-fill rena" style="width:57.6%"></div></div><div class="bar-pct">57.6%</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head rena">Game-by-Game Statistics</div>
+    <table class="data-table rena">
+      <thead><tr><th>Gioco</th><th>Total Plays</th><th>Unique Players</th><th>Plays / Player</th><th>Credits Distribuiti</th></tr></thead>
+      <tbody>
+        <tr><td>RENAULT-1_0925</td><td class="num">328</td><td class="num">328</td><td class="num">1.0</td><td class="num goox">11.260 goox</td></tr>
+        <tr><td>RENAULT-2_0925</td><td class="num">306</td><td class="num">306</td><td class="num">1.0</td><td class="num goox">14.710 goox</td></tr>
+        <tr><td>RENAULT-3_0925</td><td class="num">268</td><td class="num">268</td><td class="num">1.0</td><td class="num goox">13.560 goox</td></tr>
+        <tr><td>RENAULT-4_0925</td><td class="num">275</td><td class="num">275</td><td class="num">1.0</td><td class="num goox">12.840 goox</td></tr>
+        <tr><td>RENAULT-5_0925</td><td class="num">292</td><td class="num">292</td><td class="num">1.0</td><td class="num goox">15.590 goox</td></tr>
+        <tr><td>RENAULT-6_0126</td><td class="num">185</td><td class="num">185</td><td class="num">1.0</td><td class="num goox">7.658 goox</td></tr>
+        <tr><td>Totali</td><td class="num">1.654</td><td class="num">394</td><td class="num">4.2</td><td class="num goox">75.618 goox</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="split-2">
+    <div class="card">
+      <div class="card-head rena">CTA Performance</div>
+      <div class="kpi-grid g2" style="gap:10px;margin-bottom:10px">
+        <div class="kpi-card sm"><div class="kl">Home CTR</div><div class="kv">19.3%</div><div class="ks">76 clicks / 394 players</div></div>
+        <div class="kpi-card sm"><div class="kl">End-game CTR</div><div class="kv">20.1%</div><div class="ks">79 clicks / 394 players</div></div>
+      </div>
+      <div class="kpi-grid g3" style="gap:10px">
+        <div class="kpi-card sm"><div class="kl">Completed Games</div><div class="kv">1.266</div></div>
+        <div class="kpi-card sm"><div class="kl">End-game Clicks</div><div class="kv">79</div></div>
+        <div class="kpi-card sm"><div class="kl">CTR / Session</div><div class="kv">6.2%</div></div>
       </div>
     </div>
+    <div class="card">
+      <div class="card-head rena">Abandonment &amp; Timeout</div>
+      <div class="kpi-grid g2" style="gap:10px;margin-bottom:10px">
+        <div class="kpi-card sm"><div class="kl">Started Sessions</div><div class="kv">1.474</div></div>
+        <div class="kpi-card sm"><div class="kl">Timeout Sessions</div><div class="kv">14</div></div>
+      </div>
+      <div class="kpi-grid g2" style="gap:10px">
+        <div class="kpi-card sm"><div class="kl">Abandonment Rate</div><div class="kv" style="color:#2E7D32">0.0%</div></div>
+        <div class="kpi-card sm"><div class="kl">Timeout Rate</div><div class="kv">0.9%</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head rena">Question Analysis · Accuratezza risposte — Overall: 73.0%</div>
+    <table class="data-table rena">
+      <thead><tr><th>Domanda</th><th>Tentativi</th><th>Corrette</th><th>Success Rate</th></tr></thead>
+      <tbody>
+        <tr><td>Viaggiare fino a 470 km in un'unica carica? Qual è l'autonomia WLTP della Megane E-Tech Electric con batteria da 60 kWh?</td><td class="num">888</td><td class="num">615</td><td class="num">69.3%</td></tr>
+        <tr><td>Quale frenata rigenerativa offre una guida quasi a "un solo pedale"?</td><td class="num">895</td><td class="num">563</td><td class="num">62.9%</td></tr>
+        <tr><td>Con che potenza massima può ricaricare in corrente continua (DC)?</td><td class="num">596</td><td class="num">372</td><td class="num">62.4%</td></tr>
+        <tr><td>Quanto tempo ci vuole per ricaricare completamente via wallbox da 7 kW?</td><td class="num">895</td><td class="num">576</td><td class="num">64.4%</td></tr>
+        <tr><td>Quanto potente è il motore della Megane E-Tech Electric?</td><td class="num">1.058</td><td class="num">772</td><td class="num">73.0%</td></tr>
+        <tr><td>In soli 30 minuti su colonnina rapida riesce a recuperare fino a quanta autonomia?</td><td class="num">574</td><td class="num">458</td><td class="num">79.8%</td></tr>
+        <tr><td>Quanto si può risparmiare all'anno sui costi energetici, rispetto a un termico equivalente?</td><td class="num">759</td><td class="num">538</td><td class="num">70.9%</td></tr>
+        <tr><td>L'assistenza "Active Driver Assist" combina cosa?</td><td class="num">1.058</td><td class="num">946</td><td class="num">89.4%</td></tr>
+      </tbody>
+    </table>
+  </div>
 
 </div>
 </div>
-
 
 <footer>
   <img src="logo_Mygoo.fun_vectorColored.png" alt="mygoo.fun">
