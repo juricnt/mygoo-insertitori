@@ -10,28 +10,26 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --teal:#2A2420;--teal-md:#4A3C34;--teal-lt:#F5F0EC;--teal-bd:#E0D8D0;
-  --pink:#C8B8A8;--pink-lt:#FAF5F0;--pink-bd:#E0D8D0;
+  --teal:#2B5253;--teal-md:#3D6A6B;--teal-lt:#EDF4F4;--teal-bd:#C0D8D8;
+  --pink:#E01783;--pink-lt:#FDF0F7;--pink-bd:#F5A7D4;
   --green:#1B7A4F;--green-lt:#EDF7F2;
   --amber:#D97706;--amber-lt:#FFFBEB;
-  --white:#FDFAF7;--border:#E0D8D0;
-  --text:#1C1A18;--gray:#7A7470;--lgray:#B0A89C;
-  --bg:#F2EEE9;
-  --r:8px;
-  --sand:#C8B8A8;--sand-lt:#F5EEE6;--sand-dk:#9C8C7C;
-  --ink:#2A2420;
+  --white:#FFFFFF;--border:#E2ECEC;
+  --text:#1C2E2E;--gray:#607070;--lgray:#96AAAA;
+  --bg:#E8EDED;
+  --r:10px;
 }
 html{scroll-behavior:smooth}
 body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
 
 /* NAV */
-nav{position:sticky;top:0;z-index:100;background:#FDFAF7;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 24px;height:60px;box-shadow:0 1px 12px rgba(44,36,32,.07)}
+nav{position:sticky;top:0;z-index:100;background:linear-gradient(to bottom,#fff 0%,#f4f8f8 100%);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 24px;height:60px;box-shadow:0 2px 16px rgba(43,82,83,.10)}
 nav .nav-logo{height:32px;display:block}
 .nav-tabs{display:flex;gap:3px}
 .nav-tab{background:none;border:none;cursor:pointer;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:.03em;color:var(--gray);padding:7px 13px;border-radius:8px;transition:background .15s,color .15s}
-.nav-tab:hover{background:var(--sand-lt);color:var(--ink)}
-.nav-tab.active{background:var(--ink);color:#fff}
-.nav-badge{background:var(--sand);color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:4px;letter-spacing:.08em;white-space:nowrap}
+.nav-tab:hover{background:var(--teal-lt);color:var(--teal)}
+.nav-tab.active{background:var(--teal);color:#fff}
+.nav-badge{background:var(--pink);color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;letter-spacing:.06em;white-space:nowrap}
 
 /* TABS */
 .tab-content{display:none}.tab-content.active{display:block}
@@ -40,7 +38,7 @@ nav .nav-logo{height:32px;display:block}
 .wrap{max-width:1080px;margin:0 auto;padding:40px 24px 80px;display:flex;flex-direction:column;gap:28px}
 
 /* HERO */
-.hero-cover{border-radius:10px;padding:44px 52px;position:relative;overflow:hidden;box-shadow:0 4px 24px rgba(44,36,32,.14);display:flex;align-items:flex-start;justify-content:space-between;gap:24px;background:var(--ink)}
+.hero-cover{border-radius:16px;padding:44px 52px;position:relative;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.20);display:flex;align-items:flex-start;justify-content:space-between;gap:24px;background:var(--teal)}
 .hero-cover::after{content:attr(data-watermark);position:absolute;right:-20px;bottom:-30px;font-size:clamp(60px,10vw,120px);font-weight:900;color:rgba(255,255,255,.05);letter-spacing:-4px;pointer-events:none;white-space:nowrap}
 .hero-text{flex:1}
 .hero-cover .eyebrow{font-size:11px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:12px}
@@ -58,20 +56,20 @@ nav .nav-logo{height:32px;display:block}
 /* KPI GRID */
 .kpi-grid{display:grid;gap:12px}
 .g5{grid-template-columns:repeat(5,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}
-.kpi-card{background:#FDFAF7;border-radius:var(--r);border:1px solid var(--border);padding:18px 20px;box-shadow:0 1px 6px rgba(44,36,32,.05)}
-.kpi-card .kl{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);margin-bottom:7px}
-.kpi-card .kv{font-size:clamp(20px,2.4vw,30px);font-weight:900;color:var(--ink);line-height:1}
-.kpi-card .ks{font-size:11px;color:var(--lgray);margin-top:5px;line-height:1.5}
-.kpi-card.pink .kv{color:var(--sand-dk)}
+.kpi-card{background:var(--white);border-radius:var(--r);border:1.5px solid var(--border);padding:18px 20px;box-shadow:0 2px 8px rgba(43,82,83,.06)}
+.kpi-card .kl{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);margin-bottom:7px}
+.kpi-card .kv{font-size:clamp(20px,2.4vw,30px);font-weight:900;color:var(--teal);line-height:1}
+.kpi-card .ks{font-size:12px;color:var(--lgray);margin-top:5px;line-height:1.5}
+.kpi-card.pink .kv{color:var(--pink)}
 
 /* SECTION HEADER */
-.sec-label{font-size:10px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--sand-dk);margin-bottom:5px}
-.sec-title{font-size:clamp(17px,2.4vw,26px);font-weight:900;color:var(--text);line-height:1.1;border-left:3px solid var(--sand);padding-left:13px;margin-bottom:16px}
+.sec-label{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--pink);margin-bottom:5px}
+.sec-title{font-size:clamp(17px,2.4vw,26px);font-weight:900;color:var(--text);line-height:1.1;border-left:4px solid var(--pink);padding-left:13px;margin-bottom:16px}
 
 /* CARD */
-.card{background:#FDFAF7;border-radius:var(--r);border:1px solid var(--border);padding:22px 24px;box-shadow:0 1px 6px rgba(44,36,32,.05)}
-.card-head{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gray);padding-bottom:10px;border-bottom:1px solid var(--border);margin-bottom:16px;display:flex;align-items:center;gap:7px}
-.card-head::before{content:'';width:3px;height:11px;border-radius:1px;background:var(--sand);flex-shrink:0}
+.card{background:var(--white);border-radius:var(--r);border:1.5px solid var(--border);padding:22px 24px;box-shadow:0 2px 8px rgba(43,82,83,.06)}
+.card-head{font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gray);padding-bottom:10px;border-bottom:1px solid var(--border);margin-bottom:16px;display:flex;align-items:center;gap:7px}
+.card-head::before{content:'';width:3px;height:11px;border-radius:2px;background:var(--pink);flex-shrink:0}
 
 /* SPLITS */
 .split-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
@@ -82,24 +80,24 @@ nav .nav-logo{height:32px;display:block}
 .step-item{display:flex;gap:20px;position:relative;padding-bottom:28px}
 .step-item:last-child{padding-bottom:0}
 .step-item:not(:last-child)::after{content:'';position:absolute;left:22px;top:44px;bottom:0;width:2px;background:var(--teal-bd)}
-.step-num{width:44px;height:44px;border-radius:6px;background:var(--ink);color:#fff;font-size:16px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 3px 10px rgba(44,36,32,.20)}
+.step-num{width:44px;height:44px;border-radius:50%;background:var(--teal);color:#fff;font-size:16px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 4px 12px rgba(43,82,83,.25)}
 .step-body{flex:1;padding-top:8px}
-.step-title{font-size:14px;font-weight:800;color:var(--ink);margin-bottom:5px}
+.step-title{font-size:14px;font-weight:800;color:var(--teal);margin-bottom:5px}
 .step-desc{font-size:13px;color:var(--gray);line-height:1.65}
 
 /* FEATURE CARDS */
 .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .feat-card{background:var(--white);border-radius:12px;border:1.5px solid var(--border);padding:20px 20px 22px;box-shadow:0 2px 8px rgba(43,82,83,.06)}
 .feat-icon{font-size:28px;margin-bottom:12px;display:block}
-.feat-title{font-size:13px;font-weight:800;color:var(--ink);margin-bottom:7px;text-transform:uppercase;letter-spacing:.08em}
+.feat-title{font-size:13px;font-weight:800;color:var(--teal);margin-bottom:7px;text-transform:uppercase;letter-spacing:.06em}
 .feat-desc{font-size:13px;color:var(--gray);line-height:1.65}
 
 /* METRIC TYPE CARDS */
 .metric-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
 .metric-card{background:var(--white);border-radius:12px;border:1.5px solid var(--border);padding:20px 22px;box-shadow:0 2px 8px rgba(43,82,83,.06);display:flex;gap:16px}
-.metric-icon{width:48px;height:48px;border-radius:6px;background:var(--sand-lt);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.metric-icon{width:48px;height:48px;border-radius:10px;background:var(--teal-lt);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
 .metric-body{}
-.metric-title{font-size:13px;font-weight:800;color:var(--ink);margin-bottom:5px}
+.metric-title{font-size:13px;font-weight:800;color:var(--teal);margin-bottom:5px}
 .metric-desc{font-size:12px;color:var(--gray);line-height:1.6}
 .metric-tags{margin-top:8px;display:flex;flex-wrap:wrap;gap:5px}
 .metric-tag{background:var(--teal-lt);color:var(--teal);font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;letter-spacing:.04em}
@@ -108,11 +106,11 @@ nav .nav-logo{height:32px;display:block}
 .sector-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
 .sector-card{background:var(--white);border-radius:10px;border:1.5px solid var(--border);padding:16px 16px 18px;text-align:center;box-shadow:0 2px 6px rgba(43,82,83,.05)}
 .sector-emoji{font-size:28px;display:block;margin-bottom:8px}
-.sector-name{font-size:12px;font-weight:800;color:var(--ink);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+.sector-name{font-size:12px;font-weight:800;color:var(--teal);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
 .sector-use{font-size:11px;color:var(--lgray);line-height:1.5}
 
 /* REPORT PREVIEW */
-.report-preview{background:linear-gradient(135deg,#1C1A18 0%,#2A2420 100%);border-radius:14px;padding:28px 32px;color:#fff;position:relative;overflow:hidden}
+.report-preview{background:linear-gradient(135deg,#1C2E2E 0%,#2B5253 100%);border-radius:14px;padding:28px 32px;color:#fff;position:relative;overflow:hidden}
 .report-preview::after{content:'REPORT';position:absolute;right:-10px;bottom:-20px;font-size:120px;font-weight:900;color:rgba(255,255,255,.04);letter-spacing:-4px;pointer-events:none}
 .report-preview .rp-label{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:10px}
 .report-preview .rp-title{font-size:20px;font-weight:900;color:#fff;margin-bottom:18px}
@@ -126,30 +124,30 @@ nav .nav-logo{height:32px;display:block}
 .diff-table{width:100%;border-collapse:collapse;font-size:13px}
 .diff-table th{padding:10px 14px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-bottom:2px solid var(--border);color:var(--gray);text-align:center}
 .diff-table th:first-child{text-align:left}
-.diff-table th.hl{color:var(--ink);background:var(--sand-lt)}
+.diff-table th.hl{color:var(--teal);background:var(--teal-lt)}
 .diff-table td{padding:11px 14px;border-bottom:1px solid var(--border);text-align:center}
 .diff-table td:first-child{text-align:left;font-weight:600;color:var(--text)}
-.diff-table td.hl{background:var(--sand-lt);font-weight:700;color:var(--ink)}
+.diff-table td.hl{background:var(--teal-lt);font-weight:700;color:var(--teal)}
 .diff-table tr:last-child td{border-bottom:none}
 .chk{color:#1B7A4F;font-size:15px}.xmk{color:#C62828;font-size:14px}.neu{color:var(--lgray);font-size:12px}
 
 /* PRICING */
 .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .price-card{background:var(--white);border-radius:14px;border:1.5px solid var(--border);padding:26px 22px 28px;box-shadow:0 2px 8px rgba(43,82,83,.06);display:flex;flex-direction:column;gap:0;position:relative}
-.price-card.featured{border-color:var(--ink);box-shadow:0 4px 24px rgba(44,36,32,.14)}
-.price-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;font-size:10px;font-weight:700;padding:3px 12px;border-radius:4px;letter-spacing:.08em;white-space:nowrap}
+.price-card.featured{border-color:var(--teal);box-shadow:0 4px 24px rgba(43,82,83,.18)}
+.price-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--teal);color:#fff;font-size:10px;font-weight:700;padding:3px 12px;border-radius:20px;letter-spacing:.08em;white-space:nowrap}
 .price-tier{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--lgray);margin-bottom:10px}
-.price-name{font-size:20px;font-weight:900;color:var(--ink);margin-bottom:8px}
+.price-name{font-size:20px;font-weight:900;color:var(--teal);margin-bottom:8px}
 .price-desc{font-size:12px;color:var(--gray);line-height:1.6;margin-bottom:20px;flex:1}
 .price-features{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:22px}
 .price-features li{font-size:12px;color:var(--text);display:flex;align-items:flex-start;gap:7px;line-height:1.5}
 .price-features li::before{content:'✓';color:var(--teal);font-weight:900;font-size:12px;flex-shrink:0;margin-top:1px}
-.price-cta{background:var(--ink);color:#fff;border:none;border-radius:6px;padding:11px 18px;font-family:'Inter',sans-serif;font-size:13px;font-weight:700;cursor:pointer;width:100%;transition:opacity .15s}
+.price-cta{background:var(--teal);color:#fff;border:none;border-radius:8px;padding:11px 18px;font-family:'Inter',sans-serif;font-size:13px;font-weight:700;cursor:pointer;width:100%;transition:opacity .15s}
 .price-cta:hover{opacity:.85}
-.price-card.featured .price-cta{background:var(--sand-dk)}
+.price-card.featured .price-cta{background:var(--pink)}
 
 /* CTA BOX */
-.cta-box{background:var(--ink);border-radius:8px;padding:36px 44px;text-align:center;color:#fff;position:relative;overflow:hidden}
+.cta-box{background:var(--pink);border-radius:14px;padding:36px 44px;text-align:center;color:#fff;position:relative;overflow:hidden}
 .cta-box::after{content:'→';position:absolute;right:20px;bottom:-20px;font-size:140px;font-weight:900;color:rgba(255,255,255,.07);pointer-events:none}
 .cta-box .ct{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:10px}
 .cta-box .ch{font-size:clamp(20px,3vw,32px);font-weight:900;color:#fff;line-height:1.15;margin-bottom:12px}
@@ -158,12 +156,12 @@ nav .nav-logo{height:32px;display:block}
 .cta-btn:hover{opacity:.9}
 
 /* QUOTE BOX */
-.quote-box{background:var(--sand-lt);border-radius:8px;border-left:3px solid var(--sand);padding:20px 24px}
+.quote-box{background:var(--teal-lt);border-radius:12px;border-left:4px solid var(--teal);padding:20px 24px}
 .quote-text{font-size:14px;line-height:1.75;color:var(--text);font-style:italic}
 .quote-source{font-size:11px;font-weight:700;color:var(--teal);margin-top:10px;text-transform:uppercase;letter-spacing:.1em}
 
 /* SYSTEM 1 BOX */
-.system1-box{background:linear-gradient(135deg,#1C1A18 0%,#2A2420 100%);border-radius:14px;padding:26px 30px;color:#fff;position:relative;overflow:hidden}
+.system1-box{background:linear-gradient(135deg,#1C2E2E 0%,#2B5253 100%);border-radius:14px;padding:26px 30px;color:#fff;position:relative;overflow:hidden}
 .system1-box::after{content:'"';position:absolute;right:20px;bottom:-20px;font-size:140px;font-weight:900;color:rgba(255,255,255,.05);line-height:1}
 .system1-box .s1-label{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:10px}
 .system1-box .s1-text{font-size:14px;line-height:1.75;color:rgba(255,255,255,.88)}
@@ -171,22 +169,22 @@ nav .nav-logo{height:32px;display:block}
 
 /* TIMELINE */
 .timeline{display:flex;gap:0;position:relative}
-.timeline::before{content:'';position:absolute;top:22px;left:0;right:0;height:1px;background:var(--border);z-index:0}
+.timeline::before{content:'';position:absolute;top:22px;left:0;right:0;height:2px;background:var(--teal-bd);z-index:0}
 .tl-step{flex:1;display:flex;flex-direction:column;align-items:center;position:relative;z-index:1}
-.tl-dot{width:44px;height:44px;border-radius:6px;background:var(--ink);color:#fff;font-size:14px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 4px var(--sand-lt);margin-bottom:14px}
-.tl-title{font-size:11px;font-weight:800;color:var(--ink);text-transform:uppercase;letter-spacing:.08em;text-align:center;margin-bottom:5px}
+.tl-dot{width:44px;height:44px;border-radius:50%;background:var(--teal);color:#fff;font-size:14px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 4px var(--teal-lt);margin-bottom:14px}
+.tl-title{font-size:11px;font-weight:800;color:var(--teal);text-transform:uppercase;letter-spacing:.06em;text-align:center;margin-bottom:5px}
 .tl-desc{font-size:11px;color:var(--gray);text-align:center;line-height:1.6;max-width:120px}
 
 /* FOOTER */
-footer{background:var(--ink);color:rgba(255,255,255,.5);text-align:center;padding:30px 24px;font-size:12px;line-height:1.8}
+footer{background:var(--teal);color:rgba(255,255,255,.6);text-align:center;padding:30px 24px;font-size:12px;line-height:1.8}
 footer img{height:18px;margin-bottom:8px;display:block;margin-left:auto;margin-right:auto;opacity:.7}
 footer a{color:rgba(255,255,255,.7);text-decoration:none}
 
 /* SECTION SUB-NAV */
-.section-nav{display:flex;gap:4px;flex-wrap:wrap;background:var(--sand-lt);border-radius:8px;padding:5px;margin-bottom:0}
-.section-btn{background:none;border:none;cursor:pointer;font-family:'Inter',sans-serif;font-size:11px;font-weight:700;color:var(--gray);padding:6px 13px;border-radius:5px;transition:all .15s;letter-spacing:.05em}
-.section-btn:hover{background:#FDFAF7;color:var(--ink)}
-.section-btn.active{background:#FDFAF7;color:var(--ink);box-shadow:0 1px 4px rgba(44,36,32,.10)}
+.section-nav{display:flex;gap:4px;flex-wrap:wrap;background:var(--teal-lt);border-radius:10px;padding:5px;margin-bottom:0}
+.section-btn{background:none;border:none;cursor:pointer;font-family:'Inter',sans-serif;font-size:11px;font-weight:700;color:var(--gray);padding:6px 13px;border-radius:7px;transition:all .15s;letter-spacing:.03em}
+.section-btn:hover{background:#fff;color:var(--teal)}
+.section-btn.active{background:#fff;color:var(--teal);box-shadow:0 1px 4px rgba(43,82,83,.12)}
 .section-content{display:none;flex-direction:column;gap:14px}
 .section-content.active{display:flex}
 
@@ -201,8 +199,8 @@ footer a{color:rgba(255,255,255,.7);text-decoration:none}
 
 /* BRAND SUB-TABS */
 .brand-nav{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:0}
-.brand-btn{background:#FDFAF7;border:1px solid var(--border);border-radius:6px;padding:8px 16px;font-family:'Inter',sans-serif;font-size:12px;font-weight:700;cursor:pointer;color:var(--gray);transition:all .15s}
-.brand-btn:hover{border-color:var(--sand-dk);color:var(--ink)}
+.brand-btn{background:var(--white);border:1.5px solid var(--border);border-radius:8px;padding:8px 16px;font-family:'Inter',sans-serif;font-size:12px;font-weight:700;cursor:pointer;color:var(--gray);transition:all .15s}
+.brand-btn:hover{border-color:var(--teal);color:var(--teal)}
 .brand-btn.active{color:#fff;border-color:transparent}
 .brand-btn.b-nesp.active{background:#2B5253}
 .brand-btn.b-huaw.active{background:#CF0A2C}
@@ -251,12 +249,12 @@ footer a{color:rgba(255,255,255,.7);text-decoration:none}
 
 /* DROPDOWN NAV */
 .nav-dropdown{position:relative}
-.nav-dropdown-menu{position:absolute;top:100%;left:0;background:#FDFAF7;border-radius:8px;box-shadow:0 8px 24px rgba(44,36,32,.12);border:1px solid var(--border);min-width:168px;padding:10px 5px 5px;display:none;flex-direction:column;gap:2px;z-index:300}
+.nav-dropdown-menu{position:absolute;top:100%;left:0;background:#fff;border-radius:10px;box-shadow:0 8px 28px rgba(43,82,83,.18);border:1.5px solid var(--border);min-width:168px;padding:10px 5px 5px;display:none;flex-direction:column;gap:2px;z-index:300}
 .nav-dropdown:hover .nav-dropdown-menu{display:flex}
 .nav-arrow{font-size:9px;opacity:.5;margin-left:2px;transition:transform .15s}
 .nav-dropdown:hover .nav-arrow{transform:rotate(180deg)}
 .nav-drop-item{background:none;border:none;cursor:pointer;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;color:var(--gray);padding:8px 11px;border-radius:7px;text-align:left;transition:all .15s;display:flex;align-items:center;gap:9px;width:100%}
-.nav-drop-item:hover{background:var(--sand-lt);color:var(--ink)}
+.nav-drop-item:hover{background:var(--teal-lt);color:var(--teal)}
 .nav-drop-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
 
 /* BRAND COLORS */
@@ -267,7 +265,7 @@ footer a{color:rgba(255,255,255,.7);text-decoration:none}
 .kpi-card.a-huaw .kv{color:#CF0A2C}
 .kpi-card.a-remu .kv{color:#6B21A8}
 .kpi-card.a-rena .kv{color:#003189}
-.kpi-card.a-pink .kv{color:var(--sand-dk)}
+.kpi-card.a-pink .kv{color:#E01783}
 .kpi-card.sm{padding:11px 13px}
 .kpi-card.sm .kv{font-size:16px}
 
@@ -282,6 +280,12 @@ footer a{color:rgba(255,255,255,.7);text-decoration:none}
 .card-head.huaw::before{background:#CF0A2C}
 .card-head.remu::before{background:#6B21A8}
 .card-head.rena::before{background:#003189}
+.hero-cover.pack{background:#C84B14}
+.kpi-card.a-pack .kv{color:#C84B14}
+.sec-title.pack{border-color:#C84B14}
+.card-head.pack::before{background:#C84B14}
+.bar-fill.pack{background:#C84B14}
+.data-table.pack tbody tr:last-child td{color:#C84B14}
 
 /* PLAYER MIX */
 .player-mix{display:flex;gap:12px}
@@ -382,6 +386,7 @@ footer a{color:rgba(255,255,255,.7);text-decoration:none}
         <button class="nav-drop-item" onclick="goToBrand('huaw')"><span class="nav-drop-dot" style="background:#CF0A2C"></span>Huawei</button>
         <button class="nav-drop-item" onclick="goToBrand('rena')"><span class="nav-drop-dot" style="background:#003189"></span>Renault</button>
         <button class="nav-drop-item" onclick="goToBrand('remu')"><span class="nav-drop-dot" style="background:#6B21A8"></span>Remunero</button>
+        <button class="nav-drop-item" onclick="goToBrand('pack')"><span class="nav-drop-dot" style="background:#C84B14"></span>Pack Game</button>
       </div>
     </div>
   </div>
@@ -980,6 +985,12 @@ footer a{color:rgba(255,255,255,.7);text-decoration:none}
       <div class="feat-title" style="color:#003189">Renault</div>
       <div class="feat-desc">72.0% avg score · 1.654 plays · 82.0% repeat rate</div>
       <div style="margin-top:10px;font-size:11px;font-weight:700;color:#003189;letter-spacing:.05em">Apri report completo →</div>
+    </div>
+    <div class="feat-card" style="border-top:3px solid #C84B14;cursor:pointer" onclick="goToBrand('pack')">
+      <span class="feat-icon">🎮</span>
+      <div class="feat-title" style="color:#C84B14">Pack Game</div>
+      <div class="feat-desc">73.1% avg score · 5.874 plays · 73.9% repeat rate · 53 giochi · 418 player</div>
+      <div style="margin-top:10px;font-size:11px;font-weight:700;color:#C84B14;letter-spacing:.05em">Apri report completo →</div>
     </div>
   </div>
 
@@ -1604,6 +1615,238 @@ footer a{color:rgba(255,255,255,.7);text-decoration:none}
         <tr><td>In soli 30 minuti su colonnina rapida riesce a recuperare fino a quanta autonomia?</td><td class="num">574</td><td class="num">458</td><td class="num">79.8%</td></tr>
         <tr><td>Quanto si può risparmiare all'anno sui costi energetici, rispetto a un termico equivalente?</td><td class="num">759</td><td class="num">538</td><td class="num">70.9%</td></tr>
         <tr><td>L'assistenza "Active Driver Assist" combina cosa?</td><td class="num">1.058</td><td class="num">946</td><td class="num">89.4%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+</div>
+
+<!-- ═══════════════════════════════════ BRAND: PACK GAME -->
+<div id="tab-pack" class="tab-content">
+<div class="wrap">
+
+  <div style="margin-bottom:4px">
+    <button onclick="showTab('report',document.getElementById('nav-btn-report'))" style="background:none;border:none;cursor:pointer;font-size:12px;font-weight:600;color:var(--gray);display:flex;align-items:center;gap:5px;padding:0;font-family:'Inter',sans-serif">← Torna alla panoramica</button>
+  </div>
+
+  <div class="hero-cover pack" data-watermark="PACKGAME">
+    <div class="hero-text">
+      <div class="eyebrow">CAMPAIGN REPORT · MAGGIO 2026</div>
+      <div class="ht">Pack Game <em>× MyGoo</em></div>
+      <div class="hb">PACKGAME_campaing — Last refreshed: May 08, 2026 15:49:31 CEST</div>
+      <div class="hero-meta">
+        <div class="hero-meta-item"><div class="ml">Campagna</div><div class="mv">PACKGAME_campaing</div></div>
+        <div class="hero-meta-item"><div class="ml">Giochi</div><div class="mv">53 quiz</div></div>
+        <div class="hero-meta-item"><div class="ml">Completion</div><div class="mv">33.3%</div></div>
+      </div>
+    </div>
+    <div class="hero-logo">
+      <svg width="54" height="54" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
+        <rect width="56" height="56" rx="6" fill="rgba(255,255,255,0.15)"/>
+        <rect x="8" y="14" width="40" height="28" rx="4" fill="none" stroke="white" stroke-width="3"/>
+        <circle cx="20" cy="28" r="4" fill="white"/>
+        <circle cx="36" cy="28" r="4" fill="white"/>
+        <rect x="24" y="22" width="8" height="3" rx="1.5" fill="white"/>
+        <rect x="24" y="31" width="8" height="3" rx="1.5" fill="white"/>
+      </svg>
+      <div class="brand-name">Pack Game</div>
+    </div>
+  </div>
+
+  <div>
+    <div class="sec-label">Summary Statistics</div>
+    <div class="sec-title pack">Dati principali</div>
+    <div class="kpi-grid g5">
+      <div class="kpi-card a-pack"><div class="kl">Total Plays</div><div class="kv">5.874</div><div class="ks">giocate totali</div></div>
+      <div class="kpi-card"><div class="kl">Avg Gameplay</div><div class="kv">2m 24s</div><div class="ks">durata media</div></div>
+      <div class="kpi-card a-pack"><div class="kl">Unique Players</div><div class="kv">418</div><div class="ks">giocatori unici</div></div>
+      <div class="kpi-card"><div class="kl">Plays / Player</div><div class="kv">14.1</div><div class="ks">media per utente</div></div>
+      <div class="kpi-card a-pink"><div class="kl">Goox distribuiti</div><div class="kv">145.292</div><div class="ks">crediti totali</div></div>
+    </div>
+  </div>
+
+  <div class="kpi-grid g4">
+    <div class="kpi-card"><div class="kl">Completion Rate</div><div class="kv">33.3%</div><div class="ks">1.958 sessioni completate</div></div>
+    <div class="kpi-card"><div class="kl">Avg Score</div><div class="kv">73.1%</div></div>
+    <div class="kpi-card"><div class="kl">Goox / Sessione</div><div class="kv">24.73</div></div>
+    <div class="kpi-card"><div class="kl">Repeat Rate ≥2</div><div class="kv">73.9%</div></div>
+  </div>
+
+  <div class="split-2">
+    <div class="card">
+      <div class="card-head pack">Player Mix</div>
+      <div class="player-mix">
+        <div class="mix-card new"><div class="mix-pct">18.9%</div><div class="mix-label">First-time Players</div></div>
+        <div class="mix-card ret"><div class="mix-pct">81.1%</div><div class="mix-label">Returning Players</div></div>
+      </div>
+      <div style="margin-top:10px;font-size:12px;color:var(--gray)">Totale players campagna: <strong>418</strong></div>
+    </div>
+    <div class="card">
+      <div class="card-head pack">Reward Distribution</div>
+      <div class="kpi-grid g3" style="gap:10px">
+        <div class="kpi-card sm"><div class="kl">Median P50</div><div class="kv">120</div><div class="ks">goox / player</div></div>
+        <div class="kpi-card sm"><div class="kl">P90</div><div class="kv">1.024</div><div class="ks">goox / player</div></div>
+        <div class="kpi-card sm"><div class="kl">Top 10% Share</div><div class="kv">37.0%</div><div class="ks">dei crediti</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="split-2">
+    <div class="card">
+      <div class="card-head pack">Attempts by Time of Day</div>
+      <div class="bar-chart">
+        <div class="bar-row"><div class="bar-label">Notte (00–05)</div><div class="bar-track"><div class="bar-fill pack" style="width:5.8%"></div></div><div class="bar-pct">5.8%</div></div>
+        <div class="bar-row"><div class="bar-label">Mattina (06–11)</div><div class="bar-track"><div class="bar-fill pack" style="width:61.4%"></div></div><div class="bar-pct">61.4%</div></div>
+        <div class="bar-row"><div class="bar-label">Pranzo (12–14)</div><div class="bar-track"><div class="bar-fill pack" style="width:12.9%"></div></div><div class="bar-pct">12.9%</div></div>
+        <div class="bar-row"><div class="bar-label">Pomeriggio (15–18)</div><div class="bar-track"><div class="bar-fill pack" style="width:15.2%"></div></div><div class="bar-pct">15.2%</div></div>
+        <div class="bar-row"><div class="bar-label">Sera (19–23)</div><div class="bar-track"><div class="bar-fill pack" style="width:24.6%"></div></div><div class="bar-pct">24.6%</div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-head pack">Completion Quality (Score Bands)</div>
+      <div class="bands-grid">
+        <div class="band-card low"><div class="band-pct">26.9%</div><div class="band-label">0–39%</div></div>
+        <div class="band-card med"><div class="band-pct">0.0%</div><div class="band-label">40–69%</div></div>
+        <div class="band-card hi"><div class="band-pct">0.0%</div><div class="band-label">70–99%</div></div>
+        <div class="band-card perf"><div class="band-pct">73.1%</div><div class="band-label">100%</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head pack">Repeat Plays per Player (Stickiness) — Repeat Rate: 73.9%</div>
+    <div class="bar-chart">
+      <div class="bar-row"><div class="bar-label">1 play</div><div class="bar-track"><div class="bar-fill pack" style="width:26.1%"></div></div><div class="bar-pct">26.1%</div></div>
+      <div class="bar-row"><div class="bar-label">2 plays</div><div class="bar-track"><div class="bar-fill pack" style="width:11.0%"></div></div><div class="bar-pct">11.0%</div></div>
+      <div class="bar-row"><div class="bar-label">3–4 plays</div><div class="bar-track"><div class="bar-fill pack" style="width:9.8%"></div></div><div class="bar-pct">9.8%</div></div>
+      <div class="bar-row"><div class="bar-label">5+ plays</div><div class="bar-track"><div class="bar-fill pack" style="width:53.1%"></div></div><div class="bar-pct">53.1%</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head pack">Game-by-Game Statistics — 53 giochi</div>
+    <div style="overflow-x:auto">
+    <table class="data-table pack">
+      <thead><tr><th>Gioco</th><th>Total Plays</th><th>Unique Players</th><th>Plays / Player</th><th>Credits Distribuiti</th></tr></thead>
+      <tbody>
+        <tr><td>Game_316_Pack game_MOTTA</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num goox">0 goox</td></tr>
+        <tr><td>Game_332_pack game_SAN BITTER</td><td class="num">48</td><td class="num">48</td><td class="num">1.0</td><td class="num goox">1.200 goox</td></tr>
+        <tr><td>BALOCCO_game</td><td class="num">118</td><td class="num">118</td><td class="num">1.0</td><td class="num goox">2.400 goox</td></tr>
+        <tr><td>MOTTA_game</td><td class="num">149</td><td class="num">149</td><td class="num">1.0</td><td class="num goox">5.360 goox</td></tr>
+        <tr><td>GILLETTE_game</td><td class="num">136</td><td class="num">136</td><td class="num">1.0</td><td class="num goox">3.450 goox</td></tr>
+        <tr><td>BARILLA_game</td><td class="num">106</td><td class="num">106</td><td class="num">1.0</td><td class="num goox">3.850 goox</td></tr>
+        <tr><td>KINDER_game</td><td class="num">99</td><td class="num">99</td><td class="num">1.0</td><td class="num goox">4.400 goox</td></tr>
+        <tr><td>LAVAZZA_game</td><td class="num">107</td><td class="num">107</td><td class="num">1.0</td><td class="num goox">4.200 goox</td></tr>
+        <tr><td>MULINO BIANCO_game</td><td class="num">97</td><td class="num">97</td><td class="num">1.0</td><td class="num goox">3.234 goox</td></tr>
+        <tr><td>NUTELLA_game</td><td class="num">100</td><td class="num">100</td><td class="num">1.0</td><td class="num goox">3.500 goox</td></tr>
+        <tr><td>STAR_game</td><td class="num">91</td><td class="num">91</td><td class="num">1.0</td><td class="num goox">4.300 goox</td></tr>
+        <tr><td>MOLISANA_game</td><td class="num">70</td><td class="num">70</td><td class="num">1.0</td><td class="num goox">2.205 goox</td></tr>
+        <tr><td>MOLISANA_game (2)</td><td class="num">70</td><td class="num">69</td><td class="num">1.0</td><td class="num goox">2.400 goox</td></tr>
+        <tr><td>ACTIVIA_game</td><td class="num">107</td><td class="num">107</td><td class="num">1.0</td><td class="num goox">3.060 goox</td></tr>
+        <tr><td>500_game</td><td class="num">102</td><td class="num">102</td><td class="num">1.0</td><td class="num goox">3.850 goox</td></tr>
+        <tr><td>PHILADELPHIA_game</td><td class="num">115</td><td class="num">115</td><td class="num">1.0</td><td class="num goox">1.003 goox</td></tr>
+        <tr><td>ESTATE_game_02</td><td class="num">104</td><td class="num">104</td><td class="num">1.0</td><td class="num goox">1.890 goox</td></tr>
+        <tr><td>ZUEGG_game</td><td class="num">108</td><td class="num">108</td><td class="num">1.0</td><td class="num goox">1.500 goox</td></tr>
+        <tr><td>GRANAROLO_game-2</td><td class="num">108</td><td class="num">108</td><td class="num">1.0</td><td class="num goox">2.140 goox</td></tr>
+        <tr><td>FISHERMAN-game-2</td><td class="num">104</td><td class="num">104</td><td class="num">1.0</td><td class="num goox">1.660 goox</td></tr>
+        <tr><td>RIO MARE_game-2</td><td class="num">143</td><td class="num">143</td><td class="num">1.0</td><td class="num goox">1.660 goox</td></tr>
+        <tr><td>NESCAFE_game-2</td><td class="num">143</td><td class="num">143</td><td class="num">1.0</td><td class="num goox">2.000 goox</td></tr>
+        <tr><td>AS-DO.MAR_game-2</td><td class="num">145</td><td class="num">145</td><td class="num">1.0</td><td class="num goox">1.360 goox</td></tr>
+        <tr><td>PRINGLES_game-2</td><td class="num">128</td><td class="num">128</td><td class="num">1.0</td><td class="num goox">3.030 goox</td></tr>
+        <tr><td>SWIFFER_game-2</td><td class="num">133</td><td class="num">133</td><td class="num">1.0</td><td class="num goox">2.160 goox</td></tr>
+        <tr><td>GOLF_game-2</td><td class="num">123</td><td class="num">123</td><td class="num">1.0</td><td class="num goox">3.900 goox</td></tr>
+        <tr><td>PERUGINA_game-2</td><td class="num">132</td><td class="num">132</td><td class="num">1.0</td><td class="num goox">2.260 goox</td></tr>
+        <tr><td>NIVEA_game-2</td><td class="num">143</td><td class="num">143</td><td class="num">1.0</td><td class="num goox">3.510 goox</td></tr>
+        <tr><td>FORD_game-2</td><td class="num">128</td><td class="num">128</td><td class="num">1.0</td><td class="num goox">1.892 goox</td></tr>
+        <tr><td>MULINO BIANCO_game-2</td><td class="num">150</td><td class="num">150</td><td class="num">1.0</td><td class="num goox">3.450 goox</td></tr>
+        <tr><td>FINDUS_game-2</td><td class="num">136</td><td class="num">136</td><td class="num">1.0</td><td class="num goox">2.160 goox</td></tr>
+        <tr><td>BAULI_game-2</td><td class="num">138</td><td class="num">138</td><td class="num">1.0</td><td class="num goox">3.090 goox</td></tr>
+        <tr><td>DASH_game-2</td><td class="num">114</td><td class="num">114</td><td class="num">1.0</td><td class="num goox">1.050 goox</td></tr>
+        <tr><td>BRAUN_game-2</td><td class="num">146</td><td class="num">146</td><td class="num">1.0</td><td class="num goox">1.640 goox</td></tr>
+        <tr><td>KINDER_gmae-3</td><td class="num">142</td><td class="num">142</td><td class="num">1.0</td><td class="num goox">6.400 goox</td></tr>
+        <tr><td>Vicks_Game_2</td><td class="num">41</td><td class="num">41</td><td class="num">1.0</td><td class="num goox">960 goox</td></tr>
+        <tr><td>GILLETTE_game_2</td><td class="num">57</td><td class="num">57</td><td class="num">1.0</td><td class="num goox">1.100 goox</td></tr>
+        <tr><td>GALLO_game_2</td><td class="num">111</td><td class="num">111</td><td class="num">1.0</td><td class="num goox">1.530 goox</td></tr>
+        <tr><td>VALFRUTTA_game_02</td><td class="num">106</td><td class="num">106</td><td class="num">1.0</td><td class="num goox">920 goox</td></tr>
+        <tr><td>PAN DI STELLE_game_2</td><td class="num">114</td><td class="num">114</td><td class="num">1.0</td><td class="num goox">1.620 goox</td></tr>
+        <tr><td>FITNESS_game_02</td><td class="num">114</td><td class="num">114</td><td class="num">1.0</td><td class="num goox">1.848 goox</td></tr>
+        <tr><td>FIASCONARO_game_01</td><td class="num">115</td><td class="num">115</td><td class="num">1.0</td><td class="num goox">2.220 goox</td></tr>
+        <tr><td>NESQUIK_game_02</td><td class="num">121</td><td class="num">121</td><td class="num">1.0</td><td class="num goox">2.950 goox</td></tr>
+        <tr><td>SANPELLEGRINO_game_02</td><td class="num">135</td><td class="num">135</td><td class="num">1.0</td><td class="num goox">4.270 goox</td></tr>
+        <tr><td>GRAN PURÈ_game_02</td><td class="num">130</td><td class="num">130</td><td class="num">1.0</td><td class="num goox">3.780 goox</td></tr>
+        <tr><td>REGINA_game_02</td><td class="num">128</td><td class="num">128</td><td class="num">1.0</td><td class="num goox">3.815 goox</td></tr>
+        <tr><td>KIMBO_game_02</td><td class="num">117</td><td class="num">117</td><td class="num">1.0</td><td class="num goox">2.100 goox</td></tr>
+        <tr><td>SANBITTER_game_02</td><td class="num">110</td><td class="num">110</td><td class="num">1.0</td><td class="num goox">1.530 goox</td></tr>
+        <tr><td>BUONDì_game_02</td><td class="num">100</td><td class="num">100</td><td class="num">1.0</td><td class="num goox">2.640 goox</td></tr>
+        <tr><td>BALOCCO_game_02</td><td class="num">121</td><td class="num">121</td><td class="num">1.0</td><td class="num goox">1.775 goox</td></tr>
+        <tr><td>BUCANEVE_game_02</td><td class="num">136</td><td class="num">136</td><td class="num">1.0</td><td class="num goox">14.160 goox</td></tr>
+        <tr><td>GILLETTE_game_04</td><td class="num">136</td><td class="num">136</td><td class="num">1.0</td><td class="num goox">2.910 goox</td></tr>
+        <tr><td>Totali</td><td class="num">5.874</td><td class="num">418</td><td class="num">14.1</td><td class="num goox">145.292 goox</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <div class="split-2">
+    <div class="card">
+      <div class="card-head pack">CTA Performance</div>
+      <div class="kpi-grid g2" style="gap:10px;margin-bottom:10px">
+        <div class="kpi-card sm"><div class="kl">Home CTR</div><div class="kv">0.0%</div><div class="ks">0 clicks / 418 players</div></div>
+        <div class="kpi-card sm"><div class="kl">End-game CTR</div><div class="kv">0.0%</div><div class="ks">0 clicks / 418 players</div></div>
+      </div>
+      <div class="kpi-grid g3" style="gap:10px">
+        <div class="kpi-card sm"><div class="kl">Completed Games</div><div class="kv">1.958</div></div>
+        <div class="kpi-card sm"><div class="kl">End-game Clicks</div><div class="kv">0</div></div>
+        <div class="kpi-card sm"><div class="kl">CTR / Completer</div><div class="kv">0.0%</div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-head pack">Abandonment &amp; Timeout</div>
+      <div class="kpi-grid g2" style="gap:10px;margin-bottom:10px">
+        <div class="kpi-card sm"><div class="kl">Started Sessions</div><div class="kv">5.874</div></div>
+        <div class="kpi-card sm"><div class="kl">Abandoned</div><div class="kv">0</div></div>
+      </div>
+      <div class="kpi-grid g2" style="gap:10px">
+        <div class="kpi-card sm"><div class="kl">Abandonment Rate</div><div class="kv" style="color:#2E7D32">0.0%</div></div>
+        <div class="kpi-card sm"><div class="kl">Timeout Rate</div><div class="kv">0.0%</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head pack">Question Analysis · Accuratezza risposte — Overall: 76.5%</div>
+    <table class="data-table pack">
+      <thead><tr><th>Domanda</th><th>Tentativi</th><th>Corrette</th><th>Success Rate</th></tr></thead>
+      <tbody>
+        <tr><td>Cosa c'è scritto nel bollo blu a destra sul pack del BUONDÌ MOTTA?</td><td class="num">249</td><td class="num">222</td><td class="num">89.2%</td></tr>
+        <tr><td>Cosa c'è in mezzo alla data 1961 sul pack da 5 di SANBITTER ROSSO?</td><td class="num">158</td><td class="num">142</td><td class="num">89.9%</td></tr>
+        <tr><td>Quante spighe ci sono sul pacco dei biscotti Gemmole di BALOCCO?</td><td class="num">239</td><td class="num">131</td><td class="num">54.8%</td></tr>
+        <tr><td>Di che colore è il rasoio da uomo Fision 5 di GILLETTE?</td><td class="num">193</td><td class="num">159</td><td class="num">82.4%</td></tr>
+        <tr><td>Cosa c'è scritto sotto la parola "rustico" sul barattolo del PESTO BARILLA?</td><td class="num">107</td><td class="num">78</td><td class="num">72.9%</td></tr>
+        <tr><td>Cosa c'è scritto nel cartiglio azzurro di ogni ovetto KINDER SORPRESA?</td><td class="num">241</td><td class="num">216</td><td class="num">89.6%</td></tr>
+        <tr><td>Di che colore è la scritta Oro sulle confezioni di caffè qualità arabica 100% di Lavazza?</td><td class="num">107</td><td class="num">84</td><td class="num">78.5%</td></tr>
+        <tr><td>Quanti frutti sono raffigurati sulla scatola della crostata all'albicocca del Mulino Bianco?</td><td class="num">97</td><td class="num">77</td><td class="num">79.4%</td></tr>
+        <tr><td>Quante nocciole sono raffigurate accanto alla fetta di pane nella confezione di Nutella?</td><td class="num">100</td><td class="num">70</td><td class="num">70.0%</td></tr>
+        <tr><td>Cosa c'è scritto intorno alla pentola sul pack del brodo di verdure STAR?</td><td class="num">91</td><td class="num">86</td><td class="num">94.5%</td></tr>
+        <tr><td>Quante torri sono raffigurate nel marchio della pasta LA MOLISANA?</td><td class="num">139</td><td class="num">97</td><td class="num">69.8%</td></tr>
+        <tr><td>Di quanti pallini è composta la freccia sotto il marchio di ACTIVIA?</td><td class="num">107</td><td class="num">68</td><td class="num">63.6%</td></tr>
+        <tr><td>Cosa c'è scritto al centro dei cerchioni della FIAT 500 HYBRID?</td><td class="num">102</td><td class="num">77</td><td class="num">75.5%</td></tr>
+        <tr><td>Di che colore è il peperone a sinistra nella confezione del formaggio ai peperoni grigliati Philadelphia?</td><td class="num">115</td><td class="num">59</td><td class="num">51.3%</td></tr>
+        <tr><td>Quante foglie sono raffigurate nel marchio sul pack ESTATHÈ?</td><td class="num">104</td><td class="num">63</td><td class="num">60.6%</td></tr>
+        <tr><td>Quanti frutti sono raffigurati sul barattolo della confettura di mirtilli neri di ZUEGG?</td><td class="num">108</td><td class="num">75</td><td class="num">69.4%</td></tr>
+        <tr><td>Che lettera dell'alfabeto gigante appare sulla confezione della mozzarella fresca GRANAROLO?</td><td class="num">238</td><td class="num">233</td><td class="num">97.9%</td></tr>
+        <tr><td>Cosa è raffigurato nel pack delle caramelle FISHERMAN'S FRIEND?</td><td class="num">104</td><td class="num">83</td><td class="num">79.8%</td></tr>
+        <tr><td>Che simbolo c'è sulla scatoletta dei filetti di sgombro grigliati di RIO MARE?</td><td class="num">143</td><td class="num">83</td><td class="num">58.0%</td></tr>
+        <tr><td>Quante tazze sono raffigurate sul barattolo del NESCAFÈ GOLD?</td><td class="num">143</td><td class="num">100</td><td class="num">69.9%</td></tr>
+        <tr><td>Quale divinità ricorda il marchio sul barattolo dei filetti di tonno AS DO MAR?</td><td class="num">145</td><td class="num">136</td><td class="num">93.8%</td></tr>
+        <tr><td>Quante patatine sono raffigurate sul barattolo di PRINGLES ORIGINAL?</td><td class="num">128</td><td class="num">101</td><td class="num">78.9%</td></tr>
+        <tr><td>Di che colore è la confezione da 10 di SWIFFER DUSTER?</td><td class="num">133</td><td class="num">108</td><td class="num">81.2%</td></tr>
+        <tr><td>Da che lato della vettura è lo sportellino del carburante della VOLKSWAGEN GOLF?</td><td class="num">123</td><td class="num">78</td><td class="num">63.4%</td></tr>
+        <tr><td>Di che colore è l'incarto dei classici BACI PERUGINA?</td><td class="num">132</td><td class="num">113</td><td class="num">85.6%</td></tr>
+        <tr><td>In che forma geometrica è inserito il marchio sulla linea di solari NIVEA SUN?</td><td class="num">143</td><td class="num">117</td><td class="num">81.8%</td></tr>
+        <tr><td>Da che lato della vettura è lo sportellino del carburante della FORD FIESTA?</td><td class="num">128</td><td class="num">86</td><td class="num">67.2%</td></tr>
+        <tr><td>Quanti cornetti al cioccolato sono raffigurati sul pack del MULINO BIANCO?</td><td class="num">150</td><td class="num">115</td><td class="num">76.7%</td></tr>
       </tbody>
     </table>
   </div>
