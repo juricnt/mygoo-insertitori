@@ -377,14 +377,14 @@ footer a{color:rgba(255,255,255,.7);text-decoration:none}
   <img src="logo_Mygoo.fun_vectorColored.png" alt="mygoo.fun" class="nav-logo">
   <div class="nav-tabs">
     <button class="nav-tab active" onclick="showTab('perche',this)">✦ La Piattaforma</button>
+    <button class="nav-tab" onclick="showTab('pack',this)">📦 Pack Game</button>
     <div class="nav-dropdown">
-      <button class="nav-tab" id="nav-btn-report" onclick="showTab('report',this)">📋 Il Report <span class="nav-arrow">▾</span></button>
+      <button class="nav-tab" id="nav-btn-report" onclick="showTab('report',this)">📊 Dati per settore <span class="nav-arrow">▾</span></button>
       <div class="nav-dropdown-menu">
         <button class="nav-drop-item" onclick="goToBrand('nesp')"><span class="nav-drop-dot" style="background:#2B5253"></span>Caffè</button>
         <button class="nav-drop-item" onclick="goToBrand('huaw')"><span class="nav-drop-dot" style="background:#CF0A2C"></span>Tecnologia</button>
         <button class="nav-drop-item" onclick="goToBrand('rena')"><span class="nav-drop-dot" style="background:#003189"></span>Automotive</button>
         <button class="nav-drop-item" onclick="goToBrand('remu')"><span class="nav-drop-dot" style="background:#6B21A8"></span>Servizi</button>
-        <button class="nav-drop-item" onclick="goToBrand('pack')"><span class="nav-drop-dot" style="background:#C84B14"></span>Pack Game</button>
       </div>
     </div>
   </div>
@@ -623,9 +623,9 @@ footer a{color:rgba(255,255,255,.7);text-decoration:none}
 
   <div class="hero-cover" data-watermark="REPORT" style="background:linear-gradient(135deg,#1C2E2E,#2B5253)">
     <div class="hero-text">
-      <div class="eyebrow">OUTPUT · IL REPORT</div>
-      <div class="ht">Dati strutturati,<br><em>insight azionabili.</em></div>
-      <div class="hb">Non un documento da archiviare. I risultati reali delle prime 4 campagne mygoo: dati completi su engagement, accuratezza, CTR e distribuzione delle risposte.</div>
+      <div class="eyebrow">OUTPUT · DATI PER SETTORE</div>
+      <div class="ht">Dati reali.<br><em>Per settore merceologico.</em></div>
+      <div class="hb">I risultati delle campagne mygoo organizzati per settore: dati completi su engagement, accuratezza, CTR e distribuzione delle risposte per ciascuna categoria.</div>
     </div>
   </div>
 
@@ -638,7 +638,7 @@ footer a{color:rgba(255,255,255,.7);text-decoration:none}
 
   <div>
     <div class="sec-label">Campagne reali · Q1–Q2 2026</div>
-    <div class="sec-title">Panoramica comparativa — 4 brand</div>
+    <div class="sec-title">Panoramica comparativa — 4 settori</div>
   </div>
 
   <div class="card">
@@ -695,12 +695,6 @@ footer a{color:rgba(255,255,255,.7);text-decoration:none}
       <div class="feat-title" style="color:#003189">Automotive</div>
       <div class="feat-desc">72.0% avg score · 1.654 plays · 82.0% repeat rate</div>
       <div style="margin-top:10px;font-size:11px;font-weight:700;color:#003189;letter-spacing:.05em">Apri report completo →</div>
-    </div>
-    <div class="feat-card" style="border-top:3px solid #C84B14;cursor:pointer" onclick="goToBrand('pack')">
-      <span class="feat-icon">🎮</span>
-      <div class="feat-title" style="color:#C84B14">Pack Game</div>
-      <div class="feat-desc">73.1% avg score · 5.874 plays · 73.9% repeat rate · 53 giochi · 418 player</div>
-      <div style="margin-top:10px;font-size:11px;font-weight:700;color:#C84B14;letter-spacing:.05em">Apri report completo →</div>
     </div>
   </div>
 
@@ -1336,37 +1330,103 @@ footer a{color:rgba(255,255,255,.7);text-decoration:none}
 <div id="tab-pack" class="tab-content">
 <div class="wrap">
 
-  <div style="margin-bottom:4px">
-    <button onclick="showTab('report',document.getElementById('nav-btn-report'))" style="background:none;border:none;cursor:pointer;font-size:12px;font-weight:600;color:var(--gray);display:flex;align-items:center;gap:5px;padding:0;font-family:'Inter',sans-serif">← Torna alla panoramica</button>
-  </div>
-
-  <div class="hero-cover pack" data-watermark="PACKGAME">
+  <div class="hero-cover pack" data-watermark="PACK GAME" style="background:linear-gradient(135deg,#7A2A08,#C84B14)">
     <div class="hero-text">
-      <div class="eyebrow">CAMPAIGN REPORT · MAGGIO 2026</div>
-      <div class="ht">Pack Game <em>× MyGoo</em></div>
-      <div class="hb">PACKGAME_campaing — Last refreshed: May 08, 2026 15:49:31 CEST</div>
+      <div class="eyebrow">MODULO DI RICERCA · PACK GAME</div>
+      <div class="ht">Come i consumatori<br><em>vedono il tuo packaging.</em></div>
+      <div class="hb">Il Pack Game misura la percezione istintiva del packaging di un prodotto: riconoscibilità, appeal visivo, coerenza con il brand e propensione all'acquisto — in meno di 50 secondi per game.</div>
       <div class="hero-meta">
-        <div class="hero-meta-item"><div class="ml">Campagna</div><div class="mv">PACKGAME_campaing</div></div>
-        <div class="hero-meta-item"><div class="ml">Giochi</div><div class="mv">53 quiz</div></div>
-        <div class="hero-meta-item"><div class="ml">Completion</div><div class="mv">33.3%</div></div>
+        <div class="hero-meta-item"><div class="ml">Oggetto</div><div class="mv">Packaging</div></div>
+        <div class="hero-meta-item"><div class="ml">Formato</div><div class="mv">Quiz visivo gamificato</div></div>
+        <div class="hero-meta-item"><div class="ml">Tempo risposta</div><div class="mv">&lt;50 sec / game</div></div>
+        <div class="hero-meta-item"><div class="ml">Dato</div><div class="mv">Zero-party</div></div>
       </div>
     </div>
     <div class="hero-logo">
       <svg width="54" height="54" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
         <rect width="56" height="56" rx="6" fill="rgba(255,255,255,0.15)"/>
-        <rect x="8" y="14" width="40" height="28" rx="4" fill="none" stroke="white" stroke-width="3"/>
-        <circle cx="20" cy="28" r="4" fill="white"/>
-        <circle cx="36" cy="28" r="4" fill="white"/>
-        <rect x="24" y="22" width="8" height="3" rx="1.5" fill="white"/>
-        <rect x="24" y="31" width="8" height="3" rx="1.5" fill="white"/>
+        <rect x="10" y="8" width="36" height="40" rx="4" fill="none" stroke="white" stroke-width="3"/>
+        <rect x="18" y="4" width="20" height="8" rx="2" fill="white"/>
+        <line x1="16" y1="22" x2="40" y2="22" stroke="white" stroke-width="2" opacity=".6"/>
+        <line x1="16" y1="30" x2="36" y2="30" stroke="white" stroke-width="2" opacity=".6"/>
+        <line x1="16" y1="38" x2="30" y2="38" stroke="white" stroke-width="2" opacity=".6"/>
       </svg>
       <div class="brand-name">Pack Game</div>
     </div>
   </div>
 
+  <!-- ══ COSA MISURA IL PACK GAME ══ -->
+  <div>
+    <div class="sec-label">Il modulo</div>
+    <div class="sec-title pack">Cosa misura il Pack Game</div>
+  </div>
+
+  <div class="kpi-grid g4">
+    <div class="kpi-card" style="border-top:3px solid #C84B14;text-align:center">
+      <div style="font-size:28px;margin-bottom:8px">👁</div>
+      <div class="kl" style="text-align:center">Riconoscibilità</div>
+      <div class="ks" style="text-align:center">Il packaging viene identificato correttamente fra competitor? In quanto tempo?</div>
+    </div>
+    <div class="kpi-card" style="border-top:3px solid #C84B14;text-align:center">
+      <div style="font-size:28px;margin-bottom:8px">✨</div>
+      <div class="kl" style="text-align:center">Appeal visivo</div>
+      <div class="ks" style="text-align:center">La reazione estetica istintiva: il packaging attira, è chiaro, comunica qualità?</div>
+    </div>
+    <div class="kpi-card" style="border-top:3px solid #C84B14;text-align:center">
+      <div style="font-size:28px;margin-bottom:8px">🔗</div>
+      <div class="kl" style="text-align:center">Coerenza con il brand</div>
+      <div class="ks" style="text-align:center">Il pack riflette i valori del brand? Il consumatore lo associa correttamente?</div>
+    </div>
+    <div class="kpi-card" style="border-top:3px solid #C84B14;text-align:center">
+      <div style="font-size:28px;margin-bottom:8px">🛒</div>
+      <div class="kl" style="text-align:center">Propensione all'acquisto</div>
+      <div class="ks" style="text-align:center">Il packaging genera intenzione d'acquisto? Qual è il suo contributo alla conversione?</div>
+    </div>
+  </div>
+
+  <div class="system1-box">
+    <div class="s1-label">Perché il Pack Game funziona</div>
+    <div class="s1-text">
+      Il packaging viene valutato in negozio in meno di 3 secondi. mygoo replica quel momento: stimoli visivi reali, risposta sotto pressione temporale, nessuna razionalizzazione. Il risultato è una misura di <strong>shelf impact</strong> autentica — impossibile da ottenere con un focus group o un survey tradizionale.
+    </div>
+  </div>
+
+  <div>
+    <div class="sec-label">Cosa ottieni</div>
+    <div class="sec-title pack">Output della ricerca</div>
+  </div>
+
+  <div class="split-3">
+    <div class="card" style="border-top:3px solid #C84B14">
+      <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#C84B14;margin-bottom:10px">Score per attributo</div>
+      <div style="font-size:13px;color:var(--gray);line-height:1.65">Punteggio separato per riconoscibilità, appeal, coerenza e propensione all'acquisto. Confrontabile per varianti di pack e per segmento demografico.</div>
+    </div>
+    <div class="card" style="border-top:3px solid #C84B14">
+      <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#C84B14;margin-bottom:10px">Analisi competitiva</div>
+      <div style="font-size:13px;color:var(--gray);line-height:1.65">Il tuo pack a confronto con i principali competitor di scaffale. Chi domina l'attenzione visiva? Chi genera più intenzione d'acquisto?</div>
+    </div>
+    <div class="card" style="border-top:3px solid #C84B14">
+      <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#C84B14;margin-bottom:10px">A/B testing visivo</div>
+      <div style="font-size:13px;color:var(--gray);line-height:1.65">Hai due varianti di packaging? Il Pack Game misura quale performa meglio su ogni dimensione — prima del lancio, con dato reale e zero-party.</div>
+    </div>
+  </div>
+
+  <!-- ══ DATI CAMPAGNA ══ -->
+  <div>
+    <div class="sec-label">Risultati campagna · Maggio 2026</div>
+    <div class="sec-title pack">Dati principali — 53 prodotti testati</div>
+    <div class="kpi-grid g5">
+      <div class="kpi-card a-pack"><div class="kl">Total Plays</div><div class="kv">5.874</div><div class="ks">giocate totali</div></div>
+      <div class="kpi-card"><div class="kl">Avg Gameplay</div><div class="kv">2m 24s</div><div class="ks">durata media</div></div>
+      <div class="kpi-card a-pack"><div class="kl">Unique Players</div><div class="kv">418</div><div class="ks">giocatori unici</div></div>
+      <div class="kpi-card"><div class="kl">Plays / Player</div><div class="kv">14.1</div><div class="ks">media per utente</div></div>
+      <div class="kpi-card a-pink"><div class="kl">Goox distribuiti</div><div class="kv">145.292</div><div class="ks">crediti totali</div></div>
+    </div>
+  </div>
+
   <div>
     <div class="sec-label">Summary Statistics</div>
-    <div class="sec-title pack">Dati principali</div>
+    <div class="sec-title pack">Metriche di qualità</div>
     <div class="kpi-grid g5">
       <div class="kpi-card a-pack"><div class="kl">Total Plays</div><div class="kv">5.874</div><div class="ks">giocate totali</div></div>
       <div class="kpi-card"><div class="kl">Avg Gameplay</div><div class="kv">2m 24s</div><div class="ks">durata media</div></div>
